@@ -3,19 +3,7 @@
 import { useTranslations } from "next-intl";
 import { SectionReveal } from "@/components/ui/section-reveal";
 import { Overline } from "@/components/ui/overline";
-
-function GradientCard({ children }: { children: React.ReactNode }) {
-  return (
-    <div
-      className="rounded-[20px] p-[5px]"
-      style={{
-        background: "linear-gradient(135deg, #7300ff, #a855f7, #06b6d4, #22c55e, #2a00ff)",
-      }}
-    >
-      <div className="rounded-[16px] bg-white px-8 py-7 md:px-10">{children}</div>
-    </div>
-  );
-}
+import { RainbowBorder } from "@/components/ui/rainbow-border";
 
 export function ProblemSection() {
   const t = useTranslations("problem");
@@ -37,7 +25,8 @@ export function ProblemSection() {
 
           {/* Right — gradient-bordered card */}
           <SectionReveal delay={0.15}>
-            <GradientCard>
+            <RainbowBorder>
+              <div className="rounded-2xl bg-white px-8 py-7 md:px-10">
               {/* Featured pair: WhatsApp vs Email */}
               <div className="flex items-center gap-4">
                 <div className="flex-1 py-4 text-center">
@@ -77,7 +66,8 @@ export function ProblemSection() {
                 <span className="text-lg">💬</span>
                 <p className="text-[12px] font-medium leading-snug text-primary-700">{t("callout")}</p>
               </div>
-            </GradientCard>
+              </div>
+            </RainbowBorder>
           </SectionReveal>
         </div>
       </div>

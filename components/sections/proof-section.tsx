@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { SectionReveal } from "@/components/ui/section-reveal";
 import { Overline } from "@/components/ui/overline";
+import { RainbowBorder } from "@/components/ui/rainbow-border";
 
 const CASES = [
   { company: "case1_company", type: "case1_type", result: "case1_result" },
@@ -28,12 +29,21 @@ export function ProofSection() {
         <div className="mt-12 grid gap-5 sm:grid-cols-2">
           {CASES.map(({ company, type, result }, index) => (
             <SectionReveal key={company} delay={0.1 + index * 0.08}>
-              <article className="rounded-2xl border border-neutral-200 bg-neutral-50 p-6 md:p-8">
-                <p className="font-serif text-lg font-medium text-neutral-900">{t(company)}</p>
-                <p className="mt-1 text-xs uppercase tracking-wide text-neutral-400">{t(type)}</p>
-                <div className="my-4 h-px bg-neutral-200" role="separator" />
-                <p className="text-sm leading-relaxed text-neutral-600">{t(result)}</p>
-              </article>
+              <RainbowBorder borderRadius="18px" padding="3px">
+                <article className="rounded-[15px] bg-white p-6 md:p-8">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-neutral-100 font-serif text-sm font-medium text-neutral-700">
+                      {t(company).charAt(0)}
+                    </div>
+                    <div>
+                      <p className="font-serif text-lg font-medium text-neutral-900">{t(company)}</p>
+                      <p className="text-xs uppercase tracking-wide text-neutral-400">{t(type)}</p>
+                    </div>
+                  </div>
+                  <div className="my-4 h-px bg-neutral-200" role="separator" />
+                  <p className="text-sm leading-relaxed text-neutral-600">{t(result)}</p>
+                </article>
+              </RainbowBorder>
             </SectionReveal>
           ))}
         </div>
