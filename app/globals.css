@@ -1,25 +1,38 @@
 @import "tailwindcss";
 
 :root {
-  /* Primary (Green) */
+  /* Primary (Green) — unchanged */
   --primary-400: #4ade80;
   --primary-500: #22c55e;
   --primary-600: #16a34a;
   --primary-700: #15803d;
 
-  /* Neutral (green-tinted grays) */
-  --neutral-50: #fafbfa;
-  --neutral-100: #f1f5f2;
-  --neutral-200: #e5ebe8;
-  --neutral-400: #8a9a92;
-  --neutral-500: #5a6b62;
-  --neutral-700: #1a2e23;
-  --neutral-900: #0f1f17;
+  /* Neutral (true neutral — no green tint) */
+  --neutral-50: #fafafa;
+  --neutral-100: #f2f2f5;
+  --neutral-200: #e5e5ea;
+  --neutral-400: #8b8b92;
+  --neutral-500: #5a5a65;
+  --neutral-700: #1a1a2e;
+  --neutral-900: #0d0d1f;
 
-  /* Dark base */
-  --dark-base: #050a07;
+  /* Dark base (true neutral) */
+  --dark-base: #06060f;
 
-  /* Gradient palette */
+  /* Accent (Purple) */
+  --accent-300: #c4b5fd;
+  --accent-400: #a78bfa;
+  --accent-500: #8b5cf6;
+  --accent-600: #7c3aed;
+  --accent-700: #6d28d9;
+
+  /* Rainbow gradient */
+  --rainbow-gradient: linear-gradient(
+    135deg, #7c3aed 0%, #ec4899 20%, #f97316 35%,
+    #eab308 50%, #22c55e 65%, #06b6d4 80%, #3b82f6 100%
+  );
+
+  /* Gradient palette — unchanged */
   --gradient-green: #22c55e;
   --gradient-teal: #14b8a6;
   --gradient-cyan: #06b6d4;
@@ -52,12 +65,18 @@
   --color-gradient-lime: var(--gradient-lime);
   --color-gradient-blue: var(--gradient-blue);
 
-  /* Shadows */
-  --shadow-xs: 0 1px 2px rgba(15, 31, 23, 0.04);
-  --shadow-sm: 0 2px 8px rgba(15, 31, 23, 0.06);
-  --shadow-md: 0 8px 24px rgba(15, 31, 23, 0.08);
-  --shadow-lg: 0 16px 48px rgba(15, 31, 23, 0.1);
-  --shadow-xl: 0 24px 64px rgba(15, 31, 23, 0.12);
+  --color-accent-300: var(--accent-300);
+  --color-accent-400: var(--accent-400);
+  --color-accent-500: var(--accent-500);
+  --color-accent-600: var(--accent-600);
+  --color-accent-700: var(--accent-700);
+
+  /* Shadows (true neutral) */
+  --shadow-xs: 0 1px 2px rgba(13, 13, 31, 0.04);
+  --shadow-sm: 0 2px 8px rgba(13, 13, 31, 0.06);
+  --shadow-md: 0 8px 24px rgba(13, 13, 31, 0.08);
+  --shadow-lg: 0 16px 48px rgba(13, 13, 31, 0.1);
+  --shadow-xl: 0 24px 64px rgba(13, 13, 31, 0.12);
 
   /* Glow */
   --shadow-glow: 0 0 40px rgba(34, 197, 94, 0.25);
@@ -95,4 +114,19 @@ body {
 
 @utility animate-blob {
   animation: blob 20s ease-in-out infinite;
+}
+
+@keyframes rainbow-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.rainbow-border-animated:hover {
+  animation-duration: 4s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rainbow-border-animated {
+    animation: none !important;
+  }
 }
