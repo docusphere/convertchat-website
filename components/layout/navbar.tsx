@@ -12,9 +12,10 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const check = () => setScrolled(window.scrollY > 20);
+    check(); // Check on mount for restored scroll position
+    window.addEventListener("scroll", check, { passive: true });
+    return () => window.removeEventListener("scroll", check);
   }, []);
 
   const navLinks = [
@@ -25,15 +26,24 @@ export function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-4 left-1/2 z-50 -translate-x-1/2">
+    <nav className="fixed left-4 right-4 top-4 z-50 mx-auto max-w-6xl">
       <div
-        className={`flex items-center gap-1 rounded-full border border-white/[0.10] px-7 py-2 pr-2 backdrop-blur-[20px] transition-all duration-300 ${
-          scrolled ? "bg-neutral-900/80 border-white/[0.15]" : "bg-white/[0.06]"
+        className={`flex items-center gap-1 rounded-2xl px-7 py-2.5 pr-2.5 backdrop-blur-[20px] transition-all duration-300 ${
+          scrolled
+            ? "border border-neutral-200/80 bg-white/85 shadow-sm"
+            : "border border-white/[0.10] bg-white/[0.06]"
         }`}
       >
-        <Link href="/" className="flex items-center gap-2 mr-6">
-          <div className="h-6 w-6 rounded-[7px] bg-primary-500" />
-          <span className="text-sm font-bold text-white font-sans">ConvertChat</span>
+        <Link href="/" className="mr-6 flex items-center gap-2">
+          <div className="h-6 w-6 shrink-0 rounded-[7px] bg-primary-500" />
+          <span
+            className={`overflow-hidden whitespace-nowrap font-sans text-sm font-bold transition-all duration-300 ${
+              scrolled ? "max-w-0 opacity-0" : "max-w-[120px] opacity-100"
+            }`}
+            style={{ color: scrolled ? "var(--neutral-900)" : "white" }}
+          >
+            ConvertChat
+          </span>
         </Link>
 
         <div className="hidden items-center gap-1 md:flex">
@@ -42,7 +52,9 @@ export function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className="px-3 py-1.5 text-sm font-sans transition-colors text-white/55 hover:text-white/80"
+                className={`px-3 py-1.5 font-sans text-sm transition-colors ${
+                  scrolled ? "text-neutral-500 hover:text-neutral-900" : "text-white/55 hover:text-white/80"
+                }`}
               >
                 {link.label}
               </a>
@@ -50,7 +62,9 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href as "/precios" | "/blog"}
-                className="px-3 py-1.5 text-sm font-sans transition-colors text-white/55 hover:text-white/80"
+                className={`px-3 py-1.5 font-sans text-sm transition-colors ${
+                  scrolled ? "text-neutral-500 hover:text-neutral-900" : "text-white/55 hover:text-white/80"
+                }`}
               >
                 {link.label}
               </Link>
@@ -58,8 +72,12 @@ export function Navbar() {
           )}
         </div>
 
-        <div className="flex items-center gap-2 ml-4">
-          <Button variant="glass" size="sm" href="https://app.convertchat.co">
+        <div className="ml-auto flex items-center gap-2">
+          <Button
+            variant={scrolled ? "ghost" : "glass"}
+            size="sm"
+            href="https://app.convertchat.co"
+          >
             {t("login")}
           </Button>
           <Button variant="primary" size="sm" href={WHATSAPP_URL}>

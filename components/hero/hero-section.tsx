@@ -75,6 +75,15 @@ export function HeroSection() {
             >
               {t("note")}
             </motion.p>
+
+            <motion.div
+              className="mt-4 flex items-center gap-2"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.95 }}
+            >
+              <img src="/mvtp.png" alt={t("meta_partner")} className="h-8 w-auto opacity-60" />
+            </motion.div>
           </div>
 
           {/* Right column — reserved for 3D object */}
