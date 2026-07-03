@@ -1,0 +1,43 @@
+# ConvertChat — Full Documentation for LLMs
+
+> ConvertChat is a WhatsApp-first sales platform for wholesalers, distributors, and SMEs with product catalogs. It helps sales teams send product campaigns, manage conversations in a unified inbox, and automate responses with an AI agent.
+
+## Product Overview
+
+ConvertChat is designed for businesses that sell products through WhatsApp. Instead of manually messaging each lead, sales teams can use ConvertChat to broadcast product offers, track engagement in real time, and close sales — all from a single platform.
+
+## Features
+
+### Campaigns
+Send product offers to thousands of leads via WhatsApp and email. Select products from your catalog, segment your audience, and launch campaigns in minutes. Track delivery, opens, and replies in real time.
+
+### Unified Inbox
+Manage all conversations from WhatsApp, email, and other channels in a single inbox. See customer context, order history, and engagement data alongside each conversation. Collaborate with your team using assignments and internal notes.
+
+### AI Agent
+An AI-powered assistant that automatically responds to common questions, qualifies inbound leads, and can schedule meetings. The AI agent learns from your product catalog and sales playbook to provide accurate, contextual responses.
+
+## How It Works
+
+1. **Upload your catalog**: Import your products and contacts.
+2. **Launch a campaign**: Choose products, segment your audience, and send.
+3. **Close sales**: Reply from the unified inbox or let the AI agent handle conversations.
+
+## Target Audience
+
+- Wholesalers and distributors with product catalogs
+- SMEs selling via WhatsApp and email
+- Sales teams managing high volumes of product inquiries
+
+## Company
+
+ConvertChat is currently in early access with limited spots available. Request access at https://convertchat.co.
+
+## Links
+
+- Website: https://convertchat.co
+- Product: https://convertchat.co/producto
+- Pricing: https://convertchat.co/precios
+- Blog: https://convertchat.co/blog
+- Privacy: https://convertchat.co/privacidad
+- Terms: https://convertchat.co/terminos

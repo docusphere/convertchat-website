@@ -1,0 +1,180 @@
+{
+  "nav": {
+    "problem": "The problem",
+    "howItWorks": "How it works",
+    "pricing": "Pricing",
+    "blog": "Blog",
+    "login": "Log in",
+    "cta": "Talk to us"
+  },
+  "hero": {
+    "overline": "EARLY ACCESS",
+    "title_line1": "Convert your leads into",
+    "title_line2": "sales on WhatsApp",
+    "subtitle": "You have emails and phone numbers collecting dust. We turn them into an opted-in WhatsApp audience you can sell to — without running ads or getting your number banned.",
+    "cta_primary": "Message us on WhatsApp",
+    "cta_secondary": "See how it works",
+    "note": "No ads needed. No cold calling. Just your existing contacts."
+  },
+  "beforeAfter": {
+    "before_label": "Without ConvertChat:",
+    "before_title": "All leads,\nno sales",
+    "before_1": "Contacts rotting in a spreadsheet nobody opens.",
+    "before_2": "Emails with 20% open rates — if you're lucky.",
+    "before_3": "Paying for ads to reach people you already have.",
+    "before_4": "Leads going cold. No follow-up. No sales.",
+    "after_label": "With ConvertChat:",
+    "after_title": "Less chasing,\nmore closing",
+    "after_1": "Opted-in WhatsApp audience you own. Forever.",
+    "after_2": "98% open rate on every broadcast you send.",
+    "after_3": "Zero ad spend. Reactivate your own list.",
+    "after_4": "No lead escapes. Every message is a chance to sell.",
+    "cta": "Get started",
+    "bottom_stat_num": "2",
+    "bottom_stat_suffix": " billion+",
+    "bottom_stat_label": "people use WhatsApp every month",
+    "bottom_sub1_num": "100",
+    "bottom_sub1_suffix": "B+",
+    "bottom_sub1_label": "messages sent daily",
+    "bottom_sub2_num": "23",
+    "bottom_sub2_suffix": "x",
+    "bottom_sub2_label": "opened per day per user",
+    "bottom_sub3_num": "180",
+    "bottom_sub3_suffix": "+",
+    "bottom_sub3_label": "countries worldwide"
+  },
+  "problem": {
+    "label": "The untapped channel",
+    "title": "Build a WhatsApp audience you own. The new era of newsletters.",
+    "lead": "Your leads are in spreadsheets, email lists, and old CRMs. Meanwhile, they check WhatsApp 23 times a day. Convert your existing contacts into an opted-in WhatsApp list — then send them product offers, restocks, and promotions whenever you want. No algorithms. No ad spend. Just direct access to buyers who actually read your messages.",
+    "wa_num": "98%",
+    "wa_label": "WhatsApp open rate",
+    "email_num": "~20%",
+    "email_label": "Email open rate",
+    "stat1_num": "45%",
+    "stat1_desc": "click-through rate on WhatsApp offers",
+    "stat2_num": "€0",
+    "stat2_desc": "ad spend to reactivate your list",
+    "callout": "3 billion people use WhatsApp daily. Your buyers are already there — you just need the bridge."
+  },
+  "howItWorks": {
+    "label": "How it works",
+    "title": "Upload. Send. Convert. Sell.",
+    "lead": "From your spreadsheet to WhatsApp sales in four steps.",
+    "step1": {
+      "num": "01",
+      "title": "Upload & clean your list",
+      "description": "Drop your CSV or Excel. We auto-detect who has email, who has a mobile, and filter out invalid contacts. Split by country, product, or buyer type."
+    },
+    "step2": {
+      "num": "02",
+      "title": "Send email with WhatsApp button",
+      "description": "Your product offer goes out via email. Every email has a green \"Message us on WhatsApp\" button. When they click, they land in your WhatsApp — with full opt-in consent."
+    },
+    "step3": {
+      "num": "03",
+      "title": "They click. Now they're yours.",
+      "description": "Every click is tracked. Every contact who messages you is automatically tagged as opted-in. You now own their WhatsApp number, and can sell to them whenever you want. Forever."
+    },
+    "step4": {
+      "num": "04",
+      "title": "Broadcast offers on WhatsApp",
+      "description": "New stock? New price? Send a WhatsApp broadcast to your entire opted-in list in 5 minutes. Product image, price, done. 98% will read it."
+    }
+  },
+  "industries": {
+    "label": "Who this is for",
+    "title": "Any B2B business sitting on a contact list",
+    "lead": "The tool is the same. The outcome changes by industry.",
+    "electronics": {
+      "title": "Wholesale electronics",
+      "description": "New iPhone shipment? WhatsApp broadcast to 500 opted-in retailers in 5 minutes. First to know, first to buy.",
+      "outcome": "Faster stock clearance, better margins"
+    },
+    "realEstate": {
+      "title": "Real estate",
+      "description": "Old leads from Idealista sitting cold. Reactivate them when a new listing matches their profile.",
+      "outcome": "Viewings and offers from warm leads"
+    },
+    "health": {
+      "title": "Clinics & health",
+      "description": "Patients who came once and never returned. A reactivation campaign: \"We have a new treatment\" or \"time for your check-up.\"",
+      "outcome": "Filled appointment slots"
+    },
+    "auto": {
+      "title": "Auto & parts",
+      "description": "Trade show contacts, old workshop clients. WhatsApp remarketing with seasonal tyre deals, new part arrivals, fleet offers.",
+      "outcome": "Repeat orders from dormant buyers"
+    }
+  },
+  "platform": {
+    "label": "The platform",
+    "title": "Everything you need to sell on WhatsApp.",
+    "lead": "Import your contacts, launch campaigns, track results — all in one place.",
+    "feature1_title": "Smart contact import",
+    "feature1_desc": "Upload CSV or Excel files. Auto-detect channels, filter invalid contacts, remove duplicates, split into send batches.",
+    "feature2_title": "Email → WhatsApp campaigns",
+    "feature2_desc": "Send product emails with a WhatsApp CTA button. Track opens, clicks, and consent — automatically.",
+    "feature3_title": "WhatsApp broadcasts",
+    "feature3_desc": "Send offers to your opted-in list in minutes. Product image, price, done. 98% open rate.",
+    "feature4_title": "WhatsApp inbox",
+    "feature4_desc": "Real-time conversations with your buyers. Media, read receipts, session tracking. All in one place.",
+    "feature5_title": "Campaign tracking",
+    "feature5_desc": "See exactly who opened, who clicked, who messaged. Per-contact status. Full attribution.",
+    "feature6_title": "GDPR-compliant consent",
+    "feature6_desc": "Two-stage opt-in flow. Click = pending. Message = confirmed. Legally compliant. No bans."
+  },
+  "aiAgent": {
+    "label": "AI-powered",
+    "badge": "Beta",
+    "title": "An AI that knows your products and sells them on WhatsApp.",
+    "lead": "When buyers reply to your broadcasts, the AI agent handles the conversation. It answers questions, sends product links, qualifies leads, and routes hot buyers to you. Available 24/7 — so you never miss a sale.",
+    "bullet1": "Learns your product catalog, pricing, and stock",
+    "bullet2": "Answers buyer questions in real-time",
+    "bullet3": "Qualifies leads with custom questions",
+    "bullet4": "Routes hot leads to you when they're ready to buy"
+  },
+  "proof": {
+    "label": "Real results",
+    "title": "Businesses using WhatsApp remarketing are seeing this.",
+    "lead": "These companies used WhatsApp to reactivate dormant contacts and send targeted offers. The results speak for themselves. ConvertChat gives you the same tools — plus the bridge to get your contacts on WhatsApp in the first place.",
+    "case1_company": "Smilodox",
+    "case1_type": "German athleisure brand",
+    "case1_result": "€261,000 revenue from a single WhatsApp broadcast campaign — 9.6x return on spend",
+    "case2_company": "Tata CLiQ",
+    "case2_type": "Indian retail",
+    "case2_result": "$500K+ revenue, 57% click-through rate on WhatsApp discount broadcasts",
+    "case3_company": "BGC Wholesale",
+    "case3_type": "UK gift cards",
+    "case3_result": "14% redemption rate targeting lapsed customers with WhatsApp remarketing",
+    "case4_company": "Unilever Brazil",
+    "case4_type": "FMCG",
+    "case4_result": "14x increase in sales via personalized WhatsApp broadcasts"
+  },
+  "ctaSection": {
+    "label": "Start a conversation",
+    "title": "How much is your contact list worth?",
+    "subtitle": "15 minutes. Tell us how many dormant contacts sit in a spreadsheet, and we'll show you how WhatsApp reactivation could turn them into buyers.",
+    "cta": "Message us on WhatsApp"
+  },
+  "footer": {
+    "product": "Product",
+    "pricing": "Pricing",
+    "blog": "Blog",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "rights": "All rights reserved.",
+    "tagline": "Turn your contact list into WhatsApp sales",
+    "company": "Nillard Ltd · Costa del Sol, Spain"
+  },
+  "pricing": {
+    "title": "Pricing",
+    "comingSoon": "We're crafting the perfect plans for your business.",
+    "cta": "Talk to us",
+    "ctaSub": "Contact us to learn about options available during early access."
+  },
+  "metadata": {
+    "title": "ConvertChat — WhatsApp Remarketing & Lead Reactivation for B2B",
+    "description": "Lead reactivation and WhatsApp remarketing for B2B. Turn your email list into opt-in WhatsApp contacts and broadcast campaigns that close deals."
+  }
+}

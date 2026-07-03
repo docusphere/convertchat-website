@@ -1,0 +1,19 @@
+# ConvertChat
+
+> ConvertChat is a WhatsApp-first sales platform for wholesalers, distributors, and SMEs with product catalogs.
+
+## Core Features
+
+- **Campaigns**: Send product offers to thousands of leads via WhatsApp and email in minutes.
+- **Unified Inbox**: All WhatsApp, email, and other conversations in one place.
+- **AI Agent**: Automatically answers questions, qualifies leads, and schedules meetings.
+
+## Target Audience
+
+Wholesalers, distributors, and SMEs who sell products via WhatsApp and email.
+
+## Links
+
+- Website: https://convertchat.co
+- Product: https://convertchat.co/producto
+- Blog: https://convertchat.co/blog
