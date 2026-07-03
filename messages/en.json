@@ -165,7 +165,24 @@
     "terms": "Terms",
     "rights": "All rights reserved.",
     "tagline": "Turn your contact list into WhatsApp sales",
-    "company": "Nillard Ltd · Costa del Sol, Spain"
+    "company": "Nillard Ltd · Costa del Sol, Spain",
+    "meta_partner": "Official Meta Tech Partner"
+  },
+  "faq": {
+    "label": "FAQ",
+    "title": "Questions you might have",
+    "q1": "Will my WhatsApp number get banned?",
+    "a1": "No. ConvertChat uses Meta's official WhatsApp Business API — the same infrastructure used by brands like Unilever and Tata. We enforce a two-stage opt-in flow (click = pending, message = confirmed) so every contact in your list has explicitly consented. No spam, no bans.",
+    "q2": "Do I need a WhatsApp Business API account?",
+    "a2": "Not yet. If you don't have one, we'll set it up for you. We handle the Meta Business verification, phone number registration, and API connection as part of our onboarding — one-time setup fee. See our pricing page for details.",
+    "q3": "How does the email-to-WhatsApp opt-in actually work?",
+    "a3": "You send a product email through ConvertChat. Each email includes a green \"Message us on WhatsApp\" button. When a contact clicks it, they're redirected to your WhatsApp with a pre-filled message. The moment they send that message, they're automatically tagged as opted-in. You now own that WhatsApp contact — legally and permanently.",
+    "q4": "What happens when a contact replies on WhatsApp?",
+    "a4": "Two options. You can handle conversations manually through our built-in WhatsApp inbox — real-time chat with media support and read receipts. Or, if you have our AI Agent enabled (Beta), it handles the conversation automatically: answers product questions, qualifies the lead, and routes hot buyers to you.",
+    "q5": "Is this GDPR compliant?",
+    "a5": "Yes. Our two-stage consent flow is designed for GDPR compliance. A click registers interest (pending). An actual WhatsApp message from the contact confirms consent (opted-in). We track and store consent status per contact with full audit trail. No unsolicited messages ever go out.",
+    "q6": "How many contacts can I import?",
+    "a6": "No hard limit. Upload CSV or Excel files with thousands of contacts. We auto-detect channels (email, mobile, landline), filter invalid entries, remove duplicates, and split into optimized send batches. Most customers start with 1,000-10,000 contacts."
   },
   "pricing": {
     "title": "Pricing",

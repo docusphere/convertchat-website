@@ -165,7 +165,24 @@
     "terms": "Términos",
     "rights": "Todos los derechos reservados.",
     "tagline": "Convierte tu lista de contactos en ventas por WhatsApp",
-    "company": "Nillard Ltd · Costa del Sol, España"
+    "company": "Nillard Ltd · Costa del Sol, España",
+    "meta_partner": "Meta Tech Partner Oficial"
+  },
+  "faq": {
+    "label": "Preguntas frecuentes",
+    "title": "Preguntas que podrías tener",
+    "q1": "¿Se va a banear mi número de WhatsApp?",
+    "a1": "No. ConvertChat usa la API oficial de WhatsApp Business de Meta — la misma infraestructura que usan marcas como Unilever y Tata. Aplicamos un flujo de opt-in en dos etapas (clic = pendiente, mensaje = confirmado) para que cada contacto en tu lista haya dado su consentimiento explícito. Sin spam, sin baneos.",
+    "q2": "¿Necesito una cuenta de WhatsApp Business API?",
+    "a2": "Todavía no. Si no tienes una, te la configuramos. Nos encargamos de la verificación de Meta Business, el registro del número de teléfono y la conexión a la API como parte de nuestro onboarding — tarifa única de configuración. Consulta nuestra página de precios para más detalles.",
+    "q3": "¿Cómo funciona exactamente el opt-in de email a WhatsApp?",
+    "a3": "Envías un email de producto a través de ConvertChat. Cada email incluye un botón verde \"Escríbenos por WhatsApp\". Cuando un contacto hace clic, es redirigido a tu WhatsApp con un mensaje prellenado. En el momento en que envía ese mensaje, se etiqueta automáticamente como opt-in. Ahora ese contacto de WhatsApp es tuyo — legal y permanentemente.",
+    "q4": "¿Qué pasa cuando un contacto responde por WhatsApp?",
+    "a4": "Dos opciones. Puedes manejar las conversaciones manualmente a través de nuestro buzón de WhatsApp integrado — chat en tiempo real con soporte multimedia y confirmaciones de lectura. O, si tienes nuestro Agente IA activado (Beta), maneja la conversación automáticamente: responde preguntas sobre productos, cualifica el lead y te redirige los compradores calientes.",
+    "q5": "¿Es esto compatible con el GDPR?",
+    "a5": "Sí. Nuestro flujo de consentimiento en dos etapas está diseñado para cumplir con el GDPR. Un clic registra interés (pendiente). Un mensaje real de WhatsApp del contacto confirma el consentimiento (opt-in). Rastreamos y almacenamos el estado de consentimiento por contacto con un registro de auditoría completo. Nunca se envían mensajes no solicitados.",
+    "q6": "¿Cuántos contactos puedo importar?",
+    "a6": "Sin límite fijo. Sube archivos CSV o Excel con miles de contactos. Detectamos automáticamente los canales (email, móvil, fijo), filtramos entradas inválidas, eliminamos duplicados y dividimos en lotes de envío optimizados. La mayoría de clientes empiezan con 1.000-10.000 contactos."
   },
   "pricing": {
     "title": "Precios",

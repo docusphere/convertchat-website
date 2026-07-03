@@ -8,6 +8,7 @@ import { PlatformSection } from "@/components/sections/platform-section";
 import { AiAgentSection } from "@/components/sections/ai-agent-section";
 import { IndustriesSection } from "@/components/sections/industries-section";
 import { ProofSection } from "@/components/sections/proof-section";
+import { FaqSection } from "@/components/sections/faq-section";
 import { CtaSection } from "@/components/sections/cta-section";
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
@@ -25,6 +26,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <AiAgentSection />
       <IndustriesSection />
       <ProofSection />
+      <FaqSection />
       <CtaSection />
     </>
   );

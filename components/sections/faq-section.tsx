@@ -1,0 +1,86 @@
+"use client";
+
+import { useState } from "react";
+import { useTranslations } from "next-intl";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { SectionReveal } from "@/components/ui/section-reveal";
+import { Overline } from "@/components/ui/overline";
+
+const FAQ_KEYS = ["q1", "q2", "q3", "q4", "q5", "q6"] as const;
+
+function ChevronIcon({ open }: { open: boolean }) {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      className={`shrink-0 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+      aria-hidden
+    >
+      <path d="M5 7.5l5 5 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function FaqItem({ questionKey, answerKey }: { questionKey: string; answerKey: string }) {
+  const t = useTranslations("faq");
+  const [open, setOpen] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
+  const panelId = `faq-panel-${questionKey}`;
+
+  return (
+    <div className="border-b border-white/[0.08]">
+      <button
+        id={`faq-btn-${questionKey}`}
+        onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        aria-controls={panelId}
+        className="flex w-full cursor-pointer items-center justify-between gap-4 py-6 text-left"
+        style={{ minHeight: "48px" }}
+      >
+        <span className="font-serif text-lg font-medium text-white md:text-xl">{t(questionKey)}</span>
+        <ChevronIcon open={open} />
+      </button>
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            id={panelId}
+            role="region"
+            aria-labelledby={`faq-btn-${questionKey}`}
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={prefersReducedMotion ? { duration: 0 } : { duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+            className="overflow-hidden"
+          >
+            <p className="pb-6 text-base leading-relaxed text-white/50">{t(answerKey)}</p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
+export function FaqSection() {
+  const t = useTranslations("faq");
+
+  return (
+    <section className="bg-neutral-900 px-6 py-28 md:py-36">
+      <div className="mx-auto max-w-3xl">
+        <SectionReveal>
+          <Overline className="text-accent-600/60">{t("label")}</Overline>
+          <h2 className="mt-4 font-serif text-3xl font-normal tracking-[-0.02em] text-white md:text-[44px] md:leading-[1.1]">
+            {t("title")}
+          </h2>
+        </SectionReveal>
+
+        <div className="mt-12">
+          {FAQ_KEYS.map((key) => (
+            <FaqItem key={key} questionKey={key} answerKey={`a${key.slice(1)}`} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

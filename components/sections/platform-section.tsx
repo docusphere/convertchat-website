@@ -42,7 +42,7 @@ export function PlatformSection() {
         <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {FEATURE_KEYS.map((key, i) => (
             <SectionReveal key={key} delay={i * 0.08}>
-              <article className="flex h-full flex-col rounded-2xl border border-neutral-200 bg-white p-6 transition-shadow duration-300 hover:shadow-sm">
+              <article className="flex h-full flex-col rounded-2xl border border-neutral-200 bg-white p-6 transition-all duration-200 will-change-transform hover:-translate-y-1 hover:border-neutral-300 hover:shadow-md">
                 <FeatureIcon index={i} accentClass={FEATURE_ACCENT[key]} />
                 <h3 className="mt-4 font-serif text-lg font-medium text-neutral-900">{t(`${key}_title`)}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-neutral-500">{t(`${key}_desc`)}</p>
