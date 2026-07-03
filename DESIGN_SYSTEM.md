@@ -60,25 +60,52 @@ Reference sites: hyros.ai (primary inspiration — gradient energy, glassmorphis
 | Lime  | `#84cc16` | Warm green highlight |
 | Blue  | `#3b82f6` | Depth/contrast blob  |
 
-### Neutral (green-tinted grays)
+### Neutral (true neutral — no green tint)
 
 | Token         | Hex       | Usage                              |
 | ------------- | --------- | ---------------------------------- |
-| `neutral-50`  | `#fafbfa` | Light section backgrounds          |
-| `neutral-100` | `#f1f5f2` | Alternate section backgrounds      |
-| `neutral-200` | `#e5ebe8` | Borders, dividers (light sections) |
-| `neutral-400` | `#8a9a92` | Placeholder text, muted labels     |
-| `neutral-500` | `#5a6b62` | Body text (light sections)         |
-| `neutral-700` | `#1a2e23` | Headings (light sections)          |
-| `neutral-900` | `#0f1f17` | Dark backgrounds                   |
+| `neutral-50`  | `#fafafa` | Light section backgrounds          |
+| `neutral-100` | `#f2f2f5` | Alternate section backgrounds      |
+| `neutral-200` | `#e5e5ea` | Borders, dividers (light sections) |
+| `neutral-400` | `#8b8b92` | Placeholder text, muted labels     |
+| `neutral-500` | `#5a5a65` | Body text (light sections)         |
+| `neutral-700` | `#1a1a2e` | Headings (light sections)          |
+| `neutral-900` | `#0d0d1f` | Dark backgrounds                   |
 
-**Dark base:** `#050a07` (hero, dark sections)
+**Dark base:** `#06060f` (hero, dark sections)
+
+### Accent (Purple — atmosphere)
+
+| Token        | Hex       | Usage                          |
+| ------------ | --------- | ------------------------------ |
+| `accent-300` | `#c4b5fd` | Light purple highlights        |
+| `accent-400` | `#a78bfa` | Purple accents                 |
+| `accent-500` | `#8b5cf6` | Medium purple                  |
+| `accent-600` | `#7c3aed` | Overlines on dark, CTA gradient|
+| `accent-700` | `#6d28d9` | Deep purple accents            |
+
+### Rainbow Gradient
+
+Animated gradient border for cards. CSS custom property: `--rainbow-gradient`.
+
+```css
+linear-gradient(135deg, #7c3aed 0%, #ec4899 20%, #f97316 35%, #eab308 50%, #22c55e 65%, #06b6d4 80%, #3b82f6 100%)
+```
+
+Animation: 12s ease-in-out infinite cycle (speeds up to 4s on hover). `prefers-reduced-motion: reduce` disables animation.
+
+### Color Roles
+
+- **Green** = Action (buttons, links, badges, CTAs)
+- **Purple** = Atmosphere (overlines on dark, CTA gradients, glows)
+- **Rainbow** = Accent borders (card wrappers, visual drama)
 
 ---
 
 ## Buttons
 
-Pill-shaped (border-radius: 9999px). Satoshi font for all buttons.
+Rounded (border-radius: 12px / `rounded-xl`). Satoshi font for all buttons.
+Note: Pill shape was rejected as "AI-looking". Nav bar container uses `rounded-2xl`; buttons use softer `rounded-xl`.
 
 ### Variants
 
@@ -113,15 +140,15 @@ Pill-shaped (border-radius: 9999px). Satoshi font for all buttons.
 
 ## Shadows & Glow
 
-### Shadows (light sections)
+### Shadows (light sections — true neutral rgba)
 
 | Token       | Value                             |
 | ----------- | --------------------------------- |
-| `shadow-xs` | `0 1px 2px rgba(15,31,23,0.04)`   |
-| `shadow-sm` | `0 2px 8px rgba(15,31,23,0.06)`   |
-| `shadow-md` | `0 8px 24px rgba(15,31,23,0.08)`  |
-| `shadow-lg` | `0 16px 48px rgba(15,31,23,0.10)` |
-| `shadow-xl` | `0 24px 64px rgba(15,31,23,0.12)` |
+| `shadow-xs` | `0 1px 2px rgba(13,13,31,0.04)`   |
+| `shadow-sm` | `0 2px 8px rgba(13,13,31,0.06)`   |
+| `shadow-md` | `0 8px 24px rgba(13,13,31,0.08)`  |
+| `shadow-lg` | `0 16px 48px rgba(13,13,31,0.10)` |
+| `shadow-xl` | `0 24px 64px rgba(13,13,31,0.12)` |
 
 ### Glow (dark sections)
 
@@ -173,18 +200,26 @@ CSS gradient blobs with keyframe animation (the v2 approach).
 
 ## Nav Bar
 
-Fixed, centered, pill-shaped glass bar.
+Fixed, full-width, rounded glass bar with scroll-driven state transitions.
 
 ```
-Position: fixed, top: 16px, centered (left: 50%, translateX(-50%))
-Background: glass nav spec (dark) / transitions on scroll to light
-Border-radius: 9999px
+Position: fixed, top: 16px, left/right: 16px, max-width: 6xl, centered
+Border-radius: rounded-2xl (16px)
 Backdrop-filter: blur(20px)
-Padding: 8px 8px 8px 28px
 
-Logo: green square mark (7px radius) + "ConvertChat" in Satoshi 700
-Links: Producto, Precios, Blog — Satoshi 450, rgba(255,255,255,0.55)
-Buttons: Login (ghost), Solicitar Acceso (solid green pill)
+Unscrolled state:
+  Background: rgba(255,255,255,0.06), border: rgba(255,255,255,0.10)
+  Text: white/55, hover: white/80
+  Logo: green mark + "ConvertChat" text (white)
+  Login button: glass variant
+
+Scrolled state (scrollY > 20):
+  Background: rgba(255,255,255,0.85), border: neutral-200/80, shadow-sm
+  Text: neutral-500, hover: neutral-900
+  Logo: green mark only ("ConvertChat" text collapses via max-width: 0 + opacity: 0)
+  Login button: ghost variant
+
+Scroll check runs on mount (handles restored scroll position).
 ```
 
 ---
