@@ -2,7 +2,6 @@
 
 import { useTranslations } from "next-intl";
 import { SectionReveal } from "@/components/ui/section-reveal";
-import { Overline } from "@/components/ui/overline";
 import { RainbowBorder } from "@/components/ui/rainbow-border";
 
 export function ProblemSection() {
@@ -15,8 +14,7 @@ export function ProblemSection() {
           {/* Left — headline + lead */}
           <SectionReveal>
             <div>
-              <Overline className="text-primary-600/60">{t("label")}</Overline>
-              <h2 className="mt-4 font-serif text-3xl font-normal tracking-[-0.02em] text-neutral-900 md:text-[38px] md:leading-[1.15]">
+              <h2 className="font-serif text-3xl font-normal tracking-[-0.02em] text-neutral-900 md:text-[38px] md:leading-[1.15]">
                 {t("title")}
               </h2>
               <p className="mt-5 text-[15px] leading-[1.75] text-neutral-400">{t("lead")}</p>

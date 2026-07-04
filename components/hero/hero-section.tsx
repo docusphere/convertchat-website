@@ -2,7 +2,6 @@
 
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
-import { Overline } from "@/components/ui/overline";
 import { Button } from "@/components/ui/button";
 import { GrainHeroBg } from "./grain-hero-bg";
 
@@ -20,16 +19,8 @@ export function HeroSection() {
         <div className="grid items-center lg:grid-cols-2">
           {/* Left column — text content */}
           <div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              <Overline className="text-white/60">{t("overline")}</Overline>
-            </motion.div>
-
             <motion.h1
-              className="mt-6 font-serif text-5xl font-normal tracking-[-0.03em] text-white md:text-7xl lg:text-[80px] lg:leading-[0.95] lg:tracking-[-0.04em]"
+              className="font-serif text-5xl font-normal tracking-[-0.03em] text-white md:text-7xl lg:text-[80px] lg:leading-[0.95] lg:tracking-[-0.04em]"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.35 }}
@@ -82,7 +73,7 @@ export function HeroSection() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.95 }}
             >
-              <img src="/mvtp.png" alt={t("meta_partner")} className="h-8 w-auto opacity-60" />
+              <img src="/meta-partner-white.png" alt={t("meta_partner")} className="h-30 w-auto opacity-70" />
             </motion.div>
           </div>
 

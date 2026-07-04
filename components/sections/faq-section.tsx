@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { SectionReveal } from "@/components/ui/section-reveal";
-import { Overline } from "@/components/ui/overline";
 
 const FAQ_KEYS = ["q1", "q2", "q3", "q4", "q5", "q6"] as const;
 
@@ -66,19 +65,29 @@ export function FaqSection() {
   const t = useTranslations("faq");
 
   return (
-    <section className="bg-neutral-900 px-6 py-28 md:py-36">
-      <div className="mx-auto max-w-3xl">
-        <SectionReveal>
-          <Overline className="text-accent-600/60">{t("label")}</Overline>
-          <h2 className="mt-4 font-serif text-3xl font-normal tracking-[-0.02em] text-white md:text-[44px] md:leading-[1.1]">
-            {t("title")}
-          </h2>
-        </SectionReveal>
+    <section className="bg-white px-6 py-28 md:py-36">
+      <div className="mx-auto max-w-6xl">
+        <div className="relative overflow-hidden rounded-3xl bg-neutral-900 px-8 py-16 md:px-14 md:py-20">
+          {/* Subtle purple glow */}
+          <div
+            className="pointer-events-none absolute -left-1/4 -top-1/4 h-3/4 w-3/4 rounded-full opacity-[0.07] blur-[80px]"
+            style={{ background: "radial-gradient(circle, #7c3aed, transparent 70%)" }}
+            aria-hidden
+          />
 
-        <div className="mt-12">
-          {FAQ_KEYS.map((key) => (
-            <FaqItem key={key} questionKey={key} answerKey={`a${key.slice(1)}`} />
-          ))}
+          <div className="relative z-10 mx-auto max-w-3xl">
+            <SectionReveal>
+              <h2 className="font-serif text-3xl font-normal tracking-[-0.02em] text-white md:text-[44px] md:leading-[1.1]">
+                {t("title")}
+              </h2>
+            </SectionReveal>
+
+            <div className="mt-12">
+              {FAQ_KEYS.map((key) => (
+                <FaqItem key={key} questionKey={key} answerKey={`a${key.slice(1)}`} />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

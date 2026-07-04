@@ -2,7 +2,6 @@
 
 import { useTranslations } from "next-intl";
 import { SectionReveal } from "@/components/ui/section-reveal";
-import { Overline } from "@/components/ui/overline";
 import { RainbowBorder } from "@/components/ui/rainbow-border";
 
 const CASES = [
@@ -19,8 +18,7 @@ export function ProofSection() {
     <section className="bg-white px-6 py-28 md:py-36">
       <div className="mx-auto max-w-6xl">
         <SectionReveal>
-          <Overline className="text-primary-600/60">{t("label")}</Overline>
-          <h2 className="mt-4 font-serif text-3xl font-normal tracking-[-0.02em] text-neutral-900 md:text-[44px] md:leading-[1.1]">
+          <h2 className="font-serif text-3xl font-normal tracking-[-0.02em] text-neutral-900 md:text-[44px] md:leading-[1.1]">
             {t("title")}
           </h2>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-neutral-500 md:text-lg">{t("lead")}</p>

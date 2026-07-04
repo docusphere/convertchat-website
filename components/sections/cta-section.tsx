@@ -4,7 +4,6 @@ import { useTranslations } from "next-intl";
 import { MeshGradient } from "@paper-design/shaders-react";
 import { Button } from "@/components/ui/button";
 import { SectionReveal } from "@/components/ui/section-reveal";
-import { Overline } from "@/components/ui/overline";
 
 const WHATSAPP_URL = "#request-access";
 
@@ -46,8 +45,7 @@ export function CtaSection() {
         {/* Content */}
         <div className="relative z-10 mx-auto max-w-3xl px-8 py-20 text-center md:py-24">
         <SectionReveal>
-          <Overline className="text-white/60">{t("label")}</Overline>
-          <h2 className="mt-4 font-serif text-3xl font-normal tracking-[-0.02em] text-white md:text-[44px] md:leading-[1.1]">
+          <h2 className="font-serif text-3xl font-normal tracking-[-0.02em] text-white md:text-[44px] md:leading-[1.1]">
             {t("title")}
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-lg text-white/60">{t("subtitle")}</p>

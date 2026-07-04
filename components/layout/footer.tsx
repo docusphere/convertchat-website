@@ -13,10 +13,7 @@ export function Footer() {
         <div className="flex flex-col gap-10 md:flex-row md:justify-between">
           {/* Logo + tagline */}
           <div>
-            <div className="flex items-center gap-2">
-              <div className="h-6 w-6 rounded-[7px] bg-primary-500" />
-              <span className="font-sans text-sm font-bold text-neutral-900">ConvertChat</span>
-            </div>
+            <img src="/logo-full-color.png" alt="ConvertChat" className="-ml-1 h-8 w-auto" />
             <p className="mt-3 max-w-xs text-sm text-neutral-500">{t("tagline")}</p>
           </div>
 
@@ -40,7 +37,7 @@ export function Footer() {
         {/* Meta badge + bottom row */}
         <div className="mt-12 flex flex-col gap-6 border-t border-neutral-200 pt-8 md:flex-row md:items-center md:justify-between">
           <div className="flex items-center gap-4">
-            <img src="/mvtp.png" alt={t("meta_partner")} className="h-12 w-auto" loading="lazy" />
+            <img src="/mvtp.png" alt={t("meta_partner")} className="h-16 w-auto" loading="lazy" />
           </div>
           <div className="flex flex-col gap-1 text-xs text-neutral-400 md:flex-row md:gap-4 md:text-right">
             <p>

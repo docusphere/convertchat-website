@@ -2,7 +2,6 @@
 
 import { useTranslations } from "next-intl";
 import { SectionReveal } from "@/components/ui/section-reveal";
-import { Overline } from "@/components/ui/overline";
 
 const FEATURE_KEYS = ["feature1", "feature2", "feature3", "feature4", "feature5", "feature6"] as const;
 
@@ -32,8 +31,7 @@ export function PlatformSection() {
     <section className="bg-white px-6 py-28 md:py-36">
       <div className="mx-auto max-w-6xl">
         <SectionReveal>
-          <Overline className="text-primary-600/60">{t("label")}</Overline>
-          <h2 className="mt-4 max-w-3xl font-serif text-3xl font-normal tracking-[-0.02em] text-neutral-900 md:text-[44px] md:leading-[1.1]">
+          <h2 className="max-w-3xl font-serif text-3xl font-normal tracking-[-0.02em] text-neutral-900 md:text-[44px] md:leading-[1.1]">
             {t("title")}
           </h2>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-neutral-500">{t("lead")}</p>

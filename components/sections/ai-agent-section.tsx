@@ -2,7 +2,6 @@
 
 import { useTranslations } from "next-intl";
 import { SectionReveal } from "@/components/ui/section-reveal";
-import { Overline } from "@/components/ui/overline";
 import { RainbowBorder } from "@/components/ui/rainbow-border";
 
 function CheckIcon() {
@@ -49,12 +48,9 @@ export function AiAgentSection() {
           {/* Left column — text */}
           <div>
             <SectionReveal>
-              <div className="flex flex-wrap items-center gap-3">
-                <Overline className="text-accent-600/60">{t("label")}</Overline>
-                <span className="inline-block rounded-full border border-primary-500/20 bg-primary-500/10 px-3 py-1 text-xs font-semibold text-primary-400">
-                  {t("badge")}
-                </span>
-              </div>
+              <span className="inline-block rounded-full border border-primary-500/20 bg-primary-500/10 px-3 py-1 text-xs font-semibold text-primary-400">
+                {t("badge")}
+              </span>
 
               <h2 className="mt-5 max-w-lg font-serif text-3xl font-normal tracking-[-0.02em] text-white md:text-[44px] md:leading-[1.1]">
                 {t("title")}

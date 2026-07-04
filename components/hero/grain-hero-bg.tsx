@@ -14,11 +14,11 @@ export function GrainHeroBg() {
         }}
       />
 
-      {/* Subtle MeshGradient glow — right side, soft and blurred */}
-      <div className="absolute right-0 top-0 h-full w-[55%] opacity-40 blur-[40px]">
+      {/* Animated MeshGradient — full coverage */}
+      <div className="absolute inset-0 opacity-60">
         <MeshGradient
           colors={["#c084fc", "#e879f9", "#7dd3fc", "#a78bfa", "#f0abfc"]}
-          speed={0.2}
+          speed={0.3}
           style={{
             position: "absolute",
             inset: 0,

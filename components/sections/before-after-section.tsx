@@ -90,7 +90,7 @@ function AfterCard() {
 export function BeforeAfterSection() {
   return (
     <section className="bg-white px-6 py-20 md:py-28">
-      <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
+      <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-2">
         <SectionReveal>
           <BeforeCard />
         </SectionReveal>
