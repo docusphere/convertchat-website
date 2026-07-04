@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { GrainHeroBg } from "./grain-hero-bg";
+import { HeroPhone } from "./hero-phone";
 
 const WHATSAPP_URL = "#request-access";
 
@@ -16,7 +17,7 @@ export function HeroSection() {
 
       {/* Content — two-column grid: text left, 3D object right */}
       <div className="relative z-10 mx-auto w-full max-w-7xl px-8 md:px-12 lg:px-16">
-        <div className="grid items-center lg:grid-cols-2">
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left column — text content */}
           <div>
             <motion.h1
@@ -77,8 +78,10 @@ export function HeroSection() {
             </motion.div>
           </div>
 
-          {/* Right column — reserved for 3D object */}
-          <div className="hidden lg:block" />
+          {/* Right column — phone mockup */}
+          <div className="hidden lg:flex lg:items-center lg:justify-center">
+            <HeroPhone />
+          </div>
         </div>
       </div>
     </section>

@@ -116,6 +116,16 @@ body {
   animation: blob 20s ease-in-out infinite;
 }
 
+@keyframes phone-float {
+  0%, 100% { transform: rotateY(-14deg) rotateX(4deg) translateY(0); }
+  50% { transform: rotateY(-14deg) rotateX(4deg) translateY(-20px); }
+}
+
+@keyframes dot-bounce {
+  0%, 60%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-4px); }
+}
+
 @keyframes rainbow-shift {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }

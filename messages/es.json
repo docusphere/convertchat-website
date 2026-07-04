@@ -17,6 +17,20 @@
     "note": "Sin anuncios. Sin llamadas en frío. Solo tus contactos existentes.",
     "meta_partner": "Meta Tech Partner Oficial"
   },
+  "heroPhone": {
+    "shopName": "Bella Moda",
+    "shopInitial": "B",
+    "online": "en línea",
+    "inputPlaceholder": "Mensaje...",
+    "msg1_title": "Nueva Colección Otoño 🍂",
+    "msg1_text": "Hola Maria! Como clienta VIP tienes acceso 48h antes + envío express gratis ✨",
+    "msg2_text": "Me encanta! Qué tallas tenéis del vestido rojo? 😍",
+    "msg3_text": "Tenemos S, M y L. Solo quedan 3 en M. Te reservo una? 👗",
+    "msg4_text": "Sí! Guárdame la M. Cómo pago? 🙏",
+    "msg5_text": "Listo! Aquí tu enlace de pago 💳",
+    "msg5_link": "checkout.mitienda.com",
+    "msg5_note": "Envío express mañana 🚀"
+  },
   "beforeAfter": {
     "before_label": "Sin ConvertChat:",
     "before_title": "Todos los leads,\ncero ventas",

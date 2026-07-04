@@ -17,6 +17,20 @@
     "note": "No ads needed. No cold calling. Just your existing contacts.",
     "meta_partner": "Official Meta Tech Partner"
   },
+  "heroPhone": {
+    "shopName": "Bella Moda",
+    "shopInitial": "B",
+    "online": "online",
+    "inputPlaceholder": "Message...",
+    "msg1_title": "New Fall Collection 🍂",
+    "msg1_text": "Hey Maria! As a VIP client you get 48h early access + free express shipping ✨",
+    "msg2_text": "Love it! What sizes do you have in the red dress? 😍",
+    "msg3_text": "We have S, M and L. Only 3 left in M. Want me to hold one? 👗",
+    "msg4_text": "Yes! Hold the M for me. How do I pay? 🙏",
+    "msg5_text": "Done! Here's your checkout link 💳",
+    "msg5_link": "checkout.mystore.com",
+    "msg5_note": "Ships express tomorrow 🚀"
+  },
   "beforeAfter": {
     "before_label": "Without ConvertChat:",
     "before_title": "All leads,\nno sales",
