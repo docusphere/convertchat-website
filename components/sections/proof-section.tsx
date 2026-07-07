@@ -5,10 +5,10 @@ import { SectionReveal } from "@/components/ui/section-reveal";
 import { RainbowBorder } from "@/components/ui/rainbow-border";
 
 const CASES = [
-  { company: "case1_company", type: "case1_type", result: "case1_result" },
-  { company: "case2_company", type: "case2_type", result: "case2_result" },
-  { company: "case3_company", type: "case3_type", result: "case3_result" },
-  { company: "case4_company", type: "case4_type", result: "case4_result" },
+  { company: "case1_company", type: "case1_type", result: "case1_result", logo: "/logos/smilodox.png" },
+  { company: "case2_company", type: "case2_type", result: "case2_result", logo: "/logos/tata-cliq.png" },
+  { company: "case3_company", type: "case3_type", result: "case3_result", logo: "/logos/bgc-wholesale.png" },
+  { company: "case4_company", type: "case4_type", result: "case4_result", logo: "/logos/unilever.png" },
 ] as const;
 
 export function ProofSection() {
@@ -25,14 +25,13 @@ export function ProofSection() {
         </SectionReveal>
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2">
-          {CASES.map(({ company, type, result }, index) => (
-            <SectionReveal key={company} delay={0.1 + index * 0.08}>
-              <RainbowBorder borderRadius="18px" padding="3px">
-                <article className="rounded-[15px] bg-white p-6 md:p-8">
+          {CASES.map(({ company, type, result, logo }, index) => (
+            <SectionReveal key={company} delay={0.1 + index * 0.08} className="h-full">
+              <RainbowBorder borderRadius="18px" padding="3px" className="h-full">
+                <article className="flex h-full flex-col rounded-[15px] bg-white p-6 md:p-8">
                   <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-neutral-100 font-serif text-sm font-medium text-neutral-700">
-                      {t(company).charAt(0)}
-                    </div>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={logo} alt={t(company)} className="h-7 w-auto shrink-0" loading="lazy" />
                     <div>
                       <p className="font-serif text-lg font-medium text-neutral-900">{t(company)}</p>
                       <p className="text-xs uppercase tracking-wide text-neutral-400">{t(type)}</p>

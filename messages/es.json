@@ -140,13 +140,13 @@
     "feature6_desc": "Flujo de opt-in en dos etapas. Clic = pendiente. Mensaje = confirmado. Legalmente compliant. Sin baneos."
   },
   "aiAgent": {
-    "label": "Potenciado por IA",
-    "badge": "Beta",
-    "title": "Una IA que conoce tus productos y los vende por WhatsApp.",
-    "lead": "Cuando los compradores responden a tus broadcasts, el agente IA maneja la conversación. Responde preguntas, envía enlaces de productos, cualifica leads y te redirige los compradores calientes. Disponible 24/7 — para que nunca pierdas una venta.",
+    "label": "Automatizado",
+    "badge": "Siempre Activo",
+    "title": "Tu tienda nunca cierra",
+    "lead": "ConvertChat responde preguntas, recomienda productos y cierra ventas en WhatsApp — automáticamente, 24/7, con la voz de tu marca.",
     "bullet1": "Aprende tu catálogo de productos, precios y stock",
-    "bullet2": "Responde preguntas de compradores en tiempo real",
-    "bullet3": "Cualifica leads con preguntas personalizadas",
+    "bullet2": "Responde preguntas de compradores al instante, a cualquier hora",
+    "bullet3": "Recomienda productos y envía enlaces de pago",
     "bullet4": "Te redirige los compradores calientes cuando están listos para comprar"
   },
   "proof": {

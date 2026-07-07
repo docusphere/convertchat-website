@@ -25,7 +25,7 @@ export function RainbowBorder({
         willChange: "background-position",
       }}
     >
-      <div style={{ borderRadius: innerRadius }}>{children}</div>
+      <div className="h-full" style={{ borderRadius: innerRadius }}>{children}</div>
     </div>
   );
 }
