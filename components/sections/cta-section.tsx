@@ -11,7 +11,7 @@ export function CtaSection() {
   const t = useTranslations("ctaSection");
 
   return (
-    <section className="bg-white px-6 py-28 md:py-36">
+    <section className="bg-white px-6 py-16 md:py-36">
       <div
         className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl"
         style={{

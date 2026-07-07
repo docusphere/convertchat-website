@@ -18,7 +18,7 @@ export function IndustriesSection() {
   const t = useTranslations("industries");
 
   return (
-    <section className="bg-white px-6 py-28 md:py-36">
+    <section className="bg-white px-6 py-16 md:py-36">
       <div className="mx-auto max-w-6xl">
         <SectionReveal>
           <h2 className="max-w-3xl font-serif text-3xl font-normal tracking-[-0.02em] text-neutral-900 md:text-[44px] md:leading-[1.1]">
@@ -31,7 +31,7 @@ export function IndustriesSection() {
           <div className="grid overflow-hidden rounded-2xl bg-white sm:grid-cols-2">
             {industries.map((key, i) => (
               <SectionReveal key={key} delay={i * 0.08}>
-                <div className={`p-8 ${i < 2 ? "border-b border-neutral-200" : ""} ${i % 2 === 0 ? "border-r border-neutral-200" : ""}`}>
+                <div className={`p-6 md:p-8 ${i < 2 ? "border-b border-neutral-200" : ""} ${i % 2 === 0 ? "sm:border-r sm:border-neutral-200" : ""} ${i === 2 ? "border-b border-neutral-200 sm:border-b-0" : ""}`}>
                   <div
                     className={`flex h-[52px] w-[52px] items-center justify-center rounded-xl bg-gradient-to-br ${INDUSTRY_ICONS[i].gradient}`}
                     style={{ boxShadow: `0 8px 20px ${INDUSTRY_ICONS[i].glow}, inset 0 1px 0 rgba(255,255,255,0.2)` }}

@@ -8,7 +8,7 @@ export function ProblemSection() {
   const t = useTranslations("problem");
 
   return (
-    <section id="problem" className="bg-white px-6 py-28 md:py-36">
+    <section id="problem" className="bg-white px-6 py-16 md:py-36">
       <div className="mx-auto max-w-6xl">
         <div className="grid items-start gap-12 lg:grid-cols-[1fr_1.3fr] lg:gap-14">
           {/* Left — headline + lead */}

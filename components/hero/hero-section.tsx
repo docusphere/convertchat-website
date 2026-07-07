@@ -12,7 +12,7 @@ export function HeroSection() {
   const t = useTranslations("hero");
 
   return (
-    <section className="relative flex min-h-screen items-center overflow-hidden">
+    <section className="relative flex min-h-screen items-center overflow-hidden pt-24 md:pt-0">
       <GrainHeroBg />
 
       {/* Content — two-column grid: text left, 3D object right */}
@@ -21,7 +21,7 @@ export function HeroSection() {
           {/* Left column — text content */}
           <div>
             <motion.h1
-              className="font-serif text-5xl font-normal tracking-[-0.03em] text-white md:text-7xl lg:text-[80px] lg:leading-[0.95] lg:tracking-[-0.04em]"
+              className="font-serif text-4xl font-normal tracking-[-0.03em] text-white sm:text-5xl md:text-7xl lg:text-[80px] lg:leading-[0.95] lg:tracking-[-0.04em]"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.35 }}
@@ -76,7 +76,7 @@ export function HeroSection() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.95 }}
             >
-              <img src="/meta-partner-white.png" alt={t("meta_partner")} className="h-30 w-auto opacity-70" />
+              <img src="/meta-partner-white.png" alt={t("meta_partner")} className="h-12 w-auto opacity-70 md:h-14" />
             </motion.div>
           </div>
 

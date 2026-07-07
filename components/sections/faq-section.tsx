@@ -65,7 +65,7 @@ export function FaqSection() {
   const t = useTranslations("faq");
 
   return (
-    <section className="bg-white px-6 py-28 md:py-36">
+    <section className="bg-white px-6 py-16 md:py-36">
       <div className="mx-auto max-w-6xl">
         <div className="relative overflow-hidden rounded-3xl bg-neutral-900 px-8 py-16 md:px-14 md:py-20">
           {/* Subtle purple glow */}

@@ -19,7 +19,7 @@ export function PlatformSection() {
   const t = useTranslations("platform");
 
   return (
-    <section className="bg-white px-6 py-28 md:py-36">
+    <section className="bg-white px-6 py-16 md:py-36">
       <div className="mx-auto max-w-6xl">
         <SectionReveal>
           <h2 className="max-w-3xl font-serif text-3xl font-normal tracking-[-0.02em] text-neutral-900 md:text-[44px] md:leading-[1.1]">
