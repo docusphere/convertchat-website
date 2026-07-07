@@ -4,12 +4,13 @@
 	"name": "convertchat-website",
 	"compatibility_date": "2024-09-23",
 	"compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+	"workers_dev": true,
 	"assets": {
 		"directory": ".open-next/assets",
 		"binding": "ASSETS"
 	},
 	"routes": [
-		{ "pattern": "convertchat.co", "zone_name": "convertchat.co" },
-		{ "pattern": "www.convertchat.co", "zone_name": "convertchat.co" }
+		{ "pattern": "convertchat.co/*", "zone_name": "convertchat.co" },
+		{ "pattern": "www.convertchat.co/*", "zone_name": "convertchat.co" }
 	]
 }
