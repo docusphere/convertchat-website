@@ -5,7 +5,7 @@ import { MeshGradient } from "@paper-design/shaders-react";
 import { Button } from "@/components/ui/button";
 import { SectionReveal } from "@/components/ui/section-reveal";
 
-const WHATSAPP_URL = "#request-access";
+const BOOKING_URL = "https://cal.com/architct/onboarding";
 
 export function CtaSection() {
   const t = useTranslations("ctaSection");
@@ -53,7 +53,9 @@ export function CtaSection() {
             <Button
               variant="secondary"
               size="lg"
-              href={WHATSAPP_URL}
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               style={{ background: "#ffffff", color: "#171717" }}
             >
               {t("cta")}

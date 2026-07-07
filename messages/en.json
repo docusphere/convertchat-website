@@ -12,9 +12,9 @@
     "title_line1": "Convert your leads into",
     "title_line2": "sales on WhatsApp",
     "subtitle": "You have emails and phone numbers collecting dust. We turn them into an opted-in WhatsApp audience you can sell to — without running ads or getting your number banned.",
-    "cta_primary": "Message us on WhatsApp",
+    "cta_primary": "Talk to us",
     "cta_secondary": "See how it works",
-    "note": "No ads needed. No cold calling. Just your existing contacts.",
+    "note": "Invite only. Limited spots during early access.",
     "meta_partner": "Official Meta Tech Partner"
   },
   "heroPhone": {
@@ -44,7 +44,7 @@
     "after_2": "98% open rate on every broadcast you send.",
     "after_3": "Zero ad spend. Reactivate your own list.",
     "after_4": "No lead escapes. Every message is a chance to sell.",
-    "cta": "Get started",
+    "cta": "Talk to us",
     "bottom_stat_num": "2",
     "bottom_stat_suffix": " billion+",
     "bottom_stat_label": "people use WhatsApp every month",
@@ -170,7 +170,7 @@
     "label": "Start a conversation",
     "title": "How much is your contact list worth?",
     "subtitle": "15 minutes. Tell us how many dormant contacts sit in a spreadsheet, and we'll show you how WhatsApp reactivation could turn them into buyers.",
-    "cta": "Message us on WhatsApp"
+    "cta": "Talk to us"
   },
   "footer": {
     "product": "Product",

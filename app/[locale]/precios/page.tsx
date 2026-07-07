@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 
-const TYPEFORM_URL = "#request-access";
+const BOOKING_URL = "https://cal.com/architct/onboarding";
 
 export default function PricingPage() {
   const t = useTranslations("pricing");
@@ -17,7 +17,7 @@ export default function PricingPage() {
         <p className="mt-4 text-lg text-neutral-500">{t("comingSoon")}</p>
         <p className="mt-2 text-sm text-neutral-400">{t("ctaSub")}</p>
         <div className="mt-8">
-          <Button variant="primary" size="lg" href={TYPEFORM_URL}>
+          <Button variant="primary" size="lg" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
             {t("cta")}
           </Button>
         </div>

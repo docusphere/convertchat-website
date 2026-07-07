@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import { SectionReveal } from "@/components/ui/section-reveal";
 import { Button } from "@/components/ui/button";
 
-const WHATSAPP_URL = "#request-access";
+const BOOKING_URL = "https://cal.com/architct/onboarding";
 
 function CheckIcon({ variant }: { variant: "before" | "after" }) {
   const bg = variant === "before" ? "#171717" : "#ffffff";
@@ -41,7 +41,7 @@ function BeforeCard() {
           ))}
         </ul>
 
-        <Button variant="secondary" size="lg" href={WHATSAPP_URL} className="mt-6 w-full">
+        <Button variant="secondary" size="lg" href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="mt-6 w-full">
           {t("cta")}
         </Button>
       </div>
@@ -76,7 +76,7 @@ function AfterCard() {
         <Button
           variant="ghost"
           size="lg"
-          href={WHATSAPP_URL}
+          href={BOOKING_URL} target="_blank" rel="noopener noreferrer"
           className="mt-6 w-full"
           style={{ background: "#ffffff", color: "#171717", borderColor: "#ffffff" }}
         >

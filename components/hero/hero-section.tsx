@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { GrainHeroBg } from "./grain-hero-bg";
 import { HeroPhone } from "./hero-phone";
 
-const WHATSAPP_URL = "#request-access";
+const BOOKING_URL = "https://cal.com/architct/onboarding";
 
 export function HeroSection() {
   const t = useTranslations("hero");
@@ -49,7 +49,9 @@ export function HeroSection() {
               <Button
                 variant="secondary"
                 size="lg"
-                href={WHATSAPP_URL}
+                href={BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{ background: "#ffffff", color: "#171717" }}
               >
                 {t("cta_primary")}

@@ -5,7 +5,7 @@ import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 
-const WHATSAPP_URL = "#request-access";
+const BOOKING_URL = "https://cal.com/architct/onboarding";
 
 export function Navbar() {
   const t = useTranslations("nav");
@@ -79,14 +79,7 @@ export function Navbar() {
         </div>
 
         <div className="ml-auto flex items-center gap-2.5">
-          <Button
-            variant={scrolled ? "ghost" : "glass"}
-            size="md"
-            href="https://app.convertchat.co"
-          >
-            {t("login")}
-          </Button>
-          <Button variant="primary" size="md" href={WHATSAPP_URL}>
+          <Button variant="primary" size="md" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
             {t("cta")}
           </Button>
         </div>
