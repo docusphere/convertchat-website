@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { SectionReveal } from "@/components/ui/section-reveal";
+import { AiAgentChat } from "@/components/sections/ai-agent-chat";
 
 function CheckIcon() {
   return (
@@ -51,8 +52,8 @@ export function AiAgentSection() {
                 {t("badge")}
               </span>
 
-              <h2 className="mt-5 max-w-lg font-serif text-3xl font-normal tracking-[-0.02em] text-white md:text-[44px] md:leading-[1.1]">
-                {t("title")}
+              <h2 className="mt-5 max-w-lg font-serif text-3xl font-semibold tracking-[-0.02em] text-white md:text-[44px] md:leading-[1.1]">
+                {t("title")}<span className="text-green-500">.</span>
               </h2>
 
               <p className="mt-6 max-w-md text-lg leading-relaxed text-white/60">{t("lead")}</p>
@@ -70,52 +71,9 @@ export function AiAgentSection() {
             </SectionReveal>
           </div>
 
-          {/* Right column — nighttime chat visual */}
+          {/* Right column — animated chat visual */}
           <SectionReveal delay={0.15} className="w-full">
-            <div aria-hidden="true" className="relative overflow-hidden rounded-2xl bg-neutral-950 p-5 md:p-6">
-              {/* Moon/stars nighttime aesthetic */}
-              <div className="pointer-events-none absolute right-4 top-4 text-2xl opacity-60">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="#fbbf24" opacity="0.8" />
-                </svg>
-              </div>
-              <div className="pointer-events-none absolute right-14 top-3 h-1 w-1 rounded-full bg-yellow-300/40" />
-              <div className="pointer-events-none absolute right-10 top-8 h-0.5 w-0.5 rounded-full bg-yellow-300/30" />
-              <div className="pointer-events-none absolute right-20 top-6 h-0.5 w-0.5 rounded-full bg-yellow-300/25" />
-
-              {/* Chat bubbles */}
-              <div className="space-y-3">
-                {/* Customer message */}
-                <div className="flex justify-start">
-                  <div className="max-w-[75%] rounded-2xl rounded-tl-sm bg-neutral-800 px-4 py-2.5">
-                    <p className="text-sm text-white/90">Do you have this in size M?</p>
-                    <p className="mt-1 text-right text-[10px] text-white/30">3:40 AM</p>
-                  </div>
-                </div>
-
-                {/* Brand (ConvertChat) reply */}
-                <div className="flex justify-end">
-                  <div className="max-w-[75%] rounded-2xl rounded-tr-sm bg-primary-600 px-4 py-2.5">
-                    <p className="text-sm text-white">Yes! Only 2 left. Here&apos;s your checkout link</p>
-                    <div className="mt-2 rounded-lg border border-white/10 bg-white/10 px-3 py-2">
-                      <p className="text-xs text-white/70">checkout.store.com/size-m</p>
-                    </div>
-                    <p className="mt-1 text-right text-[10px] text-white/50">3:41 AM</p>
-                  </div>
-                </div>
-
-                {/* Customer reply */}
-                <div className="flex justify-start">
-                  <div className="max-w-[75%] rounded-2xl rounded-tl-sm bg-neutral-800 px-4 py-2.5">
-                    <p className="text-sm text-white/90">Just ordered! 🎉</p>
-                    <p className="mt-1 text-right text-[10px] text-white/30">3:42 AM</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Subtle "3:42 AM" label at bottom */}
-              <p className="mt-4 text-center text-xs text-white/20">Sale closed at 3:42 AM</p>
-            </div>
+            <AiAgentChat />
           </SectionReveal>
           </div>
         </div>
