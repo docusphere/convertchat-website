@@ -11,7 +11,7 @@
     "overline": "EARLY ACCESS",
     "title_line1": "Convert your leads into",
     "title_line2": "sales on WhatsApp",
-    "subtitle": "You have emails and phone numbers collecting dust. We turn them into an opted-in WhatsApp audience you can sell to — without running ads or getting your number banned.",
+    "subtitle": "You have emails and phone numbers collecting dust. We turn them into an opted-in WhatsApp audience you can sell to, without running ads or getting your number banned.",
     "cta_primary": "Talk to us",
     "cta_secondary": "See how it works",
     "note": "Invite only. Limited spots during early access.",
@@ -35,7 +35,7 @@
     "before_label": "Without ConvertChat:",
     "before_title": "All leads,\nno sales",
     "before_1": "Contacts rotting in a spreadsheet nobody opens.",
-    "before_2": "Emails with 20% open rates — if you're lucky.",
+    "before_2": "Emails with 20% open rates, if you're lucky.",
     "before_3": "Paying for ads to reach people you already have.",
     "before_4": "Leads going cold. No follow-up. No sales.",
     "after_label": "With ConvertChat:",
@@ -47,7 +47,7 @@
     "cta": "Talk to us",
     "bottom_stat_num": "2",
     "bottom_stat_suffix": " billion+",
-    "bottom_stat_label": "people use WhatsApp every month",
+    "bottom_stat_label": "monthly WhatsApp users",
     "bottom_sub1_num": "100",
     "bottom_sub1_suffix": "B+",
     "bottom_sub1_label": "messages sent daily",
@@ -56,12 +56,13 @@
     "bottom_sub2_label": "opened per day per user",
     "bottom_sub3_num": "180",
     "bottom_sub3_suffix": "+",
-    "bottom_sub3_label": "countries worldwide"
+    "bottom_sub3_label": "countries worldwide",
+    "callout": "Your buyers are already there. You just need the bridge"
   },
   "problem": {
     "label": "The untapped channel",
-    "title": "Build a WhatsApp audience you own. The new era of newsletters.",
-    "lead": "Your leads are in spreadsheets, email lists, and old CRMs. Meanwhile, they check WhatsApp 23 times a day. Convert your existing contacts into an opted-in WhatsApp list — then send them product offers, restocks, and promotions whenever you want. No algorithms. No ad spend. Just direct access to buyers who actually read your messages.",
+    "title": "Build a WhatsApp audience you own. The new era of newsletters",
+    "lead": "Your leads are in spreadsheets, email lists, and old CRMs. Meanwhile, they check WhatsApp 23 times a day. Convert your existing contacts into an opted-in WhatsApp list, then send them product offers, restocks, and promotions whenever you want. No algorithms. No ad spend. Just direct access to buyers who actually read your messages.",
     "wa_num": "98%",
     "wa_label": "WhatsApp open rate",
     "email_num": "~20%",
@@ -70,11 +71,11 @@
     "stat1_desc": "click-through rate on WhatsApp offers",
     "stat2_num": "€0",
     "stat2_desc": "ad spend to reactivate your list",
-    "callout": "3 billion people use WhatsApp daily. Your buyers are already there — you just need the bridge."
+    "callout": "3 billion people use WhatsApp daily. Your buyers are already there. You just need the bridge."
   },
   "howItWorks": {
     "label": "How it works",
-    "title": "Upload. Send. Convert. Sell.",
+    "title": "Upload. Send. Convert. Sell",
     "lead": "From your spreadsheet to WhatsApp sales in four steps.",
     "step1": {
       "num": "01",
@@ -84,7 +85,7 @@
     "step2": {
       "num": "02",
       "title": "Send email with WhatsApp button",
-      "description": "Your product offer goes out via email. Every email has a green \"Message us on WhatsApp\" button. When they click, they land in your WhatsApp — with full opt-in consent."
+      "description": "Your product offer goes out via email. Every email has a green \"Message us on WhatsApp\" button. When they click, they land in your WhatsApp with full opt-in consent."
     },
     "step3": {
       "num": "03",
@@ -124,12 +125,12 @@
   },
   "platform": {
     "label": "The platform",
-    "title": "Everything you need to sell on WhatsApp.",
-    "lead": "Import your contacts, launch campaigns, track results — all in one place.",
+    "title": "Everything you need to sell on WhatsApp",
+    "lead": "Import your contacts, launch campaigns, track results. All in one place.",
     "feature1_title": "Smart contact import",
     "feature1_desc": "Upload CSV or Excel files. Auto-detect channels, filter invalid contacts, remove duplicates, split into send batches.",
     "feature2_title": "Email → WhatsApp campaigns",
-    "feature2_desc": "Send product emails with a WhatsApp CTA button. Track opens, clicks, and consent — automatically.",
+    "feature2_desc": "Send product emails with a WhatsApp CTA button. Track opens, clicks, and consent automatically.",
     "feature3_title": "WhatsApp broadcasts",
     "feature3_desc": "Send offers to your opted-in list in minutes. Product image, price, done. 98% open rate.",
     "feature4_title": "WhatsApp inbox",
@@ -143,19 +144,35 @@
     "label": "Automated",
     "badge": "Always On",
     "title": "Your store never closes",
-    "lead": "ConvertChat answers questions, recommends products, and closes sales on WhatsApp — automatically, 24/7, in your brand's voice.",
+    "lead": "ConvertChat answers questions, recommends products, and closes sales on WhatsApp. Automatically, 24/7, in your brand's voice.",
     "bullet1": "Learns your product catalog, pricing, and stock",
     "bullet2": "Answers buyer questions instantly, any time of day",
     "bullet3": "Recommends products and sends checkout links",
-    "bullet4": "Routes hot leads to your team when they're ready to buy"
+    "bullet4": "Routes hot leads to your team when they're ready to buy",
+    "chat": {
+      "day_time": "10:15 AM",
+      "day_customer1": "Do you ship iPhone 15 Pro Max to Germany? What's the MOQ?",
+      "day_ai1": "Yes! We ship to Germany via DHL Express (3-5 days). MOQ is 25 units. Current stock: 340 units.",
+      "day_customer2": "Unit price for 50 units?",
+      "day_ai2": "EUR 1,089/unit for 50x. Also have 128GB at EUR 989 — popular in your region. Want a quote for both?",
+      "day_status": "Answered in under 5 seconds",
+      "night_time": "2:30 AM",
+      "night_customer1": "Need 100x Samsung A55 urgently. Available?",
+      "night_ai1": "In stock! 100x Samsung A55 128GB at EUR 285/unit. Total: EUR 28,500. Ready to ship tomorrow.",
+      "night_customer2": "Perfect. Send me the order link.",
+      "night_ai2": "Done! Here's your order:",
+      "night_link": "order.techsupply.com/SA55-100",
+      "night_status": "Sale closed at 2:31 AM",
+      "ai_label": "ConvertChat AI"
+    }
   },
   "proof": {
     "label": "Real results",
-    "title": "Businesses using WhatsApp remarketing are seeing this.",
-    "lead": "These companies used WhatsApp to reactivate dormant contacts and send targeted offers. The results speak for themselves. ConvertChat gives you the same tools — plus the bridge to get your contacts on WhatsApp in the first place.",
+    "title": "Businesses using WhatsApp remarketing are seeing this",
+    "lead": "These companies used WhatsApp to reactivate dormant contacts and send targeted offers. The results speak for themselves. ConvertChat gives you the same tools, plus the bridge to get your contacts on WhatsApp in the first place.",
     "case1_company": "Smilodox",
     "case1_type": "German athleisure brand",
-    "case1_result": "€261,000 revenue from a single WhatsApp broadcast campaign — 9.6x return on spend",
+    "case1_result": "€261,000 revenue from a single WhatsApp broadcast campaign. 9.6x return on spend.",
     "case2_company": "Tata CLiQ",
     "case2_type": "Indian retail",
     "case2_result": "$500K+ revenue, 57% click-through rate on WhatsApp discount broadcasts",
@@ -170,7 +187,8 @@
     "label": "Start a conversation",
     "title": "How much is your contact list worth?",
     "subtitle": "15 minutes. Tell us how many dormant contacts sit in a spreadsheet, and we'll show you how WhatsApp reactivation could turn them into buyers.",
-    "cta": "Talk to us"
+    "cta": "Talk to us",
+    "note": "Invite only. Limited spots during early access."
   },
   "footer": {
     "product": "Product",
@@ -187,13 +205,13 @@
     "label": "FAQ",
     "title": "Questions you might have",
     "q1": "Will my WhatsApp number get banned?",
-    "a1": "No. ConvertChat uses Meta's official WhatsApp Business API — the same infrastructure used by brands like Unilever and Tata. We enforce a two-stage opt-in flow (click = pending, message = confirmed) so every contact in your list has explicitly consented. No spam, no bans.",
+    "a1": "No. ConvertChat uses Meta's official WhatsApp Business API, the same infrastructure used by brands like Unilever and Tata. We enforce a two-stage opt-in flow (click = pending, message = confirmed) so every contact in your list has explicitly consented. No spam, no bans.",
     "q2": "Do I need a WhatsApp Business API account?",
-    "a2": "Not yet. If you don't have one, we'll set it up for you. We handle the Meta Business verification, phone number registration, and API connection as part of our onboarding — one-time setup fee. See our pricing page for details.",
+    "a2": "Not yet. If you don't have one, we'll set it up for you. We handle the Meta Business verification, phone number registration, and API connection as part of our onboarding. One-time setup fee. See our pricing page for details.",
     "q3": "How does the email-to-WhatsApp opt-in actually work?",
-    "a3": "You send a product email through ConvertChat. Each email includes a green \"Message us on WhatsApp\" button. When a contact clicks it, they're redirected to your WhatsApp with a pre-filled message. The moment they send that message, they're automatically tagged as opted-in. You now own that WhatsApp contact — legally and permanently.",
+    "a3": "You send a product email through ConvertChat. Each email includes a green \"Message us on WhatsApp\" button. When a contact clicks it, they're redirected to your WhatsApp with a pre-filled message. The moment they send that message, they're automatically tagged as opted-in. You now own that WhatsApp contact, legally and permanently.",
     "q4": "What happens when a contact replies on WhatsApp?",
-    "a4": "Two options. You can handle conversations manually through our built-in WhatsApp inbox — real-time chat with media support and read receipts. Or, if you have our AI Agent enabled (Beta), it handles the conversation automatically: answers product questions, qualifies the lead, and routes hot buyers to you.",
+    "a4": "Two options. You can handle conversations manually through our built-in WhatsApp inbox with real-time chat, media support, and read receipts. Or, if you have our AI Agent enabled (Beta), it handles the conversation automatically: answers product questions, qualifies the lead, and routes hot buyers to you.",
     "q5": "Is this GDPR compliant?",
     "a5": "Yes. Our two-stage consent flow is designed for GDPR compliance. A click registers interest (pending). An actual WhatsApp message from the contact confirms consent (opted-in). We track and store consent status per contact with full audit trail. No unsolicited messages ever go out.",
     "q6": "How many contacts can I import?",
@@ -206,7 +224,7 @@
     "ctaSub": "Contact us to learn about options available during early access."
   },
   "metadata": {
-    "title": "ConvertChat — WhatsApp Remarketing & Lead Reactivation for B2B",
+    "title": "ConvertChat | WhatsApp Remarketing & Lead Reactivation for B2B",
     "description": "Lead reactivation and WhatsApp remarketing for B2B. Turn your email list into opt-in WhatsApp contacts and broadcast campaigns that close deals."
   }
 }
