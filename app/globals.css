@@ -144,45 +144,6 @@ body {
 
 /* --- AI Agent Day/Night Cycle --- */
 
-@keyframes night-fade {
-  0%   { opacity: 0; }
-  3%   { opacity: 0; }
-  42%  { opacity: 0; }
-  47%  { opacity: 1; }
-  50%  { opacity: 1; }
-  92%  { opacity: 1; }
-  97%  { opacity: 0; }
-  100% { opacity: 0; }
-}
-
-@keyframes sun-cycle {
-  0%   { top: 14px; opacity: 0; }
-  3%   { top: 14px; opacity: 1; }
-  42%  { top: 18px; opacity: 1; }
-  47%  { top: 70px; opacity: 0; }
-  92%  { top: 70px; opacity: 0; }
-  97%  { top: 14px; opacity: 1; }
-  100% { top: 14px; opacity: 1; }
-}
-
-@keyframes moon-cycle {
-  0%   { top: 70px; opacity: 0; }
-  42%  { top: 70px; opacity: 0; }
-  47%  { top: 16px; opacity: 0.85; }
-  92%  { top: 18px; opacity: 0.85; }
-  97%  { top: 70px; opacity: 0; }
-  100% { top: 70px; opacity: 0; }
-}
-
-@keyframes stars-fade {
-  0%   { opacity: 0; }
-  42%  { opacity: 0; }
-  48%  { opacity: 1; }
-  92%  { opacity: 1; }
-  96%  { opacity: 0; }
-  100% { opacity: 0; }
-}
-
 @keyframes twinkle {
   0%   { opacity: 0.3; }
   100% { opacity: 0.8; }

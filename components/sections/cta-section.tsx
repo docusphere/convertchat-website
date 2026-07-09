@@ -45,10 +45,18 @@ export function CtaSection() {
         {/* Content */}
         <div className="relative z-10 mx-auto max-w-3xl px-8 py-20 text-center md:py-24">
         <SectionReveal>
-          <h2 className="font-serif text-3xl font-normal tracking-[-0.02em] text-white md:text-[44px] md:leading-[1.1]">
-            {t("title")}
+          <h2 className="font-serif text-3xl font-semibold tracking-[-0.02em] text-white md:text-[44px] md:leading-[1.1]">
+            {t("title")}<span className="text-green-500">.</span>
           </h2>
-          <p className="mx-auto mt-6 max-w-xl text-lg text-white/60">{t("subtitle")}</p>
+          <p className="mx-auto mt-6 max-w-xl text-lg text-white/80">{t("subtitle")}</p>
+          <span
+            className="mt-4 inline-block rounded-full p-px"
+            style={{ background: "linear-gradient(135deg, #22c55e, #7c3aed, #06b6d4, #22c55e)" }}
+          >
+            <span className="inline-block rounded-full bg-neutral-900/80 px-4 py-1.5 text-sm font-semibold text-white backdrop-blur-sm">
+              {t("note")}
+            </span>
+          </span>
           <div className="mt-10">
             <Button
               variant="secondary"

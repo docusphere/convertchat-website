@@ -18,8 +18,8 @@ export function ProofSection() {
     <section className="bg-white px-6 py-16 md:py-36">
       <div className="mx-auto max-w-6xl">
         <SectionReveal>
-          <h2 className="font-serif text-3xl font-normal tracking-[-0.02em] text-neutral-900 md:text-[44px] md:leading-[1.1]">
-            {t("title")}
+          <h2 className="font-serif text-3xl font-semibold tracking-[-0.02em] text-neutral-900 md:text-[44px] md:leading-[1.1]">
+            {t("title")}<span className="text-green-500">.</span>
           </h2>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-neutral-500 md:text-lg">{t("lead")}</p>
         </SectionReveal>

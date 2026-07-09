@@ -77,8 +77,8 @@ export function FaqSection() {
 
           <div className="relative z-10 mx-auto max-w-3xl">
             <SectionReveal>
-              <h2 className="font-serif text-3xl font-normal tracking-[-0.02em] text-white md:text-[44px] md:leading-[1.1]">
-                {t("title")}
+              <h2 className="font-serif text-3xl font-semibold tracking-[-0.02em] text-white md:text-[44px] md:leading-[1.1]">
+                {t("title")}<span className="text-green-500">.</span>
               </h2>
             </SectionReveal>
 
