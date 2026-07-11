@@ -93,3 +93,34 @@
 2. `f9e69ad` — ci: add GitHub Actions auto-deploy to Cloudflare Workers
 3. `2974a83` — fix: add missing ClashDisplay font files
 4. `7db2a7e` — fix: bump Node to 22 for Wrangler compatibility
+
+## S6 — 2026-07-11 — FAQ Chevron, Footer Info + Mobile Responsive Pass
+
+### Goal
+Polish FAQ/footer details, then a full mobile responsiveness pass (all sections, 320–430px) with a second pass fixing typography hierarchy.
+
+### Completed
+- FAQ chevron redesign: gradient-border circle (h-9 w-9) with rotating chevron, matching brand gradient
+- Footer company info: "Nillard Ltd · 71-75 Shelton Street, London" (en + es)
+- Mobile pass 1 — layout (verified with Playwright at 320/375/390/430px):
+  - Hero: all content centered on mobile (`text-center lg:text-left`), left-aligned from `lg:`
+  - Hero H1: forced `<br>` now `hidden sm:block` — natural text flow on narrow screens
+  - Hero buttons: natural width + centered on mobile (were full-width)
+  - Meta badge: h-16 → h-20, centered on mobile
+  - Hero section: `pt-28 pb-16` on mobile so navbar never covers the pill (was tight at 320px)
+  - Button component: added `whitespace-nowrap` (navbar CTA wrapped to 2 lines at 320px)
+  - Footer: logo, tagline, links, badge, legal all centered on mobile
+- Mobile pass 2 — typography hierarchy:
+  - Hero H1 36→42px, subtitle 18→16px, pill 14→12px on mobile
+  - All 10 section H2s: 30→34px mobile base (desktop 44px unchanged)
+  - All section leads: 18→16px on mobile (`text-base md:text-lg`)
+  - Cards audited — already correct (18px serif titles / 14px body), untouched
+- Mobile menu, dark card sections, and all grids verified clean at every viewport
+
+### Decisions
+- Mobile alignment: hero + footer centered; body section headings stay left-aligned (editorial style, better readability for long leads). Why: user asked for "more centered" — applied where it reads as intentional, not blanket.
+- Mobile type scale: H1 42 → H2 34 → card titles 18 → leads 16 → body 14 → pill/labels 12. Why: at 390px the old scale (36/30/18/18/14) made H1, leads, and pill read as near-equal sizes.
+
+### Lessons
+- Multiple dev servers run locally — ConvertChat is on port 3002 (3000/3001 are other projects)
+- Playwright MCP screenshots with custom `filename` save to `.playwright-mcp/` relative to CWD; omitting filename returns the image inline (more useful for auditing)

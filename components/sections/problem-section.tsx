@@ -14,7 +14,7 @@ export function ProblemSection() {
           {/* Left — headline + lead */}
           <SectionReveal>
             <div>
-              <h2 className="font-serif text-3xl font-semibold tracking-[-0.02em] text-neutral-900 md:text-[38px] md:leading-[1.15]">
+              <h2 className="font-serif text-[34px] font-semibold leading-[1.15] tracking-[-0.02em] text-neutral-900 md:text-[38px]">
                 {t("title").split(".").map((part, i, arr) =>
                   i < arr.length - 1 ? (
                     <span key={i}>{part}<span className="text-green-500">.</span></span>

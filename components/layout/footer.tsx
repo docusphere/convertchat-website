@@ -10,15 +10,15 @@ export function Footer() {
   return (
     <footer className="border-t border-neutral-200 bg-white px-6 py-16">
       <div className="mx-auto max-w-6xl">
-        <div className="flex flex-col gap-10 md:flex-row md:justify-between">
+        <div className="flex flex-col items-center gap-10 text-center md:flex-row md:items-start md:justify-between md:text-left">
           {/* Logo + tagline */}
-          <div>
-            <img src="/logo-full-color.png" alt="ConvertChat" className="-ml-1 h-8 w-auto" />
+          <div className="flex flex-col items-center md:items-start">
+            <img src="/logo-full-color.png" alt="ConvertChat" className="h-8 w-auto md:-ml-1" />
             <p className="mt-3 max-w-xs text-sm text-neutral-500">{t("tagline")}</p>
           </div>
 
           {/* Links */}
-          <div className="flex flex-wrap items-start gap-6 text-sm text-neutral-500">
+          <div className="flex flex-wrap items-start justify-center gap-6 text-sm text-neutral-500">
             <Link href="/precios" className="transition-colors hover:text-neutral-900">
               {t("pricing")}
             </Link>
@@ -35,11 +35,11 @@ export function Footer() {
         </div>
 
         {/* Meta badge + bottom row */}
-        <div className="mt-12 flex flex-col gap-6 border-t border-neutral-200 pt-8 md:flex-row md:items-center md:justify-between">
-          <div className="flex items-center gap-4">
+        <div className="mt-12 flex flex-col items-center gap-6 border-t border-neutral-200 pt-8 md:flex-row md:justify-between">
+          <div className="flex items-center justify-center gap-4">
             <img src="/mvtp.png" alt={t("meta_partner")} className="h-16 w-auto" loading="lazy" />
           </div>
-          <div className="flex flex-col gap-1 text-xs text-neutral-400 md:flex-row md:gap-4 md:text-right">
+          <div className="flex flex-col gap-1 text-center text-xs text-neutral-400 md:flex-row md:gap-4 md:text-right">
             <p>
               &copy; {year} ConvertChat. {t("rights")}
             </p>

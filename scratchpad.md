@@ -46,4 +46,4 @@ Marketing website for ConvertChat — B2B WhatsApp lead reactivation platform. I
 - [ ] Analytics: tracking setup (Plausible, PostHog, or similar)
 - [ ] Blog: content pages (framework exists at `/[locale]/blog`)
 - [ ] Product/Pricing pages: content TBD
-- [ ] Mobile: final QA pass across breakpoints
+- [x] S6 — Mobile: final QA pass across breakpoints (320/375/390/430px, layout + type hierarchy)

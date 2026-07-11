@@ -21,10 +21,10 @@ export function IndustriesSection() {
     <section className="bg-white px-6 py-16 md:py-36">
       <div className="mx-auto max-w-6xl">
         <SectionReveal>
-          <h2 className="max-w-3xl font-serif text-3xl font-semibold tracking-[-0.02em] text-neutral-900 md:text-[44px] md:leading-[1.1]">
+          <h2 className="max-w-3xl font-serif text-[34px] font-semibold leading-[1.15] tracking-[-0.02em] text-neutral-900 md:text-[44px] md:leading-[1.1]">
             {t("title")}<span className="text-green-500">.</span>
           </h2>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-neutral-500">{t("lead")}</p>
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-neutral-500 md:text-lg">{t("lead")}</p>
         </SectionReveal>
 
         <RainbowBorder className="mt-16">

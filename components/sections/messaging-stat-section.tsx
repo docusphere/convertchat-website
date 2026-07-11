@@ -61,7 +61,7 @@ export function MessagingStatSection() {
         <div className="overflow-hidden rounded-3xl bg-neutral-900 px-8 py-16 md:px-14 md:py-24">
           {/* Headline */}
           <SectionReveal>
-            <h2 className="mx-auto max-w-xl text-center font-serif text-3xl font-semibold leading-[1.2] tracking-[-0.02em] text-white md:text-[44px] md:leading-[1.1]">
+            <h2 className="mx-auto max-w-xl text-center font-serif text-[34px] font-semibold leading-[1.2] tracking-[-0.02em] text-white md:text-[44px] md:leading-[1.1]">
               {t("callout").split(".").map((part, i, arr) =>
                 i < arr.length - 1 ? (
                   <span key={i}>{part}<span className="text-green-500">.</span></span>

@@ -52,11 +52,11 @@ export function AiAgentSection() {
                 {t("badge")}
               </span>
 
-              <h2 className="mt-5 max-w-lg font-serif text-3xl font-semibold tracking-[-0.02em] text-white md:text-[44px] md:leading-[1.1]">
+              <h2 className="mt-5 max-w-lg font-serif text-[34px] font-semibold leading-[1.15] tracking-[-0.02em] text-white md:text-[44px] md:leading-[1.1]">
                 {t("title")}<span className="text-green-500">.</span>
               </h2>
 
-              <p className="mt-6 max-w-md text-lg leading-relaxed text-white/60">{t("lead")}</p>
+              <p className="mt-6 max-w-md text-base leading-relaxed text-white/60 md:text-lg">{t("lead")}</p>
             </SectionReveal>
 
             <SectionReveal delay={0.1}>

@@ -29,7 +29,7 @@ export function Button({ variant = "primary", size = "md", className = "", ...pr
   // Design override: rounded-xl (12px) instead of spec's rounded-full (pill).
   // User explicitly rejected pill shape as looking "too AI generated."
   // Nav bar container remains pill-shaped; buttons use softer rounded-xl.
-  const classes = `inline-flex items-center justify-center rounded-xl font-sans font-semibold transition-all duration-200 cursor-pointer ${variantStyles[variant]} ${sizeStyles[size]} ${className}`;
+  const classes = `inline-flex items-center justify-center whitespace-nowrap rounded-xl font-sans font-semibold transition-all duration-200 cursor-pointer ${variantStyles[variant]} ${sizeStyles[size]} ${className}`;
 
   if ("href" in props && props.href) {
     const { href, ...rest } = props as { href: string } & AnchorHTMLAttributes<HTMLAnchorElement>;

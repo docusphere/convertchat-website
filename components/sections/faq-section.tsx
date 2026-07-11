@@ -9,16 +9,19 @@ const FAQ_KEYS = ["q1", "q2", "q3", "q4", "q5", "q6"] as const;
 
 function ChevronIcon({ open }: { open: boolean }) {
   return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 20 20"
-      fill="none"
-      className={`shrink-0 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+    <span
+      className="shrink-0 rounded-full p-px"
+      style={{ background: "linear-gradient(135deg, #22c55e, #7c3aed, #06b6d4)" }}
       aria-hidden
     >
-      <path d="M5 7.5l5 5 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
+      <span
+        className={`flex h-9 w-9 items-center justify-center rounded-full bg-neutral-900 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+      >
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M4 6l4 4 4-4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </span>
+    </span>
   );
 }
 
@@ -77,7 +80,7 @@ export function FaqSection() {
 
           <div className="relative z-10 mx-auto max-w-3xl">
             <SectionReveal>
-              <h2 className="font-serif text-3xl font-semibold tracking-[-0.02em] text-white md:text-[44px] md:leading-[1.1]">
+              <h2 className="font-serif text-[34px] font-semibold leading-[1.15] tracking-[-0.02em] text-white md:text-[44px] md:leading-[1.1]">
                 {t("title")}<span className="text-green-500">.</span>
               </h2>
             </SectionReveal>
