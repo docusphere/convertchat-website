@@ -124,3 +124,20 @@ Polish FAQ/footer details, then a full mobile responsiveness pass (all sections,
 ### Lessons
 - Multiple dev servers run locally — ConvertChat is on port 3002 (3000/3001 are other projects)
 - Playwright MCP screenshots with custom `filename` save to `.playwright-mcp/` relative to CWD; omitting filename returns the image inline (more useful for auditing)
+
+## S7 — 2026-07-11 — Smooth Scrolling (Navbar Anchors + Logo)
+
+### Goal
+Replace abrupt anchor jumps with smooth scrolling for navbar section links, and make the logo smooth-scroll back to the hero when already on the homepage.
+
+### Completed
+- `app/globals.css`: `html { scroll-behavior: smooth; scroll-padding-top: 96px }` — smooth anchor scrolling with navbar clearance, `prefers-reduced-motion` fallback to instant
+- Covers "The problem", "How it works" navbar links and the hero "See how it works" button (all `#anchor` links)
+- Navbar logo: on homepage, click intercepted → smooth-scroll to top (no re-navigation); on other pages navigates home normally; closes mobile menu if open
+- Verified with Playwright: anchor lands with 96px offset, logo scroll animated (27 samples), typecheck passes
+
+### Decisions
+- CSS `scroll-behavior` over JS scroll libraries. Why: zero-dependency, covers all anchors automatically, and `window.scrollTo({ top: 0 })` without explicit behavior inherits it (so reduced-motion is respected in one place).
+
+### Lessons
+- Turbopack dev server can serve a stale CSS chunk after editing globals.css — request the page again (or hard refresh) to trigger the rebuild before concluding a CSS change "doesn't work"

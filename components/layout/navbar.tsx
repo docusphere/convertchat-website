@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 
@@ -27,6 +27,7 @@ export function Navbar() {
   const t = useTranslations("nav");
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const check = () => setScrolled(window.scrollY > 20);
@@ -59,7 +60,19 @@ export function Navbar() {
             : "border border-white/[0.10] bg-white/[0.06]"
         }`}
       >
-        <Link href="/" className="mr-auto flex shrink-0 items-center md:mr-6">
+        <Link
+          href="/"
+          className="mr-auto flex shrink-0 items-center md:mr-6"
+          onClick={(e) => {
+            // Already on the homepage — smooth-scroll to the hero instead of re-navigating
+            if (pathname === "/") {
+              e.preventDefault();
+              setMobileOpen(false);
+              // No explicit behavior — inherits CSS scroll-behavior (smooth, respects reduced motion)
+              window.scrollTo({ top: 0 });
+            }
+          }}
+        >
           <img
             src="/logo-full-white.png"
             alt="ConvertChat"
