@@ -1,11 +1,15 @@
 "use client";
 
-import { useTranslations } from "next-intl";
-import { Link, usePathname } from "@/i18n/navigation";
+import { useLocale, useTranslations } from "next-intl";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
+import { useParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const BOOKING_URL = "https://cal.com/architct/onboarding";
+
+const LOCALE_LABELS = { en: "English", es: "Español" } as const;
+type Locale = keyof typeof LOCALE_LABELS;
 
 function MenuIcon({ className }: { className?: string }) {
   return (
@@ -20,6 +24,123 @@ function CloseIcon({ className }: { className?: string }) {
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className={className}>
       <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
+  );
+}
+
+function ChevronIcon({ className }: { className?: string }) {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className={className}>
+      <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function CheckIcon({ className }: { className?: string }) {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className={className}>
+      <path d="M5 12l5 5L19 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function LocaleSwitcher({
+  scrolled,
+  variant,
+  onNavigate,
+}: {
+  scrolled: boolean;
+  variant: "desktop" | "mobile";
+  onNavigate?: () => void;
+}) {
+  const locale = useLocale();
+  const t = useTranslations("nav");
+  const router = useRouter();
+  const pathname = usePathname();
+  const params = useParams();
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const onMouseDown = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    };
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("mousedown", onMouseDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", onMouseDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [open]);
+
+  const switchTo = (next: Locale) => {
+    setOpen(false);
+    onNavigate?.();
+    if (next === locale) return;
+    // @ts-expect-error -- params type is route-specific; next-intl maps localized pathnames at runtime
+    router.replace({ pathname, params }, { locale: next });
+  };
+
+  if (variant === "mobile") {
+    return (
+      <div className="mt-2 flex items-center justify-between border-t border-neutral-200/60 pt-3">
+        <span className="font-sans text-[15px] text-neutral-600">{t("language")}</span>
+        <div className="flex items-center gap-1">
+          {(Object.keys(LOCALE_LABELS) as Locale[]).map((l) => (
+            <button
+              key={l}
+              onClick={() => switchTo(l)}
+              className={`px-2.5 py-1.5 font-sans text-[15px] transition-colors ${
+                l === locale ? "font-medium text-neutral-900" : "text-neutral-400 hover:text-neutral-600"
+              }`}
+            >
+              {l.toUpperCase()}
+            </button>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div ref={ref} className="relative">
+      <button
+        onClick={() => setOpen(!open)}
+        aria-label={t("language")}
+        aria-expanded={open}
+        aria-haspopup="listbox"
+        className={`flex items-center gap-1 px-2.5 py-2 font-sans text-[15px] transition-colors ${
+          scrolled ? "text-neutral-500 hover:text-neutral-900" : "text-white/55 hover:text-white/80"
+        }`}
+      >
+        {locale.toUpperCase()}
+        <ChevronIcon className={`transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
+      </button>
+      <div
+        className={`absolute right-0 top-full mt-2 w-40 rounded-xl border border-neutral-200/80 bg-white/95 py-1.5 shadow-lg backdrop-blur-[20px] transition-all duration-200 ${
+          open ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-1 opacity-0"
+        }`}
+        role="listbox"
+      >
+        {(Object.keys(LOCALE_LABELS) as Locale[]).map((l) => (
+          <button
+            key={l}
+            onClick={() => switchTo(l)}
+            role="option"
+            aria-selected={l === locale}
+            className={`flex w-full items-center justify-between px-4 py-2 text-left font-sans text-[15px] transition-colors ${
+              l === locale ? "text-neutral-900" : "text-neutral-500 hover:text-neutral-900"
+            }`}
+          >
+            {LOCALE_LABELS[l]}
+            {l === locale && <CheckIcon className="text-neutral-900" />}
+          </button>
+        ))}
+      </div>
+    </div>
   );
 }
 
@@ -62,7 +183,7 @@ export function Navbar() {
       >
         <Link
           href="/"
-          className="mr-auto flex shrink-0 items-center md:mr-6"
+          className="mr-auto flex shrink-0 items-center lg:mr-6"
           onClick={(e) => {
             // Already on the homepage — smooth-scroll to the hero instead of re-navigating
             if (pathname === "/") {
@@ -90,13 +211,13 @@ export function Navbar() {
         </Link>
 
         {/* Desktop nav links */}
-        <div className="hidden flex-1 items-center justify-center gap-1 md:flex">
+        <div className="hidden flex-1 items-center justify-center gap-1 lg:flex">
           {navLinks.map((link) =>
             link.href.startsWith("#") ? (
               <a
                 key={link.href}
                 href={link.href}
-                className={`px-3.5 py-2 font-sans text-[15px] transition-colors ${
+                className={`whitespace-nowrap px-3.5 py-2 font-sans text-[15px] transition-colors ${
                   scrolled ? "text-neutral-500 hover:text-neutral-900" : "text-white/55 hover:text-white/80"
                 }`}
               >
@@ -106,7 +227,7 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href as "/precios" | "/blog"}
-                className={`px-3.5 py-2 font-sans text-[15px] transition-colors ${
+                className={`whitespace-nowrap px-3.5 py-2 font-sans text-[15px] transition-colors ${
                   scrolled ? "text-neutral-500 hover:text-neutral-900" : "text-white/55 hover:text-white/80"
                 }`}
               >
@@ -117,14 +238,15 @@ export function Navbar() {
         </div>
 
         {/* Desktop CTA */}
-        <div className="hidden items-center gap-2.5 md:flex">
+        <div className="hidden items-center gap-2.5 lg:flex">
+          <LocaleSwitcher scrolled={scrolled} variant="desktop" />
           <Button variant="primary" size="md" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
             {t("cta")}
           </Button>
         </div>
 
         {/* Mobile CTA + hamburger */}
-        <div className="flex items-center gap-2 md:hidden">
+        <div className="flex items-center gap-2 lg:hidden">
           <Button variant="primary" size="sm" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
             {t("cta")}
           </Button>
@@ -142,8 +264,8 @@ export function Navbar() {
 
       {/* Mobile dropdown */}
       <div
-        className={`mt-2 overflow-hidden rounded-2xl border border-neutral-200/80 bg-white/95 backdrop-blur-[20px] transition-all duration-300 md:hidden ${
-          mobileOpen ? "max-h-80 opacity-100 shadow-lg" : "max-h-0 border-transparent opacity-0"
+        className={`mt-2 overflow-hidden rounded-2xl border border-neutral-200/80 bg-white/95 backdrop-blur-[20px] transition-all duration-300 lg:hidden ${
+          mobileOpen ? "max-h-96 opacity-100 shadow-lg" : "max-h-0 border-transparent opacity-0"
         }`}
       >
         <div className="flex flex-col px-5 py-4">
@@ -168,6 +290,7 @@ export function Navbar() {
               </Link>
             ),
           )}
+          <LocaleSwitcher scrolled={scrolled} variant="mobile" onNavigate={() => setMobileOpen(false)} />
         </div>
       </div>
     </nav>

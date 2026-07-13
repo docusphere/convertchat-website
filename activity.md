@@ -173,3 +173,29 @@ Replace the static before/after cards reveal with a scroll-linked animation: gre
 
 ### Parked (user decision)
 - Login page with shared-PIN velvet-rope gate (env var, cookie skip, wrong PIN → book-a-call CTA) + navbar EN/ES dropdown — after pricing/product pages are finished
+
+## S9 — 2026-07-13 — Locale Switcher + English Default
+
+### Goal
+Switch the default locale from Spanish to English (international audience) and add an EN/ES language switcher to the navbar. Full flow: brainstorm → spec (2 review passes) → plan (reviewed) → inline execution.
+
+### Completed
+- `i18n/routing.ts`: `defaultLocale: "en"` + `localeCookie: { maxAge: 1 year }` (default NEXT_LOCALE cookie is session-only). Pathname keys stay Spanish-named (internal identifiers)
+- URL structure flipped: English unprefixed (`/`, `/pricing`, `/product`…), Spanish under `/es/...`
+- `next.config.ts`: 5 permanent redirects for legacy unprefixed Spanish URLs (`/precios` → `/es/precios`, etc.) — all verified 308
+- `app/sitemap.ts`: flipped to English-unprefixed / Spanish-prefixed entries
+- Localized metadata: `generateMetadata` in `app/[locale]/layout.tsx` reusing the orphaned `metadata` i18n namespace (proper SEO titles); root layout keeps minimal fallback
+- `LocaleSwitcher` in `navbar.tsx`: desktop `EN ⌄` dropdown (check on active, closes on outside click/Escape/selection), mobile "Language — EN · ES" row in hamburger menu (closes menu on switch); `nav.language` keys added (en/es)
+- Switching maps localized pathnames via `router.replace({ pathname, params }, { locale })` — `/pricing` ⇄ `/es/precios` verified both directions
+- Verified with Playwright: cookie persists 1 year (expires 2027-07), `/` → `/es` after choosing ES, meta descriptions per locale, sitemap URLs, 320/390/768/1024/1280 clean, typecheck passes
+
+### Decisions
+- Default locale English. Why: audience mostly international; Spanish speakers auto-detected via Accept-Language and redirected to `/es` by next-intl middleware.
+- Navbar full-nav breakpoint moved `md` → `lg` (tablets 768–1023 get hamburger). Why: Spanish nav + switcher + CTA overflowed the bar by 76px at 768; production was already wrapping there before this change. Spanish text simply doesn't fit at md widths.
+
+### Bugs Fixed
+- Pre-existing: navbar wrapped/overflowed at 768px on production (Spanish links + CTA). Fixed by the `lg` breakpoint move; verified no overflow at 768 (hamburger) and 1024+ (full nav) in both locales.
+
+### Lessons
+- Desktop navbar's natural height is 80.5px (md Button is 50.5px tall) — don't assume ~66px when diagnosing wrap; compare against 1280px baseline
+- next-intl with cookie set redirects unprefixed paths to the preferred locale's path (e.g. `/pricing` → `/es/precios` when NEXT_LOCALE=es) — expected detection behavior, not a bug

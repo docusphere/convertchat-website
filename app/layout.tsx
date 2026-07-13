@@ -6,14 +6,16 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "ConvertChat",
-  description: "Convierte leads en ventas por WhatsApp",
 };
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
   const locale = await getLocale();
 
   return (
-    <html lang={locale} className={`${newsreader.variable} ${clashDisplay.variable} ${satoshi.variable} h-full antialiased`}>
+    <html
+      lang={locale}
+      className={`${newsreader.variable} ${clashDisplay.variable} ${satoshi.variable} h-full antialiased`}
+    >
       <body className="min-h-full flex flex-col font-sans">{children}</body>
     </html>
   );

@@ -2,8 +2,10 @@ import { defineRouting } from "next-intl/routing";
 
 export const routing = defineRouting({
   locales: ["es", "en"],
-  defaultLocale: "es",
+  defaultLocale: "en",
   localePrefix: "as-needed",
+  // Persist the visitor's language choice for a year (default cookie is session-only)
+  localeCookie: { maxAge: 60 * 60 * 24 * 365 },
   pathnames: {
     "/": "/",
     "/producto": {

@@ -43,7 +43,7 @@ Marketing website for ConvertChat — B2B WhatsApp lead reactivation platform. I
 
 ### Pending
 - [ ] Login page — shared-PIN velvet-rope gate → web.convertchat.co (parked, decisions in activity.md S8)
-- [ ] Navbar EN/ES language dropdown (parked with login page)
+- [x] S9 — Navbar EN/ES language dropdown + English default locale (redirects, sitemap, localized metadata)
 - [ ] Fix 320px horizontal overflow (hero H2 + rainbow-border card, pre-existing)
 - [ ] Fix HeroPhone hydration warning under reduced motion (pre-existing)
 - [ ] Add .prettierrc (printWidth 120) — repo has none, CLAUDE.md documents it
