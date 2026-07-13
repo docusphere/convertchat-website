@@ -141,3 +141,35 @@ Replace abrupt anchor jumps with smooth scrolling for navbar section links, and 
 
 ### Lessons
 - Turbopack dev server can serve a stale CSS chunk after editing globals.css — request the page again (or hard refresh) to trigger the rebuild before concluding a CSS change "doesn't work"
+
+## S8 — 2026-07-13 — Before/After Scroll Stack (Manychat-style)
+
+### Goal
+Replace the static before/after cards reveal with a scroll-linked animation: green "With ConvertChat" card slides over the gray "Without ConvertChat" card, rainbow scribble draws around the green headline. Full superpowers flow: brainstorm (visual prototype) → spec → plan → subagent-driven execution.
+
+### Completed
+- Rewrote `before-after-section.tsx`: 250vh section + sticky stage, Framer Motion useScroll/useTransform (fully scrubbed, reversible)
+- Timeline: card travel eased over progress 0→0.75, SVG scribble draws 0.75→1 (pathLength=1 dashoffset trick)
+- Percentage-based transforms (`-50% - gap/2`) — no element measurement, correct at every viewport width
+- Mobile (<md): green card slides up from `translateY(100% + 20svh)` over the gray card; desktop slides horizontally with ~2.5° tilt mid-flight
+- Reduced motion: static final composition, normal section height (verified via CDP emulation)
+- Verified with Playwright: 1280×800, 1280×700, 390/320/430 mobile, reverse scrub, surrounding sections, es + en
+- Performance measured: ~115 FPS dev, ~107 FPS prod build (transform/opacity only, no re-renders during scroll)
+
+### Decisions
+- Scribble draws OVER the headline text (matches approved prototype); pastel gradient stops (#a7f3d0 → #c4b5fd → #67e8f9) because full-saturation brand colors disappear on primary-500
+- `overflow-x: clip` on the sticky stage (not `overflow: hidden`) — clips horizontal tilt spill without vertically cutting cards on short viewports
+- `useIsDesktop` defaults true for SSR; section is below the fold so pre-hydration frame never visible
+
+### Bugs Fixed
+- `useReducedMotion` returns null on SSR but true on first client render → hydration mismatch; fixed with mounted gate
+- Spanish copy clipped the green card's button at 390px (card height was pinned to shorter gray card via `h-full`); fixed with `grid min-h-full` on the mobile wrapper
+- Green card mid-flight tilt spilled horizontally → stage `overflow-x: clip`
+
+### Lessons
+- No `.prettierrc` exists despite CLAUDE.md documenting printWidth 120 — bare `npx prettier` formats at 80 cols; pass `--print-width 120` explicitly (or add the config file)
+- Spanish strings are ~10% longer — always spot-check `/es` at mobile widths when card heights are coupled
+- Port 3003 is occupied by another local project (3000/3001/3002 also taken); use 3005+ for ad-hoc prod servers
+
+### Parked (user decision)
+- Login page with shared-PIN velvet-rope gate (env var, cookie skip, wrong PIN → book-a-call CTA) + navbar EN/ES dropdown — after pricing/product pages are finished

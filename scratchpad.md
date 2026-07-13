@@ -13,6 +13,7 @@ Marketing website for ConvertChat — B2B WhatsApp lead reactivation platform. I
 - [x] S4 — Stats Redesign (Clash Display font, editorial layout, count-up)
 - [x] S1 — Problem Section (before/after cards, RainbowBorder)
 - [x] S1 — Before/After Section (detailed comparison)
+- [x] S8 — Before/After Scroll Stack (Manychat-style scrubbed animation + rainbow scribble)
 - [x] S1 — How It Works (4-step cards with gradient glass icons)
 - [x] S3 — Card Icons (Lucide SVGs on gradient glass pills)
 - [x] S1 — AI Agent Section (dark card, outcome-first positioning)
@@ -41,6 +42,11 @@ Marketing website for ConvertChat — B2B WhatsApp lead reactivation platform. I
 - [x] S5 — Production live at https://convertchat.co
 
 ### Pending
+- [ ] Login page — shared-PIN velvet-rope gate → web.convertchat.co (parked, decisions in activity.md S8)
+- [ ] Navbar EN/ES language dropdown (parked with login page)
+- [ ] Fix 320px horizontal overflow (hero H2 + rainbow-border card, pre-existing)
+- [ ] Fix HeroPhone hydration warning under reduced motion (pre-existing)
+- [ ] Add .prettierrc (printWidth 120) — repo has none, CLAUDE.md documents it
 - [ ] Hero Phone upgrade — 3D floating component (via 21st.dev Magic MCP)
 - [ ] SEO: Open Graph images, meta descriptions per page
 - [ ] Analytics: tracking setup (Plausible, PostHog, or similar)
