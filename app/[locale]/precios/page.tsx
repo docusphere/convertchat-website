@@ -1,27 +1,28 @@
-"use client";
+import type { Metadata } from "next";
+import { setRequestLocale, getTranslations } from "next-intl/server";
+import { PricingTiers } from "@/components/sections/pricing-tiers";
+import { PricingAiAddon } from "@/components/sections/pricing-ai-addon";
+import { PricingCosts } from "@/components/sections/pricing-costs";
+import { PricingFaq } from "@/components/sections/pricing-faq";
+import { CtaSection } from "@/components/sections/cta-section";
 
-import { useTranslations } from "next-intl";
-import { Button } from "@/components/ui/button";
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "pricing" });
+  return { title: t("metaTitle") };
+}
 
-const BOOKING_URL = "https://cal.com/architct/onboarding";
-
-export default function PricingPage() {
-  const t = useTranslations("pricing");
+export default async function PricingPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
 
   return (
-    <section className="flex min-h-[70vh] items-center justify-center bg-neutral-50 px-6 py-24">
-      <div className="mx-auto max-w-2xl text-center">
-        <h1 className="font-serif text-4xl font-normal tracking-[-0.03em] text-neutral-700 md:text-5xl">
-          {t("title")}
-        </h1>
-        <p className="mt-4 text-lg text-neutral-500">{t("comingSoon")}</p>
-        <p className="mt-2 text-sm text-neutral-400">{t("ctaSub")}</p>
-        <div className="mt-8">
-          <Button variant="primary" size="lg" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
-            {t("cta")}
-          </Button>
-        </div>
-      </div>
-    </section>
+    <>
+      <PricingTiers />
+      <PricingAiAddon />
+      <PricingCosts />
+      <PricingFaq />
+      <CtaSection />
+    </>
   );
 }
