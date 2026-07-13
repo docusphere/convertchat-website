@@ -231,24 +231,53 @@
         "persona": "Para quien trabaja solo",
         "price": "€49",
         "period": "/mes",
-        "allowances": { "a1": "1.000 contactos", "a2": "500 mensajes de campaña de WhatsApp al mes", "a3": "3.000 emails al mes" },
-        "features": { "f1": "1 número de WhatsApp", "f2": "Bandeja de entrada compartida", "f3": "Estadísticas de campañas", "f4": "Soporte por email" }
+        "allowances": {
+          "a1": "1.000 contactos",
+          "a2": "500 mensajes de campaña de WhatsApp al mes",
+          "a3": "3.000 emails al mes"
+        },
+        "features": {
+          "f1": "1 número de WhatsApp",
+          "f2": "Bandeja de entrada compartida",
+          "f3": "Estadísticas de campañas",
+          "f4": "Soporte por email"
+        }
       },
       "growth": {
         "name": "Growth",
         "persona": "Para negocios en crecimiento",
         "price": "€99",
         "period": "/mes",
-        "allowances": { "a1": "5.000 contactos", "a2": "2.000 mensajes de campaña de WhatsApp al mes", "a3": "10.000 emails al mes" },
-        "features": { "f1": "1 número de WhatsApp", "f2": "Bandeja de entrada compartida", "f3": "Analítica de embudo completa", "f4": "Soporte prioritario", "f5": "Agente IA disponible (+€49/mes)" }
+        "allowances": {
+          "a1": "5.000 contactos",
+          "a2": "2.000 mensajes de campaña de WhatsApp al mes",
+          "a3": "10.000 emails al mes"
+        },
+        "features": {
+          "f1": "1 número de WhatsApp",
+          "f2": "Bandeja de entrada compartida",
+          "f3": "Analítica de embudo completa",
+          "f4": "Soporte prioritario",
+          "f5": "Agente IA disponible (+€49/mes)"
+        }
       },
       "pro": {
         "name": "Pro",
         "persona": "Para grandes volúmenes",
         "price": "€199",
         "period": "/mes",
-        "allowances": { "a1": "25.000 contactos (más bajo petición)", "a2": "10.000 mensajes de campaña de WhatsApp al mes", "a3": "50.000 emails al mes" },
-        "features": { "f1": "1 número de WhatsApp (más bajo petición)", "f2": "Bandeja de entrada compartida", "f3": "Analítica de embudo completa", "f4": "Onboarding dedicado", "f5": "Agente IA disponible (+€49/mes)" }
+        "allowances": {
+          "a1": "25.000 contactos (más bajo petición)",
+          "a2": "10.000 mensajes de campaña de WhatsApp al mes",
+          "a3": "50.000 emails al mes"
+        },
+        "features": {
+          "f1": "1 número de WhatsApp (más bajo petición)",
+          "f2": "Bandeja de entrada compartida",
+          "f3": "Analítica de embudo completa",
+          "f4": "Onboarding dedicado",
+          "f5": "Agente IA disponible (+€49/mes)"
+        }
       }
     },
     "enterprise": {
