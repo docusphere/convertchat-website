@@ -247,7 +247,7 @@
         "persona": "Para grandes volúmenes",
         "price": "€199",
         "period": "/mes",
-        "allowances": { "a1": "25.000 contactos", "a2": "10.000 mensajes de campaña de WhatsApp al mes", "a3": "50.000 emails al mes" },
+        "allowances": { "a1": "25.000 contactos (más bajo petición)", "a2": "10.000 mensajes de campaña de WhatsApp al mes", "a3": "50.000 emails al mes" },
         "features": { "f1": "1 número de WhatsApp (más bajo petición)", "f2": "Bandeja de entrada compartida", "f3": "Analítica de embudo completa", "f4": "Onboarding dedicado", "f5": "Agente IA disponible (+€49/mes)" }
       }
     },
