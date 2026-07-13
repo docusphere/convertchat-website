@@ -199,3 +199,26 @@ Switch the default locale from Spanish to English (international audience) and a
 ### Lessons
 - Desktop navbar's natural height is 80.5px (md Button is 50.5px tall) — don't assume ~66px when diagnosing wrap; compare against 1280px baseline
 - next-intl with cookie set redirects unprefixed paths to the preferred locale's path (e.g. `/pricing` → `/es/precios` when NEXT_LOCALE=es) — expected detection behavior, not a bug
+
+## S10 — 2026-07-13 — Privacy Policy & Terms of Service Pages + Navbar Solid Fix
+
+### Goal
+Replace the placeholder privacy/terms pages with the real legal documents (source drafts in `docs/privacy_and_terms/`), translated to Spanish, in a nicely formatted article layout.
+
+### Completed
+- `content/legal/{en,es}/{privacy,terms}.mdx` — 4 content files with frontmatter (title, effectiveDate). Privacy: 18 sections + Cookie Policy appendix (A1–A8). Terms: 17 sections + contact
+- `lib/legal.ts` — static-import registry + gray-matter parsing (same pattern as `lib/blog.ts`), falls back to English for unknown locales
+- `components/legal/legal-article.tsx` — custom ~90-line renderer for the markdown subset used (## / ### headings, bullet lists, **bold**, auto-linkified URLs/emails); no new dependency
+- Rewrote `app/[locale]/privacidad/page.tsx` + `app/[locale]/terminos/page.tsx`: localized `generateMetadata`, `bg-neutral-50` article layout with `pt-36` to clear the fixed navbar
+- Navbar fix: solid style (white card, dark links) forced on all non-home pages via `solid = scrolled || pathname !== "/"` — was white-on-white/invisible on light interior pages (pre-existing, affected blog too)
+- Logo transition preserved on interior pages: full color logo at top → small icon on scroll (homepage keeps full white logo over dark hero)
+- Verified with Playwright: all 4 pages at 1280 + 390 (no overflow), localized titles, footer links, navbar top/scrolled states, homepage transparency intact; typecheck passes
+
+### Decisions
+- Per-locale content files (blog pattern), NOT messages JSON. Why: long-form documents don't belong in i18n string files; gray-matter + raw mdx import infra already existed
+- Custom minimal renderer instead of react-markdown. Why: controlled content subset, avoids a dependency (stdlib-over-deps preference)
+- Editorial cleanups vs source drafts: placeholders resolved (NILLARD LTD trading as ConvertChat; England & Wales jurisdiction), effective date set to January 1st 2026, cookie policy aligned with reality (no GA/banner on the site; NEXT_LOCALE cookie listed)
+
+### Lessons
+- Spanish legal translations are machine-made, not lawyer-reviewed — flag for legal review before serious traffic
+- The unscrolled transparent navbar assumed a dark hero; any new light-background route needs the solid variant (now automatic via pathname check)

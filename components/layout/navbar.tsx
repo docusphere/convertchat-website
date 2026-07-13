@@ -149,6 +149,9 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
+  // Transparent white-text navbar only works over the homepage's dark hero;
+  // every other page has a light background, so force the solid style there.
+  const solid = scrolled || pathname !== "/";
 
   useEffect(() => {
     const check = () => setScrolled(window.scrollY > 20);
@@ -176,7 +179,7 @@ export function Navbar() {
     <nav className="fixed left-4 right-4 top-4 z-50 mx-auto max-w-6xl">
       <div
         className={`flex items-center gap-2 rounded-2xl px-5 py-3 pr-3 backdrop-blur-[20px] transition-all duration-300 md:px-7 md:py-3.5 md:pr-3.5 ${
-          scrolled || mobileOpen
+          solid || mobileOpen
             ? "border border-neutral-200/80 bg-white/85 shadow-sm"
             : "border border-white/[0.10] bg-white/[0.06]"
         }`}
@@ -195,7 +198,7 @@ export function Navbar() {
           }}
         >
           <img
-            src="/logo-full-white.png"
+            src={pathname === "/" ? "/logo-full-white.png" : "/logo-full-color.png"}
             alt="ConvertChat"
             className={`h-7 w-auto transition-all duration-300 md:h-8 ${
               scrolled || mobileOpen ? "max-w-0 opacity-0" : "max-w-[160px] opacity-100 md:max-w-[180px]"
@@ -218,7 +221,7 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={`whitespace-nowrap px-3.5 py-2 font-sans text-[15px] transition-colors ${
-                  scrolled ? "text-neutral-500 hover:text-neutral-900" : "text-white/55 hover:text-white/80"
+                  solid ? "text-neutral-500 hover:text-neutral-900" : "text-white/55 hover:text-white/80"
                 }`}
               >
                 {link.label}
@@ -228,7 +231,7 @@ export function Navbar() {
                 key={link.href}
                 href={link.href as "/precios" | "/blog"}
                 className={`whitespace-nowrap px-3.5 py-2 font-sans text-[15px] transition-colors ${
-                  scrolled ? "text-neutral-500 hover:text-neutral-900" : "text-white/55 hover:text-white/80"
+                  solid ? "text-neutral-500 hover:text-neutral-900" : "text-white/55 hover:text-white/80"
                 }`}
               >
                 {link.label}
@@ -239,7 +242,7 @@ export function Navbar() {
 
         {/* Desktop CTA */}
         <div className="hidden items-center gap-2.5 lg:flex">
-          <LocaleSwitcher scrolled={scrolled} variant="desktop" />
+          <LocaleSwitcher scrolled={solid} variant="desktop" />
           <Button variant="primary" size="md" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
             {t("cta")}
           </Button>
@@ -253,7 +256,7 @@ export function Navbar() {
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className={`flex h-9 w-9 items-center justify-center rounded-lg transition-colors ${
-              scrolled || mobileOpen ? "text-neutral-600 hover:bg-neutral-100" : "text-white/70 hover:bg-white/10"
+              solid || mobileOpen ? "text-neutral-600 hover:bg-neutral-100" : "text-white/70 hover:bg-white/10"
             }`}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
           >
@@ -290,7 +293,7 @@ export function Navbar() {
               </Link>
             ),
           )}
-          <LocaleSwitcher scrolled={scrolled} variant="mobile" onNavigate={() => setMobileOpen(false)} />
+          <LocaleSwitcher scrolled={solid} variant="mobile" onNavigate={() => setMobileOpen(false)} />
         </div>
       </div>
     </nav>

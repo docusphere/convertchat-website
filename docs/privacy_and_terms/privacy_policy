@@ -1,0 +1,410 @@
+Effective Date: January 1st 2026
+
+
+
+This Privacy Policy explains how NILLARD LTD trading as ConvertChat (“we”, “us”, “Provider”) collects, uses, discloses, and stores personal data when you use our website, product, or services.
+
+
+
+1. Data We Collect
+
+a. Account & Contact Data: name, email, business name, phone, billing address.
+b. Customer / Lead Data: WhatsApp identifiers, messages, phone numbers, chat content, booking times, order values.
+c. Usage Data: app telemetry, logs, IP addresses, device/browser metadata.
+d. Payment Data: billing details processed by Stripe or payment providers (we do not store full card numbers).
+e. Support Data: emails, call transcripts, chat logs used for support.
+
+
+
+2a. How We Collect Data
+
+Directly from you (forms, account creation, onboarding).
+
+From integrations (Shopify, Stripe, Calendly) when you connect them.
+
+Automatically via the app (logs, analytics).
+
+From third parties you authorize (BSPs, AI vendors).
+
+
+
+2b. Consent & Opt-In Requirements
+
+WhatsApp messaging requires consent from end-users. As a ConvertChat customer,
+you are responsible for:
+
+Obtaining appropriate consent before messaging leads/customers via WhatsApp
+
+Maintaining records of consent (opt-in source, timestamp)
+
+Honoring opt-out requests promptly
+
+ConvertChat provides tools to help you manage consent:
+
+Opt-in tracking fields on contacts
+
+Automated opt-out handling (when users say "stop" or "unsubscribe")
+
+Consent audit logs
+
+We do not send unsolicited messages on your behalf. All outbound messages
+are initiated by you or your configured automations.
+
+
+
+3. How We Use Data (Purposes)
+
+Provide and maintain the Services (message routing, follow-ups, Kanban).
+
+Onboarding & configuration (connect WhatsApp, submit templates).
+
+Billing and fraud prevention.
+
+Improve and develop features, analytics.
+
+Customer support and dispute resolution.
+
+Legal compliance and safety (abuse prevention).
+
+
+
+4. Lawful Basis (where applicable)
+
+Performance of contract (to deliver Services).
+
+Legitimate interests (product improvement, fraud prevention) — balanced against privacy rights.
+
+Consent (where required for marketing or certain messaging).
+
+Legal obligation.
+
+
+
+5a. Disclosure & Third Parties
+
+We share personal data with:
+
+WhatsApp / Meta (WABA / BSP) and BSP providers to send/receive messages.
+
+Payment processors (Stripe, PayPal).
+
+AI and LLM providers (for optional AI features).
+
+Hosting providers (AWS, Vercel, etc.).
+
+Legal/financial advisors where required.
+We require subprocessors to implement appropriate security and only process data per our instructions.
+
+
+
+5b. WhatsApp Business Platform
+
+We use the WhatsApp Business Platform (provided by Meta) to enable messaging
+between you and your customers. When you connect your WhatsApp Business Account
+to ConvertChat:
+
+We access your WhatsApp Business Account ID, phone number(s), and message templates
+
+We send and receive messages on your behalf via the WhatsApp Cloud API
+
+Message content is processed to deliver our Services (routing, AI responses, follow-ups)
+
+We sync message templates from Meta for your use
+
+WhatsApp/Meta may process data according to their own privacy policies:
+
+WhatsApp Privacy Policy: https://www.whatsapp.com/legal/privacy-policy
+
+Meta Platform Terms: https://www.facebook.com/terms.php
+
+We act as a data processor on your behalf when handling WhatsApp messages.
+You remain responsible for obtaining appropriate consent from your end-users
+before messaging them via WhatsApp.
+
+
+
+5c. Key Subprocessors
+
+We use the following third-party service providers (subprocessors) to deliver our Services:
+
+Meta / WhatsApp – Message delivery via WhatsApp Business API (USA/Ireland)
+
+OpenAI – AI response generation and embeddings (USA)
+
+Stripe – Payment processing (USA)
+
+Amazon Web Services – Cloud hosting and data storage (EU-West-1 / Ireland)
+
+Vercel – Application hosting (USA)
+
+SendGrid – Transactional emails (USA)
+
+We maintain an up-to-date list of subprocessors. You will be notified of material changes to this list via email or in-app notification.
+
+
+
+6. International Transfers
+
+Third parties or hosts may be outside your country. We will use standard contractual protections (SCCs) or other lawful mechanisms for transfers.
+
+
+
+7. Data Retention
+
+We retain interaction logs and lead data for 90 days by default for troubleshooting and analytics, then anonymize or delete unless you request otherwise or contractual/legal retention obligations require longer. Billing records retained per tax rules.
+
+
+
+8. Your Rights
+
+Depending on your jurisdiction you may have rights to: access, rectify, erase, restrict processing, data portability, object to processing, or withdraw consent. To exercise rights contact contact@nillard.com. We will respond within applicable legal timelines.
+
+
+
+9. Security
+
+We implement reasonable technical and organizational measures (encryption in transit, access controls, backups). No system is 100% secure — report incidents to contact@nillard.com.
+
+
+
+10. Cookies & Tracking
+
+We use cookies and analytics (Google Analytics, etc.) for performance and usage tracking. You can manage cookie preferences via our cookie banner. For detailed cookie list see Appendix A below.
+
+
+
+11. Children
+
+Services are not intended for children under 16 (or applicable age). We do not knowingly collect data from children.
+
+
+
+12. Changes to Policy
+
+We may update this Policy. We’ll post the new version with an updated Effective Date. For material changes we’ll notify active customers.
+
+
+
+13. Contact
+
+Data Controller: NILLARD LTD trading as CONVERTCHAT
+Email: contact@nillard.com
+Address: 71-75 Shelton Street, Covent Garden, London, United Kingdom
+
+
+
+14. Artificial Intelligence & Automated Processing
+
+ConvertChat uses AI-powered features including:
+
+a. AI Agent Responses: We use large language models (LLMs) provided by OpenAI
+to generate automated responses to customer messages. These responses are
+based on your knowledge base content and conversation history.
+
+b. Lead Qualification: AI may analyze conversations to suggest lead status
+changes or qualification scores.
+
+c. Follow-up Generation: AI may draft follow-up messages based on conversation context.
+
+d. Voice Transcription: If enabled, voice messages are transcribed using AI
+speech-to-text services.
+
+How AI data is handled:
+
+Customer messages are sent to OpenAI's API for processing
+
+OpenAI acts as our subprocessor and does NOT train models on your data (per their API terms)
+
+AI outputs are suggestions - you control whether they are sent
+
+You can disable AI features at any time per inbox
+
+Automated decision-making:
+
+AI does not make fully automated decisions with legal or significant effects
+without human review
+
+You can request human review of any AI-assisted decision
+
+AI handoff to human agents can be triggered by customers saying
+"speak to a human" or similar phrases
+
+For questions about AI processing, contact contact@nillard.com
+
+
+
+
+
+15.Data Processing Agreement
+
+For customers who require a Data Processing Agreement (DPA) for GDPR or
+other compliance purposes, we offer a standard DPA that covers:
+
+Our role as data processor
+
+Your role as data controller
+
+Technical and organizational security measures
+
+Subprocessor obligations
+
+Data subject rights assistance
+
+Breach notification procedures
+
+To request our DPA, contact contact@nillard.com
+
+
+
+
+
+
+
+APPENDIX A: COOKIE POLICY
+
+
+
+Effective Date: January 1st, 2026
+
+This Cookie Policy explains how NILLARD LTD trading as ConvertChat ("we", "us") uses cookies and similar technologies when you visit our website or use our services.
+
+
+
+1. What Are Cookies?
+
+Cookies are small text files stored on your device (computer, tablet, or mobile) when you visit a website. They help websites remember your preferences, understand how you use the site, and improve your experience.
+
+
+
+2. Types of Cookies We Use
+
+a. Strictly Necessary Cookies
+
+These cookies are essential for the website to function properly. They enable core features like security, authentication, and session management. You cannot opt out of these cookies.
+
+Examples:
+
+Session cookies to keep you logged in
+
+Security cookies to prevent fraud
+
+Load balancing cookies
+
+b. Performance & Analytics Cookies
+
+These cookies help us understand how visitors use our website by collecting anonymous usage data. This helps us improve the site's performance and user experience.
+
+Examples:
+
+Google Analytics (ga, _gid, _gat)
+
+Usage patterns and page views
+
+Error tracking
+
+c. Functionality Cookies
+
+These cookies remember your preferences and choices (such as language or region) to provide a more personalized experience.
+
+Examples:
+
+Language preferences
+
+Dashboard layout preferences
+
+Theme settings (light/dark mode)
+
+d. Marketing Cookies (if applicable)
+
+We may use these cookies to deliver relevant advertisements and track marketing campaign effectiveness. Currently, we do not use marketing cookies, but this may change in the future.
+
+
+
+3. Cookies We Use
+
+Strictly Necessary:
+
+_chatwoot_session – Session management – Duration: Session
+
+cw_conversation – Conversation state – Duration: Session
+
+auth_token – Authentication – Duration: 30 days
+
+Analytics:
+
+_ga – Google Analytics (user identification) – Duration: 2 years
+
+_gid – Google Analytics (session identification) – Duration: 24 hours
+
+_gat – Google Analytics (rate limiting) – Duration: 1 minute
+
+Functionality:
+
+user_preferences – UI preferences – Duration: 1 year
+
+locale – Language setting – Duration: 1 year
+
+
+
+4. Third-Party Cookies
+
+Some cookies are placed by third-party services that appear on our pages:
+
+Google Analytics – Website analytics – Privacy Policy: https://policies.google.com/privacy
+
+Stripe – Payment processing (when applicable) – Privacy Policy: https://stripe.com/privacy
+
+Intercom/Support Widget (if used) – Customer support – Privacy Policy
+
+
+
+5. How to Manage Cookies
+
+Cookie Banner:
+
+When you first visit our website, you will see a cookie banner that allows you to accept or customize your cookie preferences.
+
+Browser Settings:
+
+You can also manage cookies through your browser settings:
+
+Chrome: Settings → Privacy and Security → Cookies
+
+Firefox: Settings → Privacy & Security → Cookies
+
+Safari: Preferences → Privacy → Cookies
+
+Edge: Settings → Cookies and Site Permissions
+
+Opt-Out Links:
+
+Google Analytics Opt-Out: https://tools.google.com/dlpage/gaoptout
+
+Please note that blocking some cookies may affect your experience and the functionality of our services.
+
+
+
+6. Do Not Track
+
+Some browsers have a "Do Not Track" (DNT) feature. We currently do not respond to DNT signals, but you can manage your preferences using the methods described above.
+
+
+
+7. Updates to This Policy
+
+We may update this Cookie Policy from time to time. Changes will be posted on this page with an updated effective date.
+
+
+
+8. Contact Us
+
+If you have questions about our use of cookies, contact us at:
+
+Email: contact@nillard.com
+
+Address: 71-75 Shelton Street, Covent Garden, London, United Kingdom
+
+
+
+
+

@@ -50,6 +50,8 @@ Marketing website for ConvertChat — B2B WhatsApp lead reactivation platform. I
 - [ ] Hero Phone upgrade — 3D floating component (via 21st.dev Magic MCP)
 - [ ] SEO: Open Graph images, meta descriptions per page
 - [ ] Analytics: tracking setup (Plausible, PostHog, or similar)
+- [x] S10 — Privacy Policy & Terms pages (en + es content, legal article renderer, navbar solid fix on interior pages)
+- [ ] Spanish legal texts: lawyer review (S10 translations are machine-made)
 - [ ] Blog: content pages (framework exists at `/[locale]/blog`)
 - [ ] Product/Pricing pages: content TBD
 - [x] S6 — Mobile: final QA pass across breakpoints (320/375/390/430px, layout + type hierarchy)
