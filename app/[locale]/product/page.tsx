@@ -1,4 +1,12 @@
+import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
+import { pageAlternates } from "@/lib/seo";
+import type { Locale } from "@/lib/routes";
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  return { alternates: pageAlternates("/product", locale as Locale) };
+}
 import { BuyingSection } from "@/components/sections/buying-section";
 import { CtaSection } from "@/components/sections/cta-section";
 

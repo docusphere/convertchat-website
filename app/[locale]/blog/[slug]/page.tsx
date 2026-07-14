@@ -1,9 +1,29 @@
+import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { getPost, getAllSlugs } from "@/lib/blog";
+import { blogPostAlternates } from "@/lib/seo";
+import type { Locale } from "@/lib/routes";
 
-export function generateStaticParams() {
-  return getAllSlugs().map(({ slug }) => ({ slug }));
+export function generateStaticParams({ params }: { params: { locale: string } }) {
+  return getAllSlugs()
+    .filter(({ locale }) => locale === params.locale)
+    .map(({ slug }) => ({ slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}): Promise<Metadata> {
+  const { locale, slug } = await params;
+  const post = getPost(locale, slug);
+  if (!post) return {};
+  return {
+    title: `${post.title} | ConvertChat`,
+    description: post.description,
+    alternates: blogPostAlternates(locale as Locale, slug),
+  };
 }
 
 export default async function BlogPostPage({ params }: { params: Promise<{ locale: string; slug: string }> }) {

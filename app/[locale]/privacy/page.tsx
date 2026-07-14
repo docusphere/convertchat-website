@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { getLegalDoc } from "@/lib/legal";
 import { LegalArticle } from "@/components/legal/legal-article";
+import { pageAlternates } from "@/lib/seo";
+import type { Locale } from "@/lib/routes";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const doc = getLegalDoc(locale, "privacy");
-  return { title: `${doc.title} | ConvertChat` };
+  return { title: `${doc.title} | ConvertChat`, alternates: pageAlternates("/privacy", locale as Locale) };
 }
 
 export default async function PrivacyPage({ params }: { params: Promise<{ locale: string }> }) {
