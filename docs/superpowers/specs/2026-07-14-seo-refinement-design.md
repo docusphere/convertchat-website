@@ -61,7 +61,7 @@ Next.js does **not** deep-merge `openGraph` across segments: a page that defines
 pageMetadata(key: RouteKey, locale: Locale, opts: { title: string; description: string }): Metadata
 ```
 
-Returns: `title`, `description`, `alternates` (existing `pageAlternates`), `openGraph` (type website, localized url/title/description, locale `en`/`es_ES`, the locale's OG image, siteName ConvertChat), and `twitter` (`summary_large_image`). A blog-post variant (`blogPostMetadata`) does the same using `blogPostAlternates` and `article` type. All existing per-page `generateMetadata` functions collapse to one helper call.
+Returns: `title`, `description`, `alternates` (existing `pageAlternates`), `openGraph` (type website, localized url/title/description, locale `en_US`/`es_ES`, the locale's OG image, siteName ConvertChat), and `twitter` (`summary_large_image`). A blog-post variant (`blogPostMetadata`) does the same using `blogPostAlternates` and `article` type. All existing per-page `generateMetadata` functions collapse to one helper call.
 
 `metadataBase: new URL(BASE_URL)` is set once in the **root layout** (`app/layout.tsx` if present, else `app/[locale]/layout.tsx`) so relative OG image paths resolve.
 
@@ -84,7 +84,7 @@ Generated from `public/logo-icon-color.png` (green brand icon):
 - `app/icon.png` — 512×512
 - `app/apple-icon.png` — 180×180 (opaque background; iOS doesn't composite transparency well)
 
-Next emits all `<link rel>` tags automatically from these files — zero config. Generation via `sips` (macOS) and Python Pillow for the `.ico`; verify Pillow availability, else any equivalent local tool.
+Next emits all `<link rel>` tags automatically from these files — zero config. Generation via `sips` (macOS) for PNG resizing and Python Pillow for the `.ico`. If Pillow is unavailable, fall back to the `png-to-ico` npm package via `npx` (pinned fallback — do not stall on tool discovery).
 
 ### 5. Structured data — `components/seo/json-ld.tsx`
 
@@ -92,6 +92,7 @@ A tiny server component: `<JsonLd data={object} />` renders `<script type="appli
 
 - **Homepage:** `Organization` (name, url, logo `logo-full-color.png` absolute URL, `sameAs` if social profiles exist — omit if none) + `WebSite` (name, url, `inLanguage`)
 - **Pricing:** `FAQPage` from the 5 existing pricing FAQ i18n strings (localized per locale)
+- **Homepage:** `FAQPage` from the 6 existing homepage FAQ i18n strings (`faq.q1`–`q6`) — nearly free once the builder exists (pending Frank's confirmation at spec review)
 - **Blog posts:** `BlogPosting` (headline, description, datePublished from frontmatter, inLanguage, author Organization ConvertChat, url)
 
 No `Offer`/`Product` markup on pricing tiers (Google's product schema is for physical/e-commerce products; SaaS tier markup risks spam manual actions — skip).
