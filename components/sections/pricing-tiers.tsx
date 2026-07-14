@@ -59,7 +59,15 @@ function TierCard({ tierKey, featureCount, highlight }: { tierKey: string; featu
           }`}
         >
           {[1, 2, 3].map((i) => (
-            <li key={i}>{t(`allowances.a${i}`)}</li>
+            <li key={i}>
+              {t.rich(`allowances.a${i}`, {
+                b: (chunks) => (
+                  <span className={`text-[15px] font-semibold ${highlight ? "text-white" : "text-neutral-900"}`}>
+                    {chunks}
+                  </span>
+                ),
+              })}
+            </li>
           ))}
         </ul>
 

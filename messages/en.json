@@ -231,15 +231,28 @@
         "persona": "For solo operators",
         "price": "$49",
         "period": "/mo",
-        "allowances": { "a1": "1,000 contacts", "a2": "500 WhatsApp campaign messages/mo", "a3": "3,000 emails/mo" },
-        "features": { "f1": "1 WhatsApp number", "f2": "Shared inbox", "f3": "Campaign stats", "f4": "Email support" }
+        "allowances": {
+          "a1": "<b>1,000</b> contacts",
+          "a2": "<b>500</b> WhatsApp campaign messages/mo",
+          "a3": "<b>3,000</b> emails/mo"
+        },
+        "features": {
+          "f1": "1 WhatsApp number",
+          "f2": "Shared inbox",
+          "f3": "Campaign stats",
+          "f4": "Email support"
+        }
       },
       "growth": {
         "name": "Growth",
         "persona": "For growing businesses",
         "price": "$99",
         "period": "/mo",
-        "allowances": { "a1": "5,000 contacts", "a2": "2,000 WhatsApp campaign messages/mo", "a3": "10,000 emails/mo" },
+        "allowances": {
+          "a1": "<b>5,000</b> contacts",
+          "a2": "<b>2,000</b> WhatsApp campaign messages/mo",
+          "a3": "<b>10,000</b> emails/mo"
+        },
         "features": {
           "f1": "1 WhatsApp number",
           "f2": "Shared inbox",
@@ -254,9 +267,9 @@
         "price": "$199",
         "period": "/mo",
         "allowances": {
-          "a1": "25,000 contacts (more on request)",
-          "a2": "10,000 WhatsApp campaign messages/mo",
-          "a3": "50,000 emails/mo"
+          "a1": "<b>25,000</b> contacts (more on request)",
+          "a2": "<b>10,000</b> WhatsApp campaign messages/mo",
+          "a3": "<b>50,000</b> emails/mo"
         },
         "features": {
           "f1": "1 WhatsApp number (more on request)",

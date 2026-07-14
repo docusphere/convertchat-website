@@ -232,9 +232,9 @@
         "price": "€49",
         "period": "/mes",
         "allowances": {
-          "a1": "1.000 contactos",
-          "a2": "500 mensajes de campaña de WhatsApp al mes",
-          "a3": "3.000 emails al mes"
+          "a1": "<b>1.000</b> contactos",
+          "a2": "<b>500</b> mensajes de campaña de WhatsApp al mes",
+          "a3": "<b>3.000</b> emails al mes"
         },
         "features": {
           "f1": "1 número de WhatsApp",
@@ -249,9 +249,9 @@
         "price": "€99",
         "period": "/mes",
         "allowances": {
-          "a1": "5.000 contactos",
-          "a2": "2.000 mensajes de campaña de WhatsApp al mes",
-          "a3": "10.000 emails al mes"
+          "a1": "<b>5.000</b> contactos",
+          "a2": "<b>2.000</b> mensajes de campaña de WhatsApp al mes",
+          "a3": "<b>10.000</b> emails al mes"
         },
         "features": {
           "f1": "1 número de WhatsApp",
@@ -267,9 +267,9 @@
         "price": "€199",
         "period": "/mes",
         "allowances": {
-          "a1": "25.000 contactos (más bajo petición)",
-          "a2": "10.000 mensajes de campaña de WhatsApp al mes",
-          "a3": "50.000 emails al mes"
+          "a1": "<b>25.000</b> contactos (más bajo petición)",
+          "a2": "<b>10.000</b> mensajes de campaña de WhatsApp al mes",
+          "a3": "<b>50.000</b> emails al mes"
         },
         "features": {
           "f1": "1 número de WhatsApp (más bajo petición)",
