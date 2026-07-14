@@ -311,3 +311,50 @@ Rework the routing metadata so adding future pages (industries, comparisons, use
 9. `ed0a333` — feat: canonical + hreflang alternates on all pages
 10. `713f7c3` — style: group imports at top of blog and product pages
 11. `b864d5f` — style: review polish — import grouping, locales shorthand, registry-driven sitemap locale loop
+
+## S13 — 2026-07-14 — SEO Refinement (metadata, OG cards, JSON-LD, GSC prep)
+
+### Goal
+Complete search/social presence on top of S12's routing foundation: unique per-page metadata, Open Graph cards, real favicons, structured data, llms.txt alignment, sitemap x-default — everything needed before Google Search Console verification. Full superpowers flow: vet claude-seo repo → brainstorm → spec → plan → subagent-driven execution.
+
+### Completed
+- Vetted claude-seo repo read-only into `/tmp/claude-seo-vet` (not installed) — used as grounding reference alongside Context7 Next.js 16 docs
+- OG cards `public/og/og-en.png` + `og-es.png` (1200×630, ~95KB): dark hero bg with green/purple glows, white logo, Newsreader headline "Sell on WhatsApp. At scale." / "Vende por WhatsApp. A escala." — design approved via visual companion
+- Real favicons from brand icon: `app/favicon.ico` (16/32/48), `app/icon.png` (512), `app/apple-icon.png` (180, opaque) — stock Next triangle gone
+- Per-page meta strings (en/es): new `product`/`blog`/`legal` namespaces + `pricing.metaDescription`
+- `lib/seo.ts`: `pageMetadata()` / `blogPostMetadata()` helpers (title, description, alternates, openGraph, twitter) + `metadataBase` in root layout; all 7 pages wired through them — zero piecemeal metadata left in `app/`
+- JSON-LD: `components/seo/json-ld.tsx` (escaped `<` → `\u003c`) + `lib/schema.ts` builders — Organization + WebSite + FAQPage(6) on home, FAQPage(5) on pricing, BlogPosting on posts, localized
+- `public/llms.txt` + `llms-full.txt`: positioning aligned ("WhatsApp remarketing and lead reactivation platform for B2B"), legacy `/producto`-style URLs → canonical English, `/pricing` added
+- `app/sitemap.ts`: x-default on all alternates (static inline + guarded blog loop)
+- End-to-end verification: 14 pages × unique title/description/og:*/twitter:* with correct locale OG image, all assets 200, JSON-LD valid, sitemap 14× x-default, green favicon confirmed
+- Final holistic code review over the whole range: approved after one whitespace fix
+
+### Decisions
+- Helper-only metadata policy. Why: Next.js shallow-merges `openGraph` across segments — a page defining its own silently drops shared fields; documented in `lib/seo.ts`
+- One static brand OG card (en/es variants), no dynamic `next/og` per-page images. Why: YAGNI at current page count
+- No Offer/Product schema on pricing tiers. Why: Google's product markup targets physical/e-commerce; SaaS tier markup risks spam manual actions
+- FAQPage on homepage too (not just pricing). Why: nearly free once the builder existed; feeds AI answers even though Google restricts FAQ rich display
+- GSC deferred as manual post-deploy step (DNS TXT in Cloudflare). Why: no on-site code needed, and we get zero keyword data until it's verified — it is the next highest-leverage action
+
+### Bugs Fixed
+- (Process) Task 4 implementer ran bare `npx prettier --write` — repo has no prettier config so it mangled 120-width code to 80; caught via `git show`, fixed with explicit flags; all later prompts carried an explicit warning
+
+### Lessons
+- Repo has NO `.prettierrc` — bare prettier defaults to width 80 and silently reformats; always pass `--print-width 120 --semi --no-single-quote --trailing-comma all` (adding a `.prettierrc` is already on the checklist)
+- Next 16 sitemap `Languages<T>` type includes `'x-default'` — verified in node_modules before planning, so no conditional needed
+- Twitter cards inherit title/description/images from `openGraph` in Next's metadata resolver — only `card: "summary_large_image"` needs setting
+- Playwright MCP blocks `file://` URLs — screenshot local HTML via `npx playwright screenshot` CLI instead
+- Site is already indexed and #1 for brand query "convertchat.co", but keyword targets are positioning-driven guesses; no ranking data exists until GSC is verified — resist keyword-research infra before traffic
+
+### Commits
+1. `b607802` + `d1ea909` — docs: SEO refinement spec (+ review fixes)
+2. `0993079` + `c020679` — docs: SEO refinement implementation plan (+ advisory tweaks)
+3. `b22f2ed` — feat: brand OG card images (en/es)
+4. `5d07645` — feat: real favicons from brand icon
+5. `8141c60` — feat: per-page meta titles and descriptions (en/es)
+6. `d5e3639` + `4afbcb5` — feat: pageMetadata/blogPostMetadata helpers + metadataBase (+ style restore)
+7. `d40c8be` — feat: unique titles, descriptions and OG/Twitter tags on every page
+8. `84b97e8` + `27e12f2` — feat: JSON-LD structured data (+ style)
+9. `1d1b843` — fix: llms.txt aligned with current URLs and positioning
+10. `b802879` + `02b93bc` — feat: x-default hreflang in sitemap alternates (+ style)
+11. `a04c37e` — style: prettier formatting for blog post page

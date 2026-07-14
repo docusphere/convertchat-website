@@ -48,14 +48,17 @@ Marketing website for ConvertChat — B2B WhatsApp lead reactivation platform. I
 - [ ] Fix HeroPhone hydration warning under reduced motion (pre-existing)
 - [ ] Add .prettierrc (printWidth 120) — repo has none, CLAUDE.md documents it
 - [ ] Hero Phone upgrade — 3D floating component (via 21st.dev Magic MCP)
-- [ ] SEO: Open Graph images, meta descriptions per page
+- [x] S13 — SEO: Open Graph images, meta descriptions per page
 - [ ] Analytics: tracking setup (Plausible, PostHog, or similar)
 - [x] S10 — Privacy Policy & Terms pages (en + es content, legal article renderer, navbar solid fix on interior pages)
 - [ ] Spanish legal texts: lawyer review (S10 translations are machine-made)
 - [ ] Blog: content pages (framework exists at `/[locale]/blog`)
 - [x] S11 — Pricing page (tiers + AI add-on + costs + FAQ, en/es, verified 320–1280)
 - [x] S12 — Routing architecture: central route registry (`lib/routes.ts`), derived pathnames/sitemap, site-wide hreflang + canonical, English route dirs, blog translation linkage (switcher 404 fix)
-- [ ] SEO refinement (user-queued): vet https://github.com/AgriciDaniel/claude-seo.git before install; carry-overs — x-default in sitemap alternates, page-specific titles for home/product
+- [x] S13 — SEO refinement: per-page metadata via pageMetadata() helpers, OG cards, real favicons, JSON-LD (Organization/WebSite/FAQPage/BlogPosting), llms.txt refresh, sitemap x-default (claude-seo vetted read-only, not installed)
+- [ ] GSC (Frank, post-deploy): add domain property convertchat.co → DNS TXT in Cloudflare → verify → submit sitemap.xml; re-scrape Meta Sharing Debugger + LinkedIn Post Inspector; Rich Results spot-check
+- [ ] SEO round 2 (after 2–4 weeks of GSC data): optimize titles/content around real queries; blog content is the ranking lever
+- [ ] SEO minor: compress app/icon.png (~187KB); add image/dateModified to BlogPosting once BlogPost type has fields
 - [ ] Product page: content TBD
 - [ ] Fix "?." double punctuation in shared CtaSection heading (copy "?" + appended ".", also on homepage)
 - [x] S6 — Mobile: final QA pass across breakpoints (320/375/390/430px, layout + type hierarchy)
