@@ -1,14 +1,18 @@
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
+import { setRequestLocale, getTranslations } from "next-intl/server";
 import { getLegalDoc } from "@/lib/legal";
 import { LegalArticle } from "@/components/legal/legal-article";
-import { pageAlternates } from "@/lib/seo";
+import { pageMetadata } from "@/lib/seo";
 import type { Locale } from "@/lib/routes";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const doc = getLegalDoc(locale, "terms");
-  return { title: `${doc.title} | ConvertChat`, alternates: pageAlternates("/terms", locale as Locale) };
+  const t = await getTranslations({ locale, namespace: "legal" });
+  return pageMetadata("/terms", locale as Locale, {
+    title: `${doc.title} | ConvertChat`,
+    description: t("termsMetaDescription"),
+  });
 }
 
 export default async function TermsPage({ params }: { params: Promise<{ locale: string }> }) {

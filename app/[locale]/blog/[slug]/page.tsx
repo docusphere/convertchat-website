@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { getPost, getAllSlugs } from "@/lib/blog";
-import { blogPostAlternates } from "@/lib/seo";
+import { blogPostMetadata } from "@/lib/seo";
 import type { Locale } from "@/lib/routes";
 
 export function generateStaticParams({ params }: { params: { locale: string } }) {
@@ -19,11 +19,11 @@ export async function generateMetadata({
   const { locale, slug } = await params;
   const post = getPost(locale, slug);
   if (!post) return {};
-  return {
+  return blogPostMetadata(locale as Locale, slug, {
     title: `${post.title} | ConvertChat`,
     description: post.description,
-    alternates: blogPostAlternates(locale as Locale, slug),
-  };
+    publishedTime: post.date || undefined,
+  });
 }
 
 export default async function BlogPostPage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
