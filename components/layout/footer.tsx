@@ -19,16 +19,16 @@ export function Footer() {
 
           {/* Links */}
           <div className="flex flex-wrap items-start justify-center gap-6 text-sm text-neutral-500">
-            <Link href="/precios" className="transition-colors hover:text-neutral-900">
+            <Link href="/pricing" className="transition-colors hover:text-neutral-900">
               {t("pricing")}
             </Link>
             <Link href="/blog" className="transition-colors hover:text-neutral-900">
               {t("blog")}
             </Link>
-            <Link href="/privacidad" className="transition-colors hover:text-neutral-900">
+            <Link href="/privacy" className="transition-colors hover:text-neutral-900">
               {t("privacy")}
             </Link>
-            <Link href="/terminos" className="transition-colors hover:text-neutral-900">
+            <Link href="/terms" className="transition-colors hover:text-neutral-900">
               {t("terms")}
             </Link>
           </div>

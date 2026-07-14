@@ -177,7 +177,7 @@ export function Navbar() {
   const navLinks = [
     { key: "problem", anchor: `${homeHref}#problem`, label: t("problem") },
     { key: "how-it-works", anchor: `${homeHref}#how-it-works`, label: t("howItWorks") },
-    { key: "pricing", href: "/precios" as const, label: t("pricing") },
+    { key: "pricing", href: "/pricing" as const, label: t("pricing") },
     { key: "blog", href: "/blog" as const, label: t("blog") },
   ] as const;
 
