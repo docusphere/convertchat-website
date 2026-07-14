@@ -1,19 +1,10 @@
 import type { Metadata } from "next";
-import {
-  BASE_URL,
-  localizedUrl,
-  locales,
-  type Locale,
-  type RouteKey,
-} from "./routes";
+import { BASE_URL, localizedUrl, locales, type Locale, type RouteKey } from "./routes";
 import { getTranslatedSlug } from "./blog-slugs";
 
 // Canonical + hreflang alternates for a static page. x-default points at
 // English (the unprefixed default locale).
-export function pageAlternates(
-  key: RouteKey,
-  locale: Locale,
-): Metadata["alternates"] {
+export function pageAlternates(key: RouteKey, locale: Locale): Metadata["alternates"] {
   return {
     canonical: localizedUrl(key, locale),
     languages: {
@@ -25,16 +16,11 @@ export function pageAlternates(
 }
 
 export function blogPostUrl(locale: Locale, slug: string): string {
-  return locale === "en"
-    ? `${BASE_URL}/blog/${slug}`
-    : `${BASE_URL}/es/blog/${slug}`;
+  return locale === "en" ? `${BASE_URL}/blog/${slug}` : `${BASE_URL}/es/blog/${slug}`;
 }
 
 // Alternates for a blog post — only includes locales where a translation exists.
-export function blogPostAlternates(
-  locale: Locale,
-  slug: string,
-): Metadata["alternates"] {
+export function blogPostAlternates(locale: Locale, slug: string): Metadata["alternates"] {
   const languages: Record<string, string> = {};
   for (const l of locales) {
     const s = l === locale ? slug : getTranslatedSlug(locale, slug, l);
@@ -69,11 +55,7 @@ function ogImage(locale: Locale) {
   ];
 }
 
-export function pageMetadata(
-  key: RouteKey,
-  locale: Locale,
-  { title, description }: PageMetaOpts,
-): Metadata {
+export function pageMetadata(key: RouteKey, locale: Locale, { title, description }: PageMetaOpts): Metadata {
   return {
     title,
     description,
@@ -94,11 +76,7 @@ export function pageMetadata(
 export function blogPostMetadata(
   locale: Locale,
   slug: string,
-  {
-    title,
-    description,
-    publishedTime,
-  }: PageMetaOpts & { publishedTime?: string },
+  { title, description, publishedTime }: PageMetaOpts & { publishedTime?: string },
 ): Metadata {
   return {
     title,

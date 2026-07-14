@@ -10,11 +10,7 @@ export const metadata: Metadata = {
   title: "ConvertChat",
 };
 
-export default async function RootLayout({
-  children,
-}: {
-  children: ReactNode;
-}) {
+export default async function RootLayout({ children }: { children: ReactNode }) {
   const locale = await getLocale();
 
   return (
