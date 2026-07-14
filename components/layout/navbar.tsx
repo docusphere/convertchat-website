@@ -146,6 +146,7 @@ function LocaleSwitcher({
 
 export function Navbar() {
   const t = useTranslations("nav");
+  const locale = useLocale();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
@@ -168,12 +169,17 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", close);
   }, [mobileOpen]);
 
+  // Section anchors live on the homepage — plain <a> with a locale-aware absolute
+  // href ("/#problem" / "/es#problem") so they work from any page. Bare "#problem"
+  // resolved against the current page and went nowhere off-home; Next's <Link>
+  // mangles same-page hash changes (/es#problem#how-it-works), so native anchors it is.
+  const homeHref = locale === "en" ? "/" : `/${locale}`;
   const navLinks = [
-    { href: "#problem", label: t("problem") },
-    { href: "#how-it-works", label: t("howItWorks") },
-    { href: "/precios" as const, label: t("pricing") },
-    { href: "/blog" as const, label: t("blog") },
-  ];
+    { key: "problem", anchor: `${homeHref}#problem`, label: t("problem") },
+    { key: "how-it-works", anchor: `${homeHref}#how-it-works`, label: t("howItWorks") },
+    { key: "pricing", href: "/precios" as const, label: t("pricing") },
+    { key: "blog", href: "/blog" as const, label: t("blog") },
+  ] as const;
 
   return (
     <nav className="fixed left-4 right-4 top-4 z-50 mx-auto max-w-6xl">
@@ -215,29 +221,20 @@ export function Navbar() {
 
         {/* Desktop nav links */}
         <div className="hidden flex-1 items-center justify-center gap-1 lg:flex">
-          {navLinks.map((link) =>
-            link.href.startsWith("#") ? (
-              <a
-                key={link.href}
-                href={link.href}
-                className={`whitespace-nowrap px-3.5 py-2 font-sans text-[15px] transition-colors ${
-                  solid ? "text-neutral-500 hover:text-neutral-900" : "text-white/55 hover:text-white/80"
-                }`}
-              >
+          {navLinks.map((link) => {
+            const className = `whitespace-nowrap px-3.5 py-2 font-sans text-[15px] transition-colors ${
+              solid ? "text-neutral-500 hover:text-neutral-900" : "text-white/55 hover:text-white/80"
+            }`;
+            return "anchor" in link ? (
+              <a key={link.key} href={link.anchor} className={className}>
                 {link.label}
               </a>
             ) : (
-              <Link
-                key={link.href}
-                href={link.href as "/precios" | "/blog"}
-                className={`whitespace-nowrap px-3.5 py-2 font-sans text-[15px] transition-colors ${
-                  solid ? "text-neutral-500 hover:text-neutral-900" : "text-white/55 hover:text-white/80"
-                }`}
-              >
+              <Link key={link.key} href={link.href} className={className}>
                 {link.label}
               </Link>
-            ),
-          )}
+            );
+          })}
         </div>
 
         {/* Desktop CTA */}
@@ -273,10 +270,10 @@ export function Navbar() {
       >
         <div className="flex flex-col px-5 py-4">
           {navLinks.map((link) =>
-            link.href.startsWith("#") ? (
+            "anchor" in link ? (
               <a
-                key={link.href}
-                href={link.href}
+                key={link.key}
+                href={link.anchor}
                 onClick={() => setMobileOpen(false)}
                 className="py-3 font-sans text-[15px] text-neutral-600 transition-colors hover:text-neutral-900"
               >
@@ -284,8 +281,8 @@ export function Navbar() {
               </a>
             ) : (
               <Link
-                key={link.href}
-                href={link.href as "/precios" | "/blog"}
+                key={link.key}
+                href={link.href}
                 onClick={() => setMobileOpen(false)}
                 className="py-3 font-sans text-[15px] text-neutral-600 transition-colors hover:text-neutral-900"
               >
