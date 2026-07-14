@@ -8,7 +8,7 @@ const staticPathnames = Object.fromEntries(
 ) as { [K in RouteKey]: { en: K; es: (typeof staticRoutes)[K]["es"] } };
 
 export const routing = defineRouting({
-  locales: [...locales],
+  locales: locales,
   defaultLocale: "en",
   localePrefix: "as-needed",
   // Persist the visitor's language choice for a year (default cookie is session-only)
