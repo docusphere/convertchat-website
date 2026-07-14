@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { getPost, getAllSlugs } from "@/lib/blog";
 import { blogPostMetadata } from "@/lib/seo";
 import type { Locale } from "@/lib/routes";
+import { JsonLd } from "@/components/seo/json-ld";
+import { blogPostingSchema } from "@/lib/schema";
 
 export function generateStaticParams({ params }: { params: { locale: string } }) {
   return getAllSlugs()
@@ -34,7 +36,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ local
   if (!post) notFound();
 
   return (
-    <section className="bg-neutral-50 px-6 py-24">
+    <>
+      <JsonLd data={blogPostingSchema(locale as Locale, post)} />
+      <section className="bg-neutral-50 px-6 py-24">
       <article className="mx-auto max-w-3xl">
         <time className="text-xs font-semibold uppercase tracking-[0.08em] text-neutral-400">{post.date}</time>
         <h1 className="mt-4 font-serif text-4xl font-normal tracking-[-0.03em] text-neutral-700 md:text-5xl">
@@ -46,5 +50,6 @@ export default async function BlogPostPage({ params }: { params: Promise<{ local
         <div className="prose mt-12 max-w-none whitespace-pre-line text-neutral-600">{post.content}</div>
       </article>
     </section>
+    </>
   );
 }

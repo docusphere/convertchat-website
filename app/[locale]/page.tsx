@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { pageMetadata } from "@/lib/seo";
 import type { Locale } from "@/lib/routes";
+import { JsonLd } from "@/components/seo/json-ld";
+import { organizationSchema, webSiteSchema, faqPageSchema } from "@/lib/schema";
 import { HeroSection } from "@/components/hero/hero-section";
 import { ProblemSection } from "@/components/sections/problem-section";
 import { BeforeAfterSection } from "@/components/sections/before-after-section";
@@ -24,8 +26,14 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   setRequestLocale(locale);
 
+  const t = await getTranslations({ locale, namespace: "faq" });
+  const faqItems = ([1, 2, 3, 4, 5, 6] as const).map((i) => ({ question: t(`q${i}`), answer: t(`a${i}`) }));
+
   return (
     <>
+      <JsonLd data={organizationSchema()} />
+      <JsonLd data={webSiteSchema(locale as Locale)} />
+      <JsonLd data={faqPageSchema(faqItems)} />
       <HeroSection />
       <ProblemSection />
       <BeforeAfterSection />
