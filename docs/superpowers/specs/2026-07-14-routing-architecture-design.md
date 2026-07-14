@@ -96,6 +96,7 @@ const posts = [
 ```
 
 - Existing API (`getAllPosts`, `getPost`, `getAllSlugs`) preserved on top of the new shape.
+- Implementation note (plan deviation): the slug pairs live in a separate client-safe `lib/blog-slugs.ts` instead of reshaping `lib/blog.ts` — the navbar (client component) needs the pairs, and importing `lib/blog.ts` there would bundle MDX post content into client JS.
 - New: `getTranslatedSlug(locale, slug, targetLocale): string | null`.
 - Locale switcher fix: blog post page passes the translated slug so `router.replace` targets the right post. If no translation exists, fall back to the blog index in the target locale.
 - Blog post `generateMetadata` gains hreflang alternates via `lib/seo.ts` (only for locales where a translation exists).
