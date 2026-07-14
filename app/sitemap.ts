@@ -7,7 +7,9 @@ import { blogPostUrl } from "@/lib/seo";
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = (Object.keys(staticRoutes) as RouteKey[]).flatMap((key) => {
     const { changeFrequency, priority } = staticRoutes[key];
-    const alternates = { languages: { en: localizedUrl(key, "en"), es: localizedUrl(key, "es"), "x-default": localizedUrl(key, "en") } };
+    const alternates = {
+      languages: { en: localizedUrl(key, "en"), es: localizedUrl(key, "es"), "x-default": localizedUrl(key, "en") },
+    };
     return [
       { url: localizedUrl(key, "en"), lastModified: new Date(), changeFrequency, priority, alternates },
       // Spanish entries rank one notch below their English counterparts (existing convention)
