@@ -261,3 +261,53 @@ Build the pricing page from spec/plan (three tiers, AI add-on, costs explainer, 
 7. `74778bc` — feat: pricing FAQ accordion
 8. `1ce4b2a` — feat: assemble pricing page with metadata
 9. `11d4edb` — style: bold allowance numbers in pricing tier cards
+
+## S12 — 2026-07-14 — Routing Architecture (central registry + hreflang)
+
+### Goal
+Rework the routing metadata so adding future pages (industries, comparisons, use cases, more blog posts) is maintainable long term: one source of truth, no drift, proper hreflang. Full superpowers flow: brainstorm → spec → plan → subagent-driven execution.
+
+### Completed
+- `lib/routes.ts` — central static route registry: English keys = English paths, Spanish translations, sitemap changeFrequency/priority, `localizedUrl()`, `BASE_URL`
+- `lib/blog-slugs.ts` — client-safe blog translation pairs (welcome ⇄ bienvenido) + `getTranslatedSlug()`; no MDX imports so the navbar doesn't bundle post content
+- `lib/seo.ts` — `pageAlternates` / `blogPostUrl` / `blogPostAlternates` producing canonical + hreflang (en, es, x-default → English)
+- `i18n/routing.ts` — pathnames derived from the registry (Object.fromEntries + mapped-type cast preserves literal types, so stale hrefs are compile errors)
+- Route dirs renamed to English: `precios→pricing`, `producto→product`, `privacidad→privacy`, `terminos→terms` (public URLs unchanged — pathnames map controls them)
+- `app/sitemap.ts` fully derived from registry: per-locale entries + `alternates.languages` (xhtml:link); previously missing `/es/privacidad` + `/es/terminos` now present
+- Locale switcher maps blog posts to their translated slug (was 404ing `/es/blog/welcome`); falls back to blog index if untranslated
+- `generateMetadata` alternates on all 7 pages; blog `[slug]` gained locale-filtered `generateStaticParams` (no more cross-locale prerender combos)
+- Navbar anchor fix committed (locale-aware `/#problem` / `/es#problem` plain anchors — works from privacy/terms/pricing)
+- Final code review over the whole range: approved; 3 minor style items fixed in a polish commit
+- Full verification (production build): 14 pages × 200, 6 switcher round-trips incl. blog posts, legacy 308s intact, hreflang/canonical in served HTML, sitemap 14 entries + 28 alternates, `/es/blog/welcome` → 404
+
+### Decisions
+- Central registry with everything derived (approach B). Why: 4 hand-maintained route sources had already drifted (sitemap missing 2 Spanish pages, no hreflang anywhere); planned growth compounds it
+- Internal keys/directories in English matching the default locale. Why: `en` is default since S9; Spanish-named keys were a legacy confusion
+- Blog slug pairs live in separate `lib/blog-slugs.ts`, not `lib/blog.ts`. Why: navbar (client) needs the pairs; importing blog.ts would bundle MDX content into client JS
+- x-default → English URLs (the unprefixed default locale)
+
+### Bugs Fixed
+- Blog locale switcher 404 (`/blog/welcome` → `/es/blog/welcome`) — now swaps to `bienvenido`
+- Sitemap missing `/es/privacidad` + `/es/terminos`
+- Blog `generateStaticParams` prerendered cross-locale combos (`/es/blog/welcome`) — now filtered by parent locale param
+- Navbar `#` anchors broken from interior pages (user re-reported on privacy/terms — was fixed locally, unpushed)
+
+### Lessons
+- Stale `.next` generated types break typecheck after route dir renames — `rm -rf .next` first
+- next-intl `Locales` accepts a readonly tuple directly — no `[...locales]` spread needed
+- Next outputs `hrefLang=` camelCase in HTML; lowercase grep gives false negatives, and dev streams metadata via RSC payload — verify hreflang against a production build
+- Child `generateStaticParams` receives parent params synchronously — use it to filter dynamic slugs by locale
+- SEO skill queued by user for later: https://github.com/AgriciDaniel/claude-seo.git — vet before installing. Carry-overs for that task: x-default in sitemap alternates, page-specific titles for home/product
+
+### Commits
+1. `aee7c50` — fix: navbar section anchors work from interior pages via locale-aware hrefs
+2. `5ad9cf4` — docs: routing architecture spec
+3. `89f0816` — docs: routing architecture implementation plan
+4. `df0c199` — feat: central route registry, blog slug pairs, and hreflang helpers
+5. `9d7064b` — refactor: derive pathnames from route registry, rename internal routes to English
+6. `a6acc78` — refactor: pass readonly locales tuple directly to defineRouting
+7. `842a1f2` — feat: derive sitemap from route registry with hreflang alternates
+8. `234b52d` — fix: locale switcher maps blog posts to their translated slugs
+9. `ed0a333` — feat: canonical + hreflang alternates on all pages
+10. `713f7c3` — style: group imports at top of blog and product pages
+11. `b864d5f` — style: review polish — import grouping, locales shorthand, registry-driven sitemap locale loop

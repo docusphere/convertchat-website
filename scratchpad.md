@@ -54,6 +54,8 @@ Marketing website for ConvertChat — B2B WhatsApp lead reactivation platform. I
 - [ ] Spanish legal texts: lawyer review (S10 translations are machine-made)
 - [ ] Blog: content pages (framework exists at `/[locale]/blog`)
 - [x] S11 — Pricing page (tiers + AI add-on + costs + FAQ, en/es, verified 320–1280)
+- [x] S12 — Routing architecture: central route registry (`lib/routes.ts`), derived pathnames/sitemap, site-wide hreflang + canonical, English route dirs, blog translation linkage (switcher 404 fix)
+- [ ] SEO refinement (user-queued): vet https://github.com/AgriciDaniel/claude-seo.git before install; carry-overs — x-default in sitemap alternates, page-specific titles for home/product
 - [ ] Product page: content TBD
 - [ ] Fix "?." double punctuation in shared CtaSection heading (copy "?" + appended ".", also on homepage)
 - [x] S6 — Mobile: final QA pass across breakpoints (320/375/390/430px, layout + type hierarchy)
