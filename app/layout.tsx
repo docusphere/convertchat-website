@@ -2,13 +2,19 @@ import type { ReactNode } from "react";
 import type { Metadata } from "next";
 import { getLocale } from "next-intl/server";
 import { newsreader, clashDisplay, satoshi } from "@/lib/fonts";
+import { BASE_URL } from "@/lib/routes";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(BASE_URL),
   title: "ConvertChat",
 };
 
-export default async function RootLayout({ children }: { children: ReactNode }) {
+export default async function RootLayout({
+  children,
+}: {
+  children: ReactNode;
+}) {
   const locale = await getLocale();
 
   return (
