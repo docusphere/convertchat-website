@@ -1,7 +1,9 @@
 import matter from "gray-matter";
 
 // Static imports — Webpack processes these at build time via asset/source rule.
-// Add new imports here as blog posts are created.
+// Adding a post: (1) import its .mdx here and add it to postRegistry below,
+// (2) add its translation pair to lib/blog-slugs.ts (links locales for the
+// locale switcher, hreflang, and sitemap alternates).
 import esBienvenido from "../content/blog/es/bienvenido.mdx";
 import enWelcome from "../content/blog/en/welcome.mdx";
 

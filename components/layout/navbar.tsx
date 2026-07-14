@@ -3,13 +3,14 @@
 import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { useParams } from "next/navigation";
+import { getTranslatedSlug } from "@/lib/blog-slugs";
+import type { Locale } from "@/lib/routes";
 import { Button } from "@/components/ui/button";
 import { useEffect, useRef, useState } from "react";
 
 const BOOKING_URL = "https://cal.com/architct/onboarding";
 
 const LOCALE_LABELS = { en: "English", es: "Español" } as const;
-type Locale = keyof typeof LOCALE_LABELS;
 
 function MenuIcon({ className }: { className?: string }) {
   return (
@@ -80,6 +81,18 @@ function LocaleSwitcher({
     setOpen(false);
     onNavigate?.();
     if (next === locale) return;
+    // Blog posts have per-locale slugs (welcome ⇄ bienvenido) — swap to the
+    // translated slug, or fall back to the blog index if untranslated.
+    const slug = typeof params?.slug === "string" ? params.slug : null;
+    if (slug) {
+      const translated = getTranslatedSlug(locale as Locale, slug, next);
+      if (translated) {
+        router.replace({ pathname: "/blog/[slug]", params: { slug: translated } }, { locale: next });
+      } else {
+        router.replace("/blog", { locale: next });
+      }
+      return;
+    }
     // @ts-expect-error -- params type is route-specific; next-intl maps localized pathnames at runtime
     router.replace({ pathname, params }, { locale: next });
   };
