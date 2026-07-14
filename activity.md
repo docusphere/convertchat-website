@@ -222,3 +222,42 @@ Replace the placeholder privacy/terms pages with the real legal documents (sourc
 ### Lessons
 - Spanish legal translations are machine-made, not lawyer-reviewed — flag for legal review before serious traffic
 - The unscrolled transparent navbar assumed a dark hero; any new light-background route needs the solid variant (now automatic via pathname check)
+
+## S11 — 2026-07-13/14 — Pricing Page (build + verification + allowance emphasis)
+
+### Goal
+Build the pricing page from spec/plan (three tiers, AI add-on, costs explainer, FAQ), verify in browser, and polish the tier cards. Session was interrupted by a power cut mid-verification; resumed 07-14 from git history + memory.
+
+### Completed
+- Spec + implementation plan + business docs (`docs/pricing.md`, `docs/core-product.md`, `docs/superpowers/plans/2026-07-13-pricing-page.md`)
+- `pricing` i18n copy (en/es): tiers $49/$99/$199 (€ + /mes in es), allowances, features, AI add-on, costs, 5-item FAQ
+- `components/sections/pricing-tiers.tsx` — hero + 3 cards; Growth on animated rainbow gradient with dark tint overlay, "Most popular" pill, white CTA; Enterprise "Need more?" banner
+- `components/sections/pricing-ai-addon.tsx` — dark informational strip (+$49/mo, Growth/Pro only, no CTA)
+- `components/sections/pricing-costs.tsx` — 3 plain columns (Meta at-cost, ~$0.06 / 0,05 € per message, email included)
+- `components/sections/pricing-faq.tsx` — 5-question accordion, `pricing-faq-` id prefix (no collision with homepage FAQ)
+- Assembled `app/[locale]/precios/page.tsx` with localized metadata
+- Browser verification (Playwright): desktop EN/ES structure + copy, all 7 cal.com CTAs with `target="_blank"`, FAQ expand/collapse (aria-expanded), mobile 390 (Growth stacks first) + 320 (scrollWidth 305, no overflow)
+- Allowance emphasis (visual-companion brainstorm, variant B chosen): quantities bold via next-intl rich text — `<b>` tags in message strings, `t.rich` maps to `text-[15px] font-semibold` span (neutral-900 / white on Growth)
+
+### Decisions
+- Bold numbers only, labels stay quiet. Why: the quantities (1,000 / 500 / 3,000) are what people compare between plans; three fully-bold lines read heavy. Alternatives considered: whole-line semibold, tinted allowance panel.
+- Growth card readability: `bg-neutral-900/25` tint layer over the rainbow gradient so white text survives the yellow/green stops.
+
+### Bugs Fixed
+- Full-page Playwright screenshots show SectionReveal sections as empty gaps (whileInView never fires) — false alarm, not a bug; verify by scrolling sections into view instead
+
+### Lessons
+- A leftover dev server can hold the Next.js dev lock for this dir (found on port 3000 after the power cut); check `curl localhost:3000` before assuming 3002
+- Bare `npx prettier` bit again (reformatted at 80 cols; redone with `--print-width 120`) — add the `.prettierrc` already
+- Shared `CtaSection` heading renders "…worth?." (copy "?" + appended "."), pre-existing on homepage — pending user decision
+
+### Commits
+1. `e380de7` — docs: pricing page spec + implementation plan + business docs
+2. `177fd50` — feat: pricing page i18n copy (en/es)
+3. `e4508f4` — fix: add more-on-request qualifier to Pro contacts allowance
+4. `545f3b4` — style: prettier formatting for pricing i18n copy
+5. `24d12a4` — feat: pricing tiers section with rainbow Growth card + enterprise banner
+6. `3dbe6e0` — feat: pricing AI add-on strip and messaging costs explainer
+7. `74778bc` — feat: pricing FAQ accordion
+8. `1ce4b2a` — feat: assemble pricing page with metadata
+9. `11d4edb` — style: bold allowance numbers in pricing tier cards
