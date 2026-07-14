@@ -220,6 +220,7 @@
   },
   "pricing": {
     "metaTitle": "Precios | ConvertChat",
+    "metaDescription": "Planes desde $49/mes con campañas de WhatsApp, inbox unificado y agente IA opcional. Sin permanencia, cancela cuando quieras y 0% de comisión en mensajes de WhatsApp.",
     "pill": "Precios de acceso anticipado",
     "title": "Precios simples. Sin permanencia.",
     "subtitle": "Sin mínimos de usuarios. Cancela cuando quieras. 0% de comisión en mensajes de WhatsApp.",
@@ -314,6 +315,18 @@
       "q5": "¿Necesito un número de teléfono nuevo?",
       "a5": "Funciona con tu número actual o con uno nuevo; lo configuramos juntos en la llamada."
     }
+  },
+  "product": {
+    "metaTitle": "Plataforma de Marketing por WhatsApp — Campañas, Inbox y Agente IA | ConvertChat",
+    "metaDescription": "Envía campañas de WhatsApp a escala, gestiona todas las conversaciones en un solo inbox y deja que un agente IA califique tus leads. Para mayoristas y distribuidores B2B."
+  },
+  "blog": {
+    "metaTitle": "Blog de Marketing por WhatsApp y Reactivación de Leads | ConvertChat",
+    "metaDescription": "Guías para vender por WhatsApp en B2B: remarketing, reactivación de leads, campañas con opt-in y la API de WhatsApp Business."
+  },
+  "legal": {
+    "privacyMetaDescription": "Cómo ConvertChat recopila, usa y protege tus datos. Sin cookies de analítica ni rastreo publicitario.",
+    "termsMetaDescription": "Los términos que rigen el uso de la plataforma de remarketing por WhatsApp de ConvertChat."
   },
   "metadata": {
     "title": "ConvertChat | Remarketing y Reactivación de Leads por WhatsApp para B2B",

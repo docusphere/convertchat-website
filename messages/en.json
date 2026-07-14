@@ -220,6 +220,7 @@
   },
   "pricing": {
     "metaTitle": "Pricing | ConvertChat",
+    "metaDescription": "Plans from $49/mo with WhatsApp campaigns, unified inbox and optional AI agent. No contracts, cancel anytime, 0% markup on WhatsApp messages.",
     "pill": "Early access pricing",
     "title": "Simple pricing. No contracts.",
     "subtitle": "No seat minimums. Cancel anytime. 0% markup on WhatsApp messages.",
@@ -314,6 +315,18 @@
       "q5": "Do I need a new phone number?",
       "a5": "Your existing number or a new one both work; we set it up together on the call."
     }
+  },
+  "product": {
+    "metaTitle": "WhatsApp Marketing Platform — Campaigns, Inbox & AI Agent | ConvertChat",
+    "metaDescription": "Send WhatsApp campaigns at scale, manage every conversation in one inbox, and let an AI agent qualify your leads. Built for B2B wholesalers and distributors."
+  },
+  "blog": {
+    "metaTitle": "WhatsApp Marketing & Lead Reactivation Blog | ConvertChat",
+    "metaDescription": "Guides on selling via WhatsApp for B2B: remarketing, lead reactivation, opt-in campaigns and the WhatsApp Business API."
+  },
+  "legal": {
+    "privacyMetaDescription": "How ConvertChat collects, uses and protects your data. No analytics cookies, no ad tracking.",
+    "termsMetaDescription": "The terms that govern your use of ConvertChat's WhatsApp remarketing platform."
   },
   "metadata": {
     "title": "ConvertChat | WhatsApp Remarketing & Lead Reactivation for B2B",
