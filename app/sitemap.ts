@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { localizedUrl, staticRoutes, type Locale, type RouteKey } from "@/lib/routes";
+import { locales, localizedUrl, staticRoutes, type Locale, type RouteKey } from "@/lib/routes";
 import { getAllSlugs } from "@/lib/blog";
 import { getTranslatedSlug } from "@/lib/blog-slugs";
 import { blogPostUrl } from "@/lib/seo";
@@ -24,7 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const blogPages = getAllSlugs().map(({ locale, slug }) => {
     const l = locale as Locale;
     const languages: Record<string, string> = { [l]: blogPostUrl(l, slug) };
-    for (const other of ["en", "es"] as const) {
+    for (const other of locales) {
       if (other === l) continue;
       const translated = getTranslatedSlug(l, slug, other);
       if (translated) languages[other] = blogPostUrl(other, translated);
