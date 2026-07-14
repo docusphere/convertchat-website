@@ -580,7 +580,7 @@ fetch('http://localhost:3002/').then(r => r.text()).then(html => {
 });
 "
 ```
-Expected: `home JSON-LD types: Organization, WebSite, FAQPage`. Spot-check `/pricing` (FAQPage, 5 questions) and `/blog/welcome` (BlogPosting with headline + datePublished) the same way. Kill the dev server if you started it.
+Expected: `home JSON-LD types: Organization, WebSite, FAQPage`. If the regex matches 0 blocks, inspect the raw HTML manually before concluding the schema is missing (React may render extra script attributes). Spot-check `/pricing` (FAQPage, 5 questions) and `/blog/welcome` (BlogPosting with headline + datePublished) the same way. Kill the dev server if you started it.
 
 - [ ] **Step 7: Commit**
 
@@ -724,6 +724,7 @@ for (const p of pages) {
     ogUrl: get(/property="og:url" content="([^"]*)"/),
     ogLocale: get(/property="og:locale" content="([^"]*)"/),
     twitterCard: get(/name="twitter:card" content="([^"]*)"/),
+    twitterImage: get(/name="twitter:image" content="([^"]*)"/), // confirms OG inheritance
   };
   for (const [k, v] of Object.entries(checks)) if (!v) throw new Error(`${p}: missing ${k}`);
   if (titles.has(title)) throw new Error(`${p}: duplicate title "${title}"`);
