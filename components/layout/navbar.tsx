@@ -6,9 +6,11 @@ import { useParams } from "next/navigation";
 import { getTranslatedSlug } from "@/lib/blog-slugs";
 import type { Locale } from "@/lib/routes";
 import { Button } from "@/components/ui/button";
+import { RainbowBorder } from "@/components/ui/rainbow-border";
 import { useEffect, useRef, useState } from "react";
 
 const BOOKING_URL = "https://cal.com/architct/onboarding";
+const APP_URL = "https://web.convertchat.co";
 
 const LOCALE_LABELS = { en: "English", es: "Español" } as const;
 
@@ -253,9 +255,15 @@ export function Navbar() {
         {/* Desktop CTA */}
         <div className="hidden items-center gap-2.5 lg:flex">
           <LocaleSwitcher scrolled={solid} variant="desktop" />
-          <Button variant="primary" size="md" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
-            {t("cta")}
+          <Button variant={solid ? "ghost" : "glass"} size="md" href={APP_URL}>
+            {t("login")}
           </Button>
+          {/* Button rounded-xl resolves to 24px in this theme — outer radius must be 24 + padding to hug it */}
+          <RainbowBorder padding="2px" borderRadius="26px">
+            <Button variant="primary" size="md" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
+              {t("cta")}
+            </Button>
+          </RainbowBorder>
         </div>
 
         {/* Mobile CTA + hamburger */}
@@ -303,6 +311,9 @@ export function Navbar() {
               </Link>
             ),
           )}
+          <Button variant="ghost" size="sm" href={APP_URL} onClick={() => setMobileOpen(false)} className="mt-2 w-full">
+            {t("login")}
+          </Button>
           <LocaleSwitcher scrolled={solid} variant="mobile" onNavigate={() => setMobileOpen(false)} />
         </div>
       </div>

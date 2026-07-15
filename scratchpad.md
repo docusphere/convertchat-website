@@ -42,7 +42,8 @@ Marketing website for ConvertChat — B2B WhatsApp lead reactivation platform. I
 - [x] S5 — Production live at https://convertchat.co
 
 ### Pending
-- [ ] Login page — shared-PIN velvet-rope gate → web.convertchat.co (parked, decisions in activity.md S8)
+- [x] S15 — Navbar "Log in" button → web.convertchat.co (PIN gate dropped as theater; real invite-code gate = app-side, brief given to Frank) + rainbow border on navbar CTA
+- [ ] App side (Frank, other repo): invite code at signup + close open self-signup + Google OAuth gate — brief in activity.md S15
 - [x] S9 — Navbar EN/ES language dropdown + English default locale (redirects, sitemap, localized metadata)
 - [ ] Fix 320px horizontal overflow (hero H2 + rainbow-border card, pre-existing)
 - [ ] Fix HeroPhone hydration warning under reduced motion (pre-existing)
@@ -51,8 +52,8 @@ Marketing website for ConvertChat — B2B WhatsApp lead reactivation platform. I
 - [x] S13 — SEO: Open Graph images, meta descriptions per page
 - [x] S14 — Analytics: Cloudflare Web Analytics beacon (cookieless, manual snippet in app/layout.tsx — auto-injection doesn't work on Workers)
 - [x] S10 — Privacy Policy & Terms pages (en + es content, legal article renderer, navbar solid fix on interior pages)
-- [ ] Spanish legal texts: lawyer review (S10 translations are machine-made). Also ask lawyer about: AI disclosure line in privacy/terms (EU AI Act transparency — users chatting with the WhatsApp AI agent must know it's AI); arbitration/dispute clause fit for EU (US-style arbitration often unenforceable vs consumers). Noted from Frank 2026-07-15; app-store nutrition labels + DMCA agent = N/A (no mobile app, no UGC on site)
-- [ ] Blog: content pages (framework exists at `/[locale]/blog`)
+- [ ] Spanish legal texts: lawyer review — Frank bypassed for now (S15); keep the free AI-disclosure line as self-serve add. Also ask lawyer about: AI disclosure line in privacy/terms (EU AI Act transparency — users chatting with the WhatsApp AI agent must know it's AI); arbitration/dispute clause fit for EU (US-style arbitration often unenforceable vs consumers). Noted from Frank 2026-07-15; app-store nutrition labels + DMCA agent = N/A (no mobile app, no UGC on site)
+- [ ] Blog: content pages (framework exists at `/[locale]/blog`) — IN PROGRESS S15: strategy C approved (commodity guides + flagship posts from Frank's real data), bylines "Francisco Nillard — Founder, ConvertChat" / "ConvertChat Team", DataForSEO MCP added; next = verify MCP → keyword research → post list → spec
 - [x] S11 — Pricing page (tiers + AI add-on + costs + FAQ, en/es, verified 320–1280)
 - [x] S12 — Routing architecture: central route registry (`lib/routes.ts`), derived pathnames/sitemap, site-wide hreflang + canonical, English route dirs, blog translation linkage (switcher 404 fix)
 - [x] S13 — SEO refinement: per-page metadata via pageMetadata() helpers, OG cards, real favicons, JSON-LD (Organization/WebSite/FAQPage/BlogPosting), llms.txt refresh, sitemap x-default (claude-seo vetted read-only, not installed)
@@ -60,6 +61,6 @@ Marketing website for ConvertChat — B2B WhatsApp lead reactivation platform. I
 - [ ] Re-scrape Meta Sharing Debugger + LinkedIn Post Inspector; Rich Results spot-check (optional, Frank)
 - [ ] SEO round 2 (after 2–4 weeks of GSC data): optimize titles/content around real queries; blog content is the ranking lever
 - [ ] SEO minor: compress app/icon.png (~187KB); add image/dateModified to BlogPosting once BlogPost type has fields
-- [ ] Product page: content TBD
+- [ ] Product page: content TBD — Frank records product screen videos → convert to muted looping MP4/WebM (not GIFs)
 - [ ] Fix "?." double punctuation in shared CtaSection heading (copy "?" + appended ".", also on homepage)
 - [x] S6 — Mobile: final QA pass across breakpoints (320/375/390/430px, layout + type hierarchy)

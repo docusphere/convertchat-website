@@ -384,3 +384,38 @@ Close out the S13 post-deploy manual steps with Frank (non-technical, guided via
 ### Commits
 1. `e86f619` — docs: S13 session log — SEO refinement
 2. `7413ccb` — feat: Cloudflare Web Analytics beacon (cookieless)
+
+## S15 — 2026-07-15 — Navbar Log in + rainbow CTA, blog content kickoff
+
+### Goal
+Resolve the parked login-gate item, make the navbar login prominent, and start the blog content project (the main SEO ranking lever).
+
+### Completed
+- Brainstormed the parked S8 shared-PIN gate → killed it (YAGNI). A marketing-site PIN is theater: web.convertchat.co is directly reachable, and the app currently allows open self-signup (confirmed via Frank's screenshot — Sign Up + Continue with Google)
+- Real exclusivity moves to the app: wrote a paste-ready brief for Frank's app-side Claude Code session (invite code required at signup, validated server-side; Google OAuth must not auto-create accounts; no-code path → book-a-call CTA; audit other registration paths)
+- Website: navbar "Log in" → https://web.convertchat.co. Desktop: outlined Button (glass over hero / ghost when solid) between locale switcher and CTA; mobile: full-width ghost button in hamburger above the language row. i18n keys `nav.login` already existed
+- Rainbow border on the "Talk to us" navbar CTA (RainbowBorder, 2px padding, 26px outer radius) after showing Frank a live comparison; fixed initial radius mismatch
+- Spec: `docs/superpowers/specs/2026-07-15-login-link-design.md`
+- GSC: /es "URL is not on Google" triaged — expected (new URL post-S12 rework, never crawled); live test + Request Indexing run
+- Blog content brainstorm started (strategy locked, topic selection pending DataForSEO)
+
+### Decisions
+- Navbar order EN/ES · Log in · Talk to us. Why: far-right is the strongest anchor and belongs to the money CTA; Frank's first proposal put the locale switcher there
+- No blue pill for Log in. Why: blue isn't in the design system, and Frank himself rejected pill shapes as "AI-looking" (documented in button.tsx)
+- Rainbow on the CTA only, never on Log in. Why: emphasis works by scarcity; two rainbow buttons = template look, inverted hierarchy
+- Blog strategy C: commodity how-to guides drafted solo + flagship posts built on Frank's real campaign data/stories. Why: coverage fast + E-E-A-T authority where it counts
+- Bylines: "Francisco Nillard — Founder, ConvertChat" on flagship posts, "ConvertChat Team" on commodity guides
+- Product page media: Frank records screen videos → convert to muted looping MP4/WebM, NOT GIFs. Why: GIFs are 5–15MB and would wreck page speed
+- Lawyer review bypassed for now (Frank's call); keep the free self-serve AI-disclosure line in the backlog
+- DataForSEO MCP added by Frank (local scope, `claude mcp add dataforseo ... npx -y dataforseo-mcp-server`) — real keyword volume/difficulty for topic selection; pending session restart to verify
+
+### Bugs Fixed
+- Rainbow border looked "too square" around the CTA: this theme's `rounded-xl` resolves to 24px (custom design tokens), not Tailwind's default 12px — wrapper was 14px outer. Measured computed styles in the browser, set outer 26px = 24 + 2px padding
+
+### Lessons
+- Never assume Tailwind default values in this repo — `@theme inline` overrides tokens (rounded-xl = 24px); measure `getComputedStyle` before wrapping components
+- RainbowBorder hugging rule: outer radius = child's real radius + padding
+
+### Blog kickoff state (resume here after restart)
+- Approved: strategy C, bylines above, en+es via existing MDX framework
+- Next: verify DataForSEO MCP tools → keyword research (WhatsApp remarketing / lead reactivation cluster) → propose post list → spec `2026-07-15-blog-content-design.md` → writing-plans
