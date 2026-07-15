@@ -358,3 +358,29 @@ Complete search/social presence on top of S12's routing foundation: unique per-p
 9. `1d1b843` — fix: llms.txt aligned with current URLs and positioning
 10. `b802879` + `02b93bc` — feat: x-default hreflang in sitemap alternates (+ style)
 11. `a04c37e` — style: prettier formatting for blog post page
+
+## S14 — 2026-07-15 — GSC live + Cloudflare Web Analytics
+
+### Goal
+Close out the S13 post-deploy manual steps with Frank (non-technical, guided via screenshots): Google Search Console verification + sitemap, and set up traffic analytics so it's not forgotten.
+
+### Completed
+- Confirmed convertchat.co is indexed and #1 for the brand query; namespace is crowded (convertchat.app, convertchatbot.com, convertchats.com)
+- GSC: existing property was verified via Google Analytics from the old Framer site (would lapse — new site has no GA); added permanent DNS verification via Google's Cloudflare OAuth flow ("Domain name provider" → Start Verification). Two green checks now
+- Sitemap: old Framer sitemap lived at the same `/sitemap.xml` path — no cleanup needed; resubmitted, Google confirmed
+- Cloudflare Web Analytics: tried auto-injection ("Enable" RUM) — beacon never appeared on the live site (known limitation on Workers-served sites); switched to manual JS snippet in `app/layout.tsx`, shipped (`7413ccb`), verified beacon in production HTML
+- Triaged Frank's Instagram-reel legal checklist: AI disclosure (relevant via EU AI Act, product-level) + EU-fit dispute clause → added to the lawyer-review scratchpad item; app-store nutrition labels + DMCA agent = N/A (no mobile app, no UGC)
+
+### Decisions
+- Cloudflare Web Analytics over GA4/PostHog. Why: cookieless → no consent banner (GDPR), free, one line of code; GA adds cookie-banner obligations for data we don't need pre-traffic
+- Full "Enable" (not EU-excluded). Why: audience is largely EU/Spain; excluding EU would hide most visitors, and the beacon collects no personal data
+- Keyword work deferred until GSC has 2–4 weeks of Performance data. Why: current targets are positioning-driven guesses; optimize from real queries, not assumptions. Blog content is the main ranking lever (1 post live)
+
+### Lessons
+- Cloudflare Web Analytics auto-injection does NOT work on Workers-served sites — use the manual beacon snippet
+- GSC "verified via Google Analytics" breaks silently when a site is rebuilt without GA — always add DNS verification while still verified
+- Google's GSC DNS flow can add the TXT record itself via Cloudflare OAuth — easiest path for non-technical owners
+
+### Commits
+1. `e86f619` — docs: S13 session log — SEO refinement
+2. `7413ccb` — feat: Cloudflare Web Analytics beacon (cookieless)

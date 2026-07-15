@@ -49,14 +49,15 @@ Marketing website for ConvertChat — B2B WhatsApp lead reactivation platform. I
 - [ ] Add .prettierrc (printWidth 120) — repo has none, CLAUDE.md documents it
 - [ ] Hero Phone upgrade — 3D floating component (via 21st.dev Magic MCP)
 - [x] S13 — SEO: Open Graph images, meta descriptions per page
-- [ ] Analytics: tracking setup (Plausible, PostHog, or similar)
+- [x] S14 — Analytics: Cloudflare Web Analytics beacon (cookieless, manual snippet in app/layout.tsx — auto-injection doesn't work on Workers)
 - [x] S10 — Privacy Policy & Terms pages (en + es content, legal article renderer, navbar solid fix on interior pages)
-- [ ] Spanish legal texts: lawyer review (S10 translations are machine-made)
+- [ ] Spanish legal texts: lawyer review (S10 translations are machine-made). Also ask lawyer about: AI disclosure line in privacy/terms (EU AI Act transparency — users chatting with the WhatsApp AI agent must know it's AI); arbitration/dispute clause fit for EU (US-style arbitration often unenforceable vs consumers). Noted from Frank 2026-07-15; app-store nutrition labels + DMCA agent = N/A (no mobile app, no UGC on site)
 - [ ] Blog: content pages (framework exists at `/[locale]/blog`)
 - [x] S11 — Pricing page (tiers + AI add-on + costs + FAQ, en/es, verified 320–1280)
 - [x] S12 — Routing architecture: central route registry (`lib/routes.ts`), derived pathnames/sitemap, site-wide hreflang + canonical, English route dirs, blog translation linkage (switcher 404 fix)
 - [x] S13 — SEO refinement: per-page metadata via pageMetadata() helpers, OG cards, real favicons, JSON-LD (Organization/WebSite/FAQPage/BlogPosting), llms.txt refresh, sitemap x-default (claude-seo vetted read-only, not installed)
-- [ ] GSC (Frank, post-deploy): add domain property convertchat.co → DNS TXT in Cloudflare → verify → submit sitemap.xml; re-scrape Meta Sharing Debugger + LinkedIn Post Inspector; Rich Results spot-check
+- [x] S14 — GSC: verified permanently via DNS (Cloudflare OAuth flow) on existing property, sitemap.xml resubmitted
+- [ ] Re-scrape Meta Sharing Debugger + LinkedIn Post Inspector; Rich Results spot-check (optional, Frank)
 - [ ] SEO round 2 (after 2–4 weeks of GSC data): optimize titles/content around real queries; blog content is the ranking lever
 - [ ] SEO minor: compress app/icon.png (~187KB); add image/dateModified to BlogPosting once BlogPost type has fields
 - [ ] Product page: content TBD
