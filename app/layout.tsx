@@ -18,7 +18,15 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
       lang={locale}
       className={`${newsreader.variable} ${clashDisplay.variable} ${satoshi.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans">{children}</body>
+      <body className="min-h-full flex flex-col font-sans">
+        {children}
+        {/* Cloudflare Web Analytics — cookieless, no consent banner needed */}
+        <script
+          type="module"
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon='{"token": "7be9fe0e0364414f9e35abf77dee80a6"}'
+        />
+      </body>
     </html>
   );
 }
