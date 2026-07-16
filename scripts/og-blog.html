@@ -1,0 +1,254 @@
+<!--
+  ConvertChat — Blog OG/Hero Image Template
+  Canvas: 1200 × 630 px (fixed, no scroll)
+
+  GENERATION WORKFLOW (per post):
+  ─────────────────────────────────────────────────────────────────────────────
+  1. Edit the <h1 id="title"> text below to the exact post title.
+  2. Open this file in Playwright MCP browser:
+       browser_navigate  →  file:///absolute/path/to/scripts/og-blog.html
+  3. Resize the viewport to exactly 1200 × 630:
+       browser_resize  →  { width: 1200, height: 630 }
+  4. Take a full-page screenshot:
+       browser_take_screenshot  →  { fullPage: false }
+     (fullPage:false captures the viewport, which is exactly the 1200×630 canvas)
+  5. Save the PNG to:
+       public/og/blog/<slug>.png
+  6. Verify the file is < 300 KB. If larger, run through:
+       npx sharp-cli --input public/og/blog/<slug>.png --output public/og/blog/<slug>.png resize 1200 630
+     or use any lossless PNG compressor (pngquant, oxipng).
+  7. Wire the image in the post's frontmatter:
+       ogImage: "/og/blog/<slug>.png"
+  ─────────────────────────────────────────────────────────────────────────────
+  TEMPLATE VARIABLES:
+    #title  — swap text content before each screenshot
+  ─────────────────────────────────────────────────────────────────────────────
+-->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1200" />
+    <title>OG Template — ConvertChat Blog</title>
+
+    <!-- Newsreader serif (matches site) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ── Reset / canvas ── */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        width: 1200px;
+        height: 630px;
+        overflow: hidden;
+        background: #06060f;
+      }
+
+      /* ── Root canvas ── */
+      .canvas {
+        position: relative;
+        width: 1200px;
+        height: 630px;
+        overflow: hidden;
+        background: #06060f;
+        font-family: "Newsreader", Georgia, serif;
+        color: #ffffff;
+      }
+
+      /* ── Background blobs (match og-en.png: green top-left, purple bottom-right) ── */
+      .blob {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(90px);
+        pointer-events: none;
+      }
+
+      .blob-green {
+        width: 520px;
+        height: 520px;
+        top: -140px;
+        left: -80px;
+        background: radial-gradient(circle, #22c55e 0%, #16a34a 40%, transparent 70%);
+        opacity: 0.72;
+      }
+
+      .blob-purple {
+        width: 580px;
+        height: 500px;
+        bottom: -160px;
+        right: -100px;
+        background: radial-gradient(circle, #7c3aed 0%, #6d28d9 35%, transparent 70%);
+        opacity: 0.75;
+      }
+
+      /* Subtle dark vignette overlay to darken mid-section (keeps text legible) */
+      .vignette {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse 80% 70% at 60% 50%, transparent 30%, rgba(6, 6, 15, 0.55) 100%);
+        pointer-events: none;
+      }
+
+      /* ── Rainbow accent bar — bottom edge ── */
+      .rainbow-bar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(
+          90deg,
+          #7c3aed 0%,
+          #ec4899 18%,
+          #f97316 32%,
+          #eab308 48%,
+          #22c55e 63%,
+          #06b6d4 80%,
+          #3b82f6 100%
+        );
+      }
+
+      /* ── Content layout ── */
+      .content {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 52px 72px 48px;
+      }
+
+      /* ── Logo row ── */
+      .logo-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .logo-img {
+        height: 36px;
+        width: auto;
+        /* PNG has white text — invert to show on dark bg */
+        filter: brightness(0) invert(1);
+      }
+
+      /* ── Post tag pill ── */
+      .tag {
+        display: inline-block;
+        font-family: system-ui, -apple-system, sans-serif;
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        color: #4ade80;
+        border: 1px solid rgba(74, 222, 128, 0.35);
+        border-radius: 6px;
+        padding: 4px 12px;
+        margin-left: 24px;
+        text-transform: uppercase;
+        background: rgba(34, 197, 94, 0.08);
+      }
+
+      /* ── Title ── */
+      .title-wrap {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        padding: 24px 0 16px;
+      }
+
+      #title {
+        font-family: "Newsreader", Georgia, serif;
+        font-size: 72px;
+        font-weight: 500;
+        line-height: 1.08;
+        letter-spacing: -0.02em;
+        color: #ffffff;
+        max-width: 960px;
+        /* Clamp to 3 lines so long titles don't overflow */
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      /* ── Footer row ── */
+      .footer-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .site-url {
+        font-family: system-ui, -apple-system, sans-serif;
+        font-size: 15px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.45);
+        letter-spacing: 0.01em;
+      }
+
+      .footer-dot {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        margin: 0 10px;
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      .blog-label {
+        font-family: system-ui, -apple-system, sans-serif;
+        font-size: 15px;
+        color: rgba(255, 255, 255, 0.3);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="canvas">
+      <!-- Background atmosphere -->
+      <div class="blob blob-green"></div>
+      <div class="blob blob-purple"></div>
+      <div class="vignette"></div>
+
+      <!-- Rainbow bottom bar -->
+      <div class="rainbow-bar"></div>
+
+      <!-- Main content -->
+      <div class="content">
+        <!-- Top: logo + blog tag -->
+        <div class="logo-row">
+          <img
+            class="logo-img"
+            src="../public/logo-full-white.png"
+            alt="ConvertChat"
+          />
+          <span class="tag">Blog</span>
+        </div>
+
+        <!-- Middle: post title (edit this before each screenshot) -->
+        <div class="title-wrap">
+          <h1 id="title">How to reactivate dormant WhatsApp leads</h1>
+        </div>
+
+        <!-- Bottom: site URL -->
+        <div class="footer-row">
+          <span class="site-url">convertchat.co<span class="footer-dot"></span>blog</span>
+          <span class="blog-label">WhatsApp remarketing for B2B</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
