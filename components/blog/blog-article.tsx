@@ -93,10 +93,7 @@ function PullQuote({ text }: { text: string }) {
 function StatHighlight({ value, label }: { value: string; label: string }) {
   return (
     <div className="my-10 rounded-2xl bg-neutral-950 px-6 py-10 text-center">
-      <span
-        className="bg-gradient-to-r from-green-500 via-emerald-400 to-green-600 bg-clip-text text-6xl tracking-[-0.02em] text-transparent md:text-7xl"
-        style={{ fontFamily: "var(--font-clash-display)", fontWeight: 600 }}
-      >
+      <span className="font-heading font-semibold bg-gradient-to-r from-green-500 via-emerald-400 to-green-600 bg-clip-text text-6xl tracking-[-0.02em] text-transparent md:text-7xl">
         {value}
       </span>
       <p className="mt-3 text-sm text-neutral-400">{label}</p>
