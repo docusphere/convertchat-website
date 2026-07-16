@@ -50,7 +50,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ local
             {post.author} &middot; {post.tags.join(", ")}
           </p>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          {post.image && <img src={post.image} alt={post.title} className="mt-10 w-full rounded-2xl" />}
+          {post.image && (
+            <img src={post.image} alt={post.title} width={1200} height={630} className="mt-10 w-full rounded-2xl" />
+          )}
           <BlogArticle content={post.content} />
         </article>
       </section>

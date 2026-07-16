@@ -30,6 +30,8 @@ const postRegistry: Record<string, Record<string, string>> = {
   },
 };
 
+const toDateString = (v: unknown) => (v instanceof Date ? v.toISOString().slice(0, 10) : String(v));
+
 function parseFrontmatter(raw: string, slug: string, locale: string): BlogPost {
   const { data, content } = matter(raw);
   return {
@@ -41,8 +43,8 @@ function parseFrontmatter(raw: string, slug: string, locale: string): BlogPost {
     tags: data.tags || [],
     locale,
     content: content.trim(),
-    image: data.image || "",
-    updated: data.updated ? String(data.updated) : data.date ? String(data.date) : "",
+    image: data.image ? String(data.image) : "",
+    updated: data.updated ? toDateString(data.updated) : data.date ? toDateString(data.date) : "",
   };
 }
 

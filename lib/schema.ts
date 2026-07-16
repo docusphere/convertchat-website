@@ -44,7 +44,7 @@ export function blogPostingSchema(locale: Locale, post: BlogPost) {
     inLanguage: locale,
     url: blogPostUrl(locale, post.slug),
     author: { "@type": "Organization", name: "ConvertChat", url: BASE_URL },
-    ...(post.image ? { image: `${BASE_URL}${post.image}` } : {}),
+    ...(post.image ? { image: post.image.startsWith("http") ? post.image : `${BASE_URL}${post.image}` } : {}),
     ...(post.updated ? { dateModified: post.updated } : {}),
   };
 }

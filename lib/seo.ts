@@ -89,6 +89,7 @@ export function blogPostMetadata(
       description,
       siteName: "ConvertChat",
       locale: OG_LOCALE[locale],
+      // per-post images must be 1200×630 (see scripts/og-blog.html)
       images: image ? [{ url: image, width: 1200, height: 630, alt: title }] : ogImage(locale),
       ...(publishedTime ? { publishedTime } : {}),
     },
