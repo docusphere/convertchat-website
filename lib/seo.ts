@@ -76,7 +76,7 @@ export function pageMetadata(key: RouteKey, locale: Locale, { title, description
 export function blogPostMetadata(
   locale: Locale,
   slug: string,
-  { title, description, publishedTime }: PageMetaOpts & { publishedTime?: string },
+  { title, description, publishedTime, image }: PageMetaOpts & { publishedTime?: string; image?: string },
 ): Metadata {
   return {
     title,
@@ -89,7 +89,7 @@ export function blogPostMetadata(
       description,
       siteName: "ConvertChat",
       locale: OG_LOCALE[locale],
-      images: ogImage(locale),
+      images: image ? [{ url: image, width: 1200, height: 630, alt: title }] : ogImage(locale),
       ...(publishedTime ? { publishedTime } : {}),
     },
     twitter: { card: "summary_large_image" },

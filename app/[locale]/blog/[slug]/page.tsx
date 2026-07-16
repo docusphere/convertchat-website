@@ -26,6 +26,7 @@ export async function generateMetadata({
     title: `${post.title} | ConvertChat`,
     description: post.description,
     publishedTime: post.date || undefined,
+    image: post.image || undefined,
   });
 }
 
@@ -48,6 +49,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ local
           <p className="mt-2 text-sm text-neutral-400">
             {post.author} &middot; {post.tags.join(", ")}
           </p>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          {post.image && <img src={post.image} alt={post.title} className="mt-10 w-full rounded-2xl" />}
           <BlogArticle content={post.content} />
         </article>
       </section>

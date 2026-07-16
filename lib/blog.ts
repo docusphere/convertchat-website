@@ -16,6 +16,8 @@ export type BlogPost = {
   tags: string[];
   locale: string;
   content: string;
+  image: string;
+  updated: string;
 };
 
 // Registry built from static imports. Fully synchronous, edge-compatible.
@@ -39,6 +41,8 @@ function parseFrontmatter(raw: string, slug: string, locale: string): BlogPost {
     tags: data.tags || [],
     locale,
     content: content.trim(),
+    image: data.image || "",
+    updated: data.updated ? String(data.updated) : data.date ? String(data.date) : "",
   };
 }
 
