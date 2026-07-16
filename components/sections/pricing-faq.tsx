@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { SectionReveal } from "@/components/ui/section-reveal";
 
-const FAQ_KEYS = ["q1", "q2", "q3", "q4", "q5"] as const;
+const FAQ_KEYS = ["q1", "q2", "q3", "q4", "q5", "q6"] as const;
 
 function ChevronIcon({ open }: { open: boolean }) {
   return (

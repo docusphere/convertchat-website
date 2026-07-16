@@ -21,7 +21,7 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
   setRequestLocale(locale);
 
   const t = await getTranslations({ locale, namespace: "pricing.faq" });
-  const faqItems = ([1, 2, 3, 4, 5] as const).map((i) => ({ question: t(`q${i}`), answer: t(`a${i}`) }));
+  const faqItems = ([1, 2, 3, 4, 5, 6] as const).map((i) => ({ question: t(`q${i}`), answer: t(`a${i}`) }));
 
   return (
     <>
