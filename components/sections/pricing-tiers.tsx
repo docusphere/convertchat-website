@@ -124,7 +124,21 @@ export function PricingTiers() {
               {t("pill")}
             </span>
             <h1 className="mt-6 font-serif text-[42px] font-semibold leading-[1.1] tracking-[-0.03em] text-neutral-900 md:text-6xl">
-              {t("title")}
+              {t("title")
+                .split(".")
+                .map((part, i, arr) =>
+                  i < arr.length - 1 ? (
+                    <span key={i}>
+                      {part}
+                      <span className="text-green-500">.</span>
+                    </span>
+                  ) : part ? (
+                    <span key={i}>
+                      {part}
+                      <span className="text-green-500">.</span>
+                    </span>
+                  ) : null,
+                )}
             </h1>
             <p className="mx-auto mt-4 max-w-2xl text-base text-neutral-500 md:text-lg">{t("subtitle")}</p>
           </div>

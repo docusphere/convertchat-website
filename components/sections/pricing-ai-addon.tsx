@@ -17,7 +17,21 @@ export function PricingAiAddon() {
             <div className="relative z-10 flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
               <div className="max-w-xl">
                 <h2 className="font-serif text-[28px] font-semibold leading-[1.15] tracking-[-0.02em] text-white md:text-[36px]">
-                  {t("title")}
+                  {t("title")
+                    .split(".")
+                    .map((part, i, arr) =>
+                      i < arr.length - 1 ? (
+                        <span key={i}>
+                          {part}
+                          <span className="text-green-500">.</span>
+                        </span>
+                      ) : part ? (
+                        <span key={i}>
+                          {part}
+                          <span className="text-green-500">.</span>
+                        </span>
+                      ) : null,
+                    )}
                 </h2>
                 <p className="mt-3 text-base text-white/50">{t("body")}</p>
               </div>
