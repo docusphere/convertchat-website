@@ -5,20 +5,23 @@
   GENERATION WORKFLOW (per post):
   ─────────────────────────────────────────────────────────────────────────────
   1. Edit the <h1 id="title"> text below to the exact post title.
-  2. Open this file in Playwright MCP browser:
-       browser_navigate  →  file:///absolute/path/to/scripts/og-blog.html
+  2. Serve this directory over HTTP (Playwright MCP blocks file:// URLs):
+       cd /absolute/path/to/convertchat-website/scripts
+       python3 -m http.server 8787
+     Then navigate in Playwright MCP:
+       browser_navigate  →  http://localhost:8787/og-blog.html
   3. Resize the viewport to exactly 1200 × 630:
        browser_resize  →  { width: 1200, height: 630 }
-  4. Take a full-page screenshot:
+  4. Take a viewport screenshot (NOT fullPage):
        browser_take_screenshot  →  { fullPage: false }
      (fullPage:false captures the viewport, which is exactly the 1200×630 canvas)
   5. Save the PNG to:
        public/og/blog/<slug>.png
-  6. Verify the file is < 300 KB. If larger, run through:
-       npx sharp-cli --input public/og/blog/<slug>.png --output public/og/blog/<slug>.png resize 1200 630
-     or use any lossless PNG compressor (pngquant, oxipng).
+  6. Verify the file is < 300 KB. If larger, compress with pngquant or oxipng:
+       pngquant --force --output public/og/blog/<slug>.png public/og/blog/<slug>.png
+     or: oxipng -o 4 public/og/blog/<slug>.png
   7. Wire the image in the post's frontmatter:
-       ogImage: "/og/blog/<slug>.png"
+       image: "/og/blog/<slug>.png"
   ─────────────────────────────────────────────────────────────────────────────
   TEMPLATE VARIABLES:
     #title  — swap text content before each screenshot
