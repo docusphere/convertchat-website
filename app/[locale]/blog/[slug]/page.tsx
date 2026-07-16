@@ -6,6 +6,7 @@ import { blogPostMetadata } from "@/lib/seo";
 import type { Locale } from "@/lib/routes";
 import { JsonLd } from "@/components/seo/json-ld";
 import { blogPostingSchema } from "@/lib/schema";
+import { BlogArticle } from "@/components/blog/blog-article";
 
 export function generateStaticParams({ params }: { params: { locale: string } }) {
   return getAllSlugs()
@@ -47,7 +48,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ local
           <p className="mt-2 text-sm text-neutral-400">
             {post.author} &middot; {post.tags.join(", ")}
           </p>
-          <div className="prose mt-12 max-w-none whitespace-pre-line text-neutral-600">{post.content}</div>
+          <BlogArticle content={post.content} />
         </article>
       </section>
     </>
