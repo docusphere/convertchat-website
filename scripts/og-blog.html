@@ -5,22 +5,26 @@
   GENERATION WORKFLOW (per post):
   ─────────────────────────────────────────────────────────────────────────────
   1. Edit the <h1 id="title"> text below to the exact post title.
-  2. Serve this directory over HTTP (Playwright MCP blocks file:// URLs):
-       cd /absolute/path/to/convertchat-website/scripts
+  2. Serve from the REPO ROOT so that /public/ assets resolve correctly
+     (Playwright MCP blocks file:// URLs; serving from scripts/ would 404 the logo):
+       cd /absolute/path/to/convertchat-website
        python3 -m http.server 8787
      Then navigate in Playwright MCP:
-       browser_navigate  →  http://localhost:8787/og-blog.html
+       browser_navigate  →  http://localhost:8787/scripts/og-blog.html
   3. Resize the viewport to exactly 1200 × 630:
        browser_resize  →  { width: 1200, height: 630 }
-  4. Take a viewport screenshot (NOT fullPage):
+  4. Confirm the serif title rendered in Newsreader (not Georgia fallback) — the
+     letter forms should have visible optical-size serifs, not the blocky Georgia look.
+     If Georgia is rendering, the Google Fonts request failed (check network/console).
+  5. Take a viewport screenshot (NOT fullPage):
        browser_take_screenshot  →  { fullPage: false }
      (fullPage:false captures the viewport, which is exactly the 1200×630 canvas)
-  5. Save the PNG to:
+  6. Save the PNG to:
        public/og/blog/<slug>.png
-  6. Verify the file is < 300 KB. If larger, compress with pngquant or oxipng:
+  7. Verify the file is < 300 KB. If larger, compress with pngquant or oxipng:
        pngquant --force --output public/og/blog/<slug>.png public/og/blog/<slug>.png
      or: oxipng -o 4 public/og/blog/<slug>.png
-  7. Wire the image in the post's frontmatter:
+  8. Wire the image in the post's frontmatter:
        image: "/og/blog/<slug>.png"
   ─────────────────────────────────────────────────────────────────────────────
   TEMPLATE VARIABLES:
@@ -144,24 +148,8 @@
       .logo-img {
         height: 36px;
         width: auto;
-        /* PNG has white text — invert to show on dark bg */
+        /* Force logo to pure white regardless of source colors */
         filter: brightness(0) invert(1);
-      }
-
-      /* ── Post tag pill ── */
-      .tag {
-        display: inline-block;
-        font-family: system-ui, -apple-system, sans-serif;
-        font-size: 13px;
-        font-weight: 500;
-        letter-spacing: 0.04em;
-        color: #4ade80;
-        border: 1px solid rgba(74, 222, 128, 0.35);
-        border-radius: 6px;
-        padding: 4px 12px;
-        margin-left: 24px;
-        text-transform: uppercase;
-        background: rgba(34, 197, 94, 0.08);
       }
 
       /* ── Title ── */
@@ -191,31 +179,13 @@
       .footer-row {
         display: flex;
         align-items: center;
-        justify-content: space-between;
       }
 
       .site-url {
         font-family: system-ui, -apple-system, sans-serif;
         font-size: 15px;
         font-weight: 400;
-        color: rgba(255, 255, 255, 0.45);
-        letter-spacing: 0.01em;
-      }
-
-      .footer-dot {
-        width: 5px;
-        height: 5px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.2);
-        margin: 0 10px;
-        display: inline-block;
-        vertical-align: middle;
-      }
-
-      .blog-label {
-        font-family: system-ui, -apple-system, sans-serif;
-        font-size: 15px;
-        color: rgba(255, 255, 255, 0.3);
+        color: rgba(255, 255, 255, 0.4);
       }
     </style>
   </head>
@@ -231,14 +201,13 @@
 
       <!-- Main content -->
       <div class="content">
-        <!-- Top: logo + blog tag -->
+        <!-- Top: logo -->
         <div class="logo-row">
           <img
             class="logo-img"
-            src="../public/logo-full-white.png"
+            src="/public/logo-full-white.png"
             alt="ConvertChat"
           />
-          <span class="tag">Blog</span>
         </div>
 
         <!-- Middle: post title (edit this before each screenshot) -->
@@ -248,8 +217,7 @@
 
         <!-- Bottom: site URL -->
         <div class="footer-row">
-          <span class="site-url">convertchat.co<span class="footer-dot"></span>blog</span>
-          <span class="blog-label">WhatsApp remarketing for B2B</span>
+          <span class="site-url">convertchat.co/blog</span>
         </div>
       </div>
     </div>
