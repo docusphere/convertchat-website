@@ -87,6 +87,18 @@ describe("parseArticle: directives", () => {
   });
 });
 
+describe("parseArticle: directive guard regressions", () => {
+  it("does not split heading-like lines inside a directive body", () => {
+    expect(parseArticle(":::quote\n## looks like a heading\nrest\n:::")).toEqual([
+      { type: "quote", text: "## looks like a heading\nrest" },
+    ]);
+  });
+
+  it("throws on unterminated directives", () => {
+    expect(() => parseArticle(":::quote\nno closing fence")).toThrow(/[Uu]nterminated/);
+  });
+});
+
 describe("parseArticle: edge cases (code-review regressions)", () => {
   it("does not misclassify a paragraph starting with a year as an ordered list", () => {
     expect(parseArticle("2025. Meta changed its API pricing model.")).toEqual([

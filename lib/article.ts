@@ -64,6 +64,9 @@ function splitChunks(content: string): string[] {
       current.push(line);
     }
   }
+  if (inDirective) {
+    throw new Error(`Unterminated ::: directive: "${current[0]}"`);
+  }
   flush();
   return chunks;
 }
