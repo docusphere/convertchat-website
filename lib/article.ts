@@ -56,6 +56,10 @@ function splitChunks(content: string): string[] {
       }
     } else if (!inDirective && line.trim() === "") {
       flush();
+    } else if (!inDirective && (line.startsWith("## ") || line.startsWith("### "))) {
+      flush();
+      current.push(line);
+      flush();
     } else {
       current.push(line);
     }
@@ -77,7 +81,7 @@ function parseChunk(chunk: string): ArticleBlock | null {
   if (lines.every((l) => l.startsWith("- "))) {
     return { type: "ul", items: lines.map((l) => l.slice(2)) };
   }
-  if (lines.every((l) => /^\d+\.\s/.test(l))) {
+  if (lines[0].startsWith("1. ") && lines.every((l) => /^\d+\.\s/.test(l))) {
     return { type: "ol", items: lines.map((l) => l.replace(/^\d+\.\s/, "")) };
   }
   if (lines.length >= 2 && lines.every((l) => l.startsWith("|")) && /^\|[\s:|-]+\|$/.test(lines[1])) {
