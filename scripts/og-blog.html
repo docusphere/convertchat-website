@@ -13,9 +13,11 @@
        browser_navigate  →  http://localhost:8787/scripts/og-blog.html
   3. Resize the viewport to exactly 1200 × 630:
        browser_resize  →  { width: 1200, height: 630 }
-  4. Confirm the serif title rendered in Newsreader (not Georgia fallback) — the
-     letter forms should have visible optical-size serifs, not the blocky Georgia look.
-     If Georgia is rendering, the Google Fonts request failed (check network/console).
+  4. Confirm fonts rendered correctly before capturing:
+     - Newsreader (title): optical-size serifs, not the blocky Georgia look.
+     - Satoshi (pill + footer): geometric single-story "a" and "g", not Helvetica/Arial.
+     If either fallback is showing, the font file path or Google Fonts request failed
+     (check network/console).
   5. Take a viewport screenshot (NOT fullPage):
        browser_take_screenshot  →  { fullPage: false }
      (fullPage:false captures the viewport, which is exactly the 1200×630 canvas)
@@ -47,6 +49,23 @@
     />
 
     <style>
+      /* Satoshi — served from repo root via HTTP server */
+      @font-face {
+        font-family: "Satoshi";
+        src: url("/fonts/Satoshi-Regular.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: block;
+      }
+
+      @font-face {
+        font-family: "Satoshi";
+        src: url("/fonts/Satoshi-Medium.woff2") format("woff2");
+        font-weight: 500;
+        font-style: normal;
+        font-display: block;
+      }
+
       /* ── Reset / canvas ── */
       *,
       *::before,
@@ -152,6 +171,22 @@
         filter: brightness(0) invert(1);
       }
 
+      /* ── Blog pill ── */
+      .tag {
+        display: inline-block;
+        font-family: "Satoshi", system-ui, sans-serif;
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: #4ade80;
+        border: 1px solid rgba(74, 222, 128, 0.35);
+        border-radius: 6px;
+        padding: 4px 12px;
+        margin-left: 20px;
+        background: rgba(34, 197, 94, 0.08);
+      }
+
       /* ── Title ── */
       .title-wrap {
         flex: 1;
@@ -179,13 +214,31 @@
       .footer-row {
         display: flex;
         align-items: center;
+        justify-content: space-between;
       }
 
       .site-url {
-        font-family: system-ui, -apple-system, sans-serif;
+        font-family: "Satoshi", system-ui, sans-serif;
         font-size: 15px;
         font-weight: 400;
-        color: rgba(255, 255, 255, 0.4);
+        color: rgba(255, 255, 255, 0.45);
+      }
+
+      .footer-dot {
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        margin: 0 9px;
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      .blog-label {
+        font-family: "Satoshi", system-ui, sans-serif;
+        font-size: 15px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.35);
       }
     </style>
   </head>
@@ -201,13 +254,14 @@
 
       <!-- Main content -->
       <div class="content">
-        <!-- Top: logo -->
+        <!-- Top: logo + blog pill -->
         <div class="logo-row">
           <img
             class="logo-img"
             src="/public/logo-full-white.png"
             alt="ConvertChat"
           />
+          <span class="tag">Blog</span>
         </div>
 
         <!-- Middle: post title (edit this before each screenshot) -->
@@ -215,9 +269,10 @@
           <h1 id="title">How to reactivate dormant WhatsApp leads</h1>
         </div>
 
-        <!-- Bottom: site URL -->
+        <!-- Bottom: site URL + tagline -->
         <div class="footer-row">
-          <span class="site-url">convertchat.co/blog</span>
+          <span class="site-url">convertchat.co<span class="footer-dot"></span>blog</span>
+          <span class="blog-label">WhatsApp remarketing for B2B</span>
         </div>
       </div>
     </div>
