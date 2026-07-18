@@ -5,7 +5,9 @@ import matter from "gray-matter";
 // (2) add its translation pair to lib/blog-slugs.ts (links locales for the
 // locale switcher, hreflang, and sitemap alternates).
 import esBienvenido from "../content/blog/es/bienvenido.mdx";
+import esLimitesDifusion from "../content/blog/es/limites-difusion-whatsapp.mdx";
 import enWelcome from "../content/blog/en/welcome.mdx";
+import enWhatsappBroadcastLimits from "../content/blog/en/whatsapp-broadcast-limits.mdx";
 
 export type BlogPost = {
   slug: string;
@@ -24,9 +26,11 @@ export type BlogPost = {
 const postRegistry: Record<string, Record<string, string>> = {
   es: {
     bienvenido: esBienvenido,
+    "limites-difusion-whatsapp": esLimitesDifusion,
   },
   en: {
     welcome: enWelcome,
+    "whatsapp-broadcast-limits": enWhatsappBroadcastLimits,
   },
 };
 

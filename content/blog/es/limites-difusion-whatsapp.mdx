@@ -1,0 +1,155 @@
+---
+title: "Límites de las listas de difusión de WhatsApp y cómo enviar broadcasts a escala"
+description: "Todos los límites de difusión de WhatsApp: el tope de 256 contactos, el nuevo límite de 30-35 mensajes gratis al mes, y cómo escalar con la API de WhatsApp Business."
+date: "2026-07-18"
+author: "Equipo ConvertChat"
+tags: ["whatsapp-marketing", "broadcast"]
+image: "/og/blog/limites-difusion-whatsapp.png"
+---
+
+## Por qué tus difusiones de WhatsApp no llegan
+
+Has creado una lista de difusión, le has dado a enviar y la mitad de la gente no ha recibido nada. Te suena.
+
+La razón más común es absurdamente simple: el destinatario tiene que tener **tu** número guardado en sus contactos. Si no lo tiene, WhatsApp descarta el mensaje sin avisar: ni error, ni notificación de rebote. El mensaje desaparece y ya está.
+
+Esta regla causa más confusión que todos los demás límites de difusión de WhatsApp juntos. Y solo afecta a la app normal de WhatsApp y a WhatsApp Business. La API de Business funciona de otra forma (lo vemos más abajo).
+
+La segunda razón más común: el tope de 256 destinatarios. Cada [lista de difusión](https://faq.whatsapp.com/1011592610287406) en WhatsApp o WhatsApp Business admite 256 contactos como máximo. Puedes crear varias listas, pero el requisito no cambia: cada destinatario tiene que tener tu número guardado.
+
+:::callout warning
+Si los destinatarios no tienen tu número guardado, nunca recibirán tu mensaje de difusión. Es el diseño antispam de WhatsApp. No hay forma de saltarse esta regla en la app normal ni en la Business app.
+:::
+
+## Límites de difusión por producto
+
+No todos los productos de "WhatsApp" son iguales. Esto es lo que de verdad puedes hacer en cada uno.
+
+| Característica | WhatsApp (personal) | WhatsApp Business App | WhatsApp Business API |
+| --- | --- | --- | --- |
+| Máximo de destinatarios por lista | 256 | 256 | Sin tope fijo |
+| El destinatario debe guardar tu número | Sí | Sí | No |
+| Difusiones gratuitas al mes | Ilimitadas (dentro del tope de lista) | ~30-35 (en despliegue) | N/A (pago por mensaje) |
+| Coste por mensaje | Gratis | Gratis, luego de pago | ~0,05 EUR (tarifa Meta, varía por mercado) |
+| Requiere aprobación de plantilla | No | No | Sí (Meta revisa cada plantilla) |
+| Límite diario de envíos | Sin límite formal | Sin límite formal | Por niveles: 250 a ilimitado |
+| Contenido enriquecido (imágenes, PDFs) | Sí | Sí | Sí |
+
+Un par de aclaraciones. La app personal de WhatsApp no se pensó para envíos comerciales. La app Business es la herramienta gratuita de Meta para pequeños negocios. Y la API de Business es la infraestructura que usan empresas como Unilever o Tata para enviar a escala. Son tres productos distintos, y la mayoría de los problemas empieza por confundir sus límites.
+
+## El nuevo límite de difusiones en la app Business
+
+Meta está [implantando tarifas para las difusiones comerciales](https://faq.whatsapp.com/830758682498775) en la app de WhatsApp Business. En varios mercados, España incluida, los usuarios hablan de un tope de entre 30 y 35 mensajes de difusión gratuitos al mes. A partir de ahí, pagas por cada mensaje entregado.
+
+Esto es nuevo. Antes del cambio, la app Business te dejaba enviar difusiones a tus listas de 256 contactos gratis, tantas veces como quisieras. Las pymes llevan meses quejándose en redes, en Reddit y en foros en español. Hay quien cuenta que la función de difusión ha desaparecido de su app sin más.
+
+Lo que sabemos hasta ahora:
+
+- El despliegue es progresivo por país. No todos los mercados lo tienen activo.
+- La tarifa de pago varía según la región.
+- El [FAQ oficial de Meta](https://faq.whatsapp.com/830758682498775) confirma el cambio, pero no publica un precio ni un tope universal.
+- Meta está empujando hacia la API a los negocios que dependían de las difusiones gratuitas.
+
+Si tienes una tienda y mandas una promo semanal a 50 clientes habituales, 30 mensajes gratis al mes se te quedan cortos enseguida. El mensaje de Meta es claro: la mensajería comercial en serio va por la API. (Por cierto, esto es lo que [cuesta en la API](/es/precios).)
+
+:::cta
+text: ¿Necesitas ayuda para entender qué plan se ajusta a tu volumen de envíos?
+button: Ver nuestros precios
+href: /es/precios
+:::
+
+## WhatsApp Business API: el sistema de niveles de mensajería
+
+La API no tiene un tope de 256 contactos ni exige que te guarden el número. El control es otro: Meta regula el volumen con un [sistema de niveles de mensajería](https://developers.facebook.com/docs/whatsapp/messaging-limits/).
+
+Así funcionan los niveles:
+
+### Negocio sin verificar
+
+Puedes enviar mensajes a un máximo de **250 contactos únicos** en una ventana de 24 horas. Toda cuenta nueva de la API empieza aquí, hasta que completa la Verificación de Negocio de Meta.
+
+### Niveles para negocios verificados
+
+Una vez que Meta verifica tu negocio, avanzas por cuatro niveles según tu volumen y calidad:
+
+1. **Nivel 1**: 1.000 contactos únicos en 24 horas
+1. **Nivel 2**: 10.000 contactos únicos en 24 horas
+1. **Nivel 3**: 100.000 contactos únicos en 24 horas
+1. **Nivel 4**: Ilimitado
+
+Subes de nivel cuando has enviado mensajes a al menos la mitad de la capacidad de tu nivel actual en un periodo de 7 días **y** tu calificación de calidad no es "Baja". Bajas de nivel (o te restringen) cuando esa calificación cae.
+
+:::callout tip
+La mayoría de negocios verificados llegan al Nivel 2 (10.000/día) en pocas semanas de envío consistente y saludable. Eso son 300.000 mensajes al mes si envías todos los días.
+:::
+
+### Qué cuenta para tu límite
+
+Solo cuentan las **conversaciones iniciadas por el negocio**: los mensajes que envías con plantillas aprobadas a contactos fuera de una ventana de conversación activa de 24 horas. Cuando un cliente te escribe primero, la conversación la inicia el usuario y no consume tu límite.
+
+Las respuestas que envías dentro de la ventana de 24 horas de cualquier conversación son gratuitas y tampoco cuentan para los límites de nivel.
+
+## Cómo escalar sin que te marquen
+
+La mayoría de negocios que acaban baneados o limitados en WhatsApp se lo han ganado. Compran listas de contactos y lanzan miles de promociones a gente que nunca dio su opt-in. Y a los sistemas de WhatsApp se les da muy bien detectarlo.
+
+Esto es lo que funciona si quieres subir volumen sin jugártela.
+
+### Mantén tu calificación de calidad en verde
+
+Meta mide cómo reaccionan los destinatarios a tus mensajes. Si te bloquean o te marcan como spam, tu [calificación de calidad](https://developers.facebook.com/docs/whatsapp/messaging-limits/#quality-rating) baja: de verde a amarillo, y de amarillo a rojo. En rojo, Meta puede congelarte el nivel o bajarte.
+
+Revisa tu calificación de calidad en Meta Business Manager, en WhatsApp Manager > Números de teléfono.
+
+### Solo envía a contactos con opt-in
+
+Esto no es negociable. Cada contacto de tu lista de difusión debe haber aceptado explícitamente recibir tus mensajes por WhatsApp. No vale un "me dio su número en una feria". No vale "está en nuestra lista de email". El consentimiento tiene que ser específico para WhatsApp.
+
+:::callout warning
+Comprar listas de contactos de WhatsApp y lanzar promociones masivas es la forma más rápida de que te baneen el número de forma permanente. Meta ha endurecido sus políticas, no las ha relajado.
+:::
+
+### Dosifica tus campañas
+
+No pases de enviar 50 mensajes al día a 5.000 de la noche a la mañana. Los sistemas de Meta detectan los picos de volumen repentinos. Ve subiendo poco a poco conforme sube tu nivel. Si estás en Nivel 1 (1.000/día), envía unos cientos al día durante una o dos semanas antes de acercarte al límite.
+
+### Usa plantillas aprobadas
+
+Cada mensaje de marketing en la API requiere una [plantilla preaprobada](https://developers.facebook.com/docs/whatsapp/message-templates/) por Meta, que la revisa antes de darle el visto bueno. Escribe plantillas claras y honestas, sin promesas engañosas, e incluye siempre una opción de baja.
+
+:::chat
+customer: Ey, he visto vuestro mensaje de WhatsApp sobre el nuevo stock de Samsung. Cuál es el pedido mínimo?
+biz: 25 unidades mínimo. Tenemos 500x A55 listos para enviar. Quieres presupuesto?
+customer: Sí, para 100 unidades. Podéis hacer envío express?
+biz: Hecho. 285 EUR/unidad por 100x A55. DHL Express, 3-5 días. Te mando el enlace de pedido ahora.
+:::
+
+Esto es un broadcast que funciona: un mensaje que cumple las normas, enviado a alguien que dio su opt-in, y que abre una conversación de venta real.
+
+## Preguntas frecuentes
+
+### ¿Puedo enviar difusiones a gente que no tiene mi número guardado?
+
+En la app normal de WhatsApp o en la Business app, no. Si el destinatario no tiene tu número guardado, el mensaje no se entrega. En la API de Business ese requisito no existe: tu mensaje llega siempre que el contacto haya dado su opt-in y uses una plantilla aprobada.
+
+### ¿Qué pasa si supero el límite de mi nivel de mensajería?
+
+Meta retiene tus mensajes en cola hasta que se reinicia tu ventana de 24 horas, o los rechaza con un error. No te banean por alcanzar tu límite, solo dejas de poder enviar hasta que la ventana se renueva. Si tocas techo un día tras otro, es señal de que estás listo para el siguiente nivel.
+
+### ¿Hay alguna forma de saltarse el límite de 256 contactos?
+
+En la app normal y en la Business app, no. Algunas herramientas de terceros prometen atajos, pero violan los Términos de Servicio de WhatsApp y te juegas un baneo permanente. Si necesitas más volumen, la vía oficial es la API de WhatsApp Business, donde las listas de difusión no tienen tope fijo.
+
+### ¿Cuánto tarda la verificación y llegar a niveles superiores?
+
+La Verificación de Negocio de Meta suele tardar entre unos días y dos semanas, según la documentación que aportes. A partir de ahí, llegar al Nivel 2 (10.000 contactos/día) suele llevar entre dos y cuatro semanas enviando con regularidad y con la calificación de calidad en verde.
+
+### ¿Los broadcasts de marketing funcionan en todos los países?
+
+Meta tiene [pausados todos los mensajes de plantilla de marketing a números de EEUU (+1)](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-messages/) desde abril de 2025, sin fecha de reanudación anunciada. En los mercados donde los mensajes de marketing siguen activos (Europa, Latinoamérica, Asia, Oriente Medio, África), el sistema de niveles funciona con normalidad.
+
+:::cta
+text: ¿Listo para dejar atrás el tope de 256 contactos? Te configuramos la API de WhatsApp Business, gestionamos la verificación de Meta y lanzamos tu primer broadcast conforme a normativa.
+button: Habla con nosotros
+href: https://cal.com/architct/onboarding
+:::

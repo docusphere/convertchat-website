@@ -1,0 +1,155 @@
+---
+title: "WhatsApp Broadcast Limits, and How to Send Compliant Broadcasts at Scale"
+description: "Every WhatsApp broadcast limit explained: the 256-recipient cap, the saved-contact rule, the new paid broadcasts, and how the Business API tier system lets you scale."
+date: "2026-07-18"
+author: "ConvertChat Team"
+tags: ["whatsapp-marketing", "broadcast"]
+image: "/og/blog/whatsapp-broadcast-limits.png"
+---
+
+## Why your WhatsApp broadcasts aren't arriving
+
+You built a broadcast list, hit send, and half the recipients never got it.
+
+The most common reason is embarrassingly simple: recipients must have **your** phone number saved in their contacts. If they don't, WhatsApp drops the message silently. You get no error and no bounce notification, the message just never arrives.
+
+This one rule causes more confusion than every other WhatsApp broadcast limit combined. And it only applies to the regular WhatsApp app and the WhatsApp Business app. The Business API works differently (more on that below).
+
+The second most common reason: the 256-recipient cap. Each broadcast list in the WhatsApp app or WhatsApp Business app maxes out at [256 contacts](https://faq.whatsapp.com/1011592610287406). You can create multiple lists, but every recipient still needs your number saved.
+
+:::callout warning
+If recipients don't have your number saved, they will never receive your broadcast message. This is WhatsApp's anti-spam design. There is no workaround on the regular app or Business app.
+:::
+
+## Broadcast limits by product
+
+Three different products all get called "WhatsApp," and their limits have almost nothing in common. This is what you can actually do on each one.
+
+| Feature | WhatsApp (personal) | WhatsApp Business App | WhatsApp Business API |
+| --- | --- | --- | --- |
+| Max recipients per broadcast list | 256 | 256 | No hard list cap |
+| Recipient must save your number | Yes | Yes | No |
+| Monthly free broadcasts | Unlimited (within list cap) | ~30-35 (rolling out) | N/A (pay per message) |
+| Cost per message | Free | Free, then paid | ~$0.06 (Meta rate, varies by market) |
+| Template approval required | No | No | Yes (Meta reviews every template) |
+| Daily sending limit | No formal limit | No formal limit | Tier-based: 250 to unlimited |
+| Rich media (images, PDFs) | Yes | Yes | Yes |
+
+The personal WhatsApp app was never designed for business broadcasting. The Business app is Meta's free tool for small businesses. The Business API is what companies like Unilever and Tata use to send at scale. Mixing up the limits of these three products is where most of the confusion online starts.
+
+## The new Business App broadcast limits
+
+Meta is [rolling out pricing for business broadcasts](https://faq.whatsapp.com/830758682498775) on the WhatsApp Business app. Reports from multiple markets indicate a cap of roughly 30 to 35 free broadcast messages per month, after which you pay per delivered message.
+
+This is new. Until this change, the Business app let you broadcast to your 256-contact lists for free, as often as you wanted. Small businesses on Reddit are understandably annoyed, and some say the broadcast feature has disappeared from their app entirely.
+
+What we know so far:
+
+- The rollout is region-dependent. Not every market has it yet.
+- The paid rate varies by country.
+- Meta's official FAQ confirms the change but doesn't publish a universal price or cap.
+- Businesses that relied on free broadcasts are being pushed toward the API.
+
+If you're a small shop sending a weekly promo to 50 regulars, 30 free messages per month might not cover it. This is Meta signaling that serious business messaging belongs on the API. (For reference, here's what it [costs on the API side](/pricing).)
+
+:::cta
+text: Need help understanding what plan fits your sending volume?
+button: See our pricing
+href: /pricing
+:::
+
+## WhatsApp Business API: the messaging tier system
+
+The API doesn't have a 256-contact cap or a saved-number requirement. Instead, Meta controls volume through a [tiered messaging limit system](https://developers.facebook.com/docs/whatsapp/messaging-limits/).
+
+The tier system works like this:
+
+### Unverified business
+
+You can message up to **250 unique contacts** in a rolling 24-hour window. This is where every new Business API account starts, before completing Meta Business Verification.
+
+### Verified business tiers
+
+Once Meta verifies your business, you move through four tiers based on volume and quality:
+
+1. **Tier 1**: 1,000 unique contacts per 24 hours
+1. **Tier 2**: 10,000 unique contacts per 24 hours
+1. **Tier 3**: 100,000 unique contacts per 24 hours
+1. **Tier 4**: Unlimited
+
+You move up a tier when you've messaged at least half your current tier's limit within a 7-day period **and** your quality rating is not "Low." You move down (or get restricted) when your quality rating drops.
+
+:::callout tip
+Most verified businesses reach Tier 2 (10,000/day) within a few weeks of consistent, healthy sending. That's enough for 300,000 messages per month if you send every day.
+:::
+
+### What counts toward your limit
+
+Only **business-initiated conversations** count. These are messages you send using approved templates to contacts outside an active 24-hour conversation window. When a customer messages you first, that's a user-initiated conversation and doesn't eat into your tier.
+
+Replies you send within the 24-hour window after any conversation starts are free and don't count toward tier limits.
+
+## How to scale without getting flagged
+
+Most businesses that get banned or rate-limited on WhatsApp earn it. They buy contact lists, send unsolicited promotions, or blast thousands of messages with no opt-in. WhatsApp's systems are good at catching this.
+
+The right way to grow your sending volume:
+
+### Keep your quality rating green
+
+Meta tracks how recipients react to your messages. If people block you or report you as spam, your [quality rating](https://developers.facebook.com/docs/whatsapp/messaging-limits/#quality-rating) drops from Green to Yellow to Red. A Red rating can freeze your tier or push you down.
+
+Check your quality rating in Meta Business Manager under WhatsApp Manager > Phone Numbers.
+
+### Only message opted-in contacts
+
+This is non-negotiable. Every contact in your broadcast list should have explicitly agreed to receive messages from you on WhatsApp. Not "they gave us their number at a trade show." Not "they're on our email list." They opted in to WhatsApp specifically.
+
+:::callout warning
+Buying WhatsApp contact lists and blasting promotions is the fastest way to get your number permanently banned. Meta's enforcement has gotten stricter, not looser, over the past year.
+:::
+
+### Pace your campaigns
+
+Don't jump from sending 50 messages a day to 5,000 overnight. Meta's systems flag sudden volume spikes. Ramp up gradually as your tier increases. If you're on Tier 1 (1,000/day), send a few hundred per day for a week or two before pushing toward the limit.
+
+### Use approved templates
+
+Every outbound marketing message on the API requires a [pre-approved template](https://developers.facebook.com/docs/whatsapp/message-templates/). Meta reviews these for compliance. Write them the way you'd talk to a customer: be specific about the offer, don't oversell, and give people a way to opt out.
+
+:::chat
+customer: Hey, saw your WhatsApp message about the new Samsung stock. What's the MOQ?
+biz: 25 units minimum. We have 500x A55 ready to ship. Want a quote?
+customer: Yes, for 100 units. Can you do express?
+biz: Done. EUR 285/unit for 100x A55. DHL Express, 3-5 days. Sending your order link now.
+:::
+
+That's a broadcast working the way it should: an opted-in, compliant message that turns into an actual sales conversation.
+
+## FAQ
+
+### Can I send broadcast messages to people who haven't saved my number?
+
+Not on the regular WhatsApp app or Business app. The recipient must have your number saved, or the message won't be delivered. On the Business API, there's no saved-number requirement. Your message arrives as long as the contact has opted in and you're using an approved template.
+
+### What happens if I exceed my messaging tier limit?
+
+Meta will hold your messages in a queue until your 24-hour window resets, or reject them with an error. You won't get banned for hitting your limit, but you can't send more until the window rolls over. Consistently hitting your ceiling signals you're ready for the next tier.
+
+### Is there a way to bypass the 256-contact broadcast limit?
+
+On the regular app and Business app, no. Some third-party tools claim to offer workarounds, but these violate WhatsApp's Terms of Service and risk getting your number banned permanently. The official path to higher volume is the WhatsApp Business API, where broadcast lists have no hard cap.
+
+### How long does it take to get verified and reach higher tiers?
+
+Meta Business Verification typically takes a few days to two weeks, depending on your documentation. After that, reaching Tier 2 (10,000 contacts/day) usually takes two to four weeks of consistent sending with a green quality rating.
+
+### Are marketing broadcasts available in every country?
+
+Meta has [paused all marketing template messages to US (+1) phone numbers](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-messages/) since April 2025, with no announced end date. In markets where marketing messages are active (Europe, Latin America, Asia, Middle East, Africa), the tier system applies normally.
+
+:::cta
+text: Ready to move beyond the 256-contact cap? We set up your WhatsApp Business API, handle Meta verification, and launch your first compliant broadcast.
+button: Talk to us
+href: https://cal.com/architct/onboarding
+:::

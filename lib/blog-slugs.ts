@@ -7,6 +7,7 @@ import type { Locale } from "./routes";
 // post has no translation.
 export const postSlugPairs: ReadonlyArray<Partial<Record<Locale, string>>> = [
   { en: "welcome", es: "bienvenido" },
+  { en: "whatsapp-broadcast-limits", es: "limites-difusion-whatsapp" },
 ];
 
 export function getTranslatedSlug(fromLocale: Locale, slug: string, toLocale: Locale): string | null {
