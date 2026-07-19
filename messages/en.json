@@ -220,7 +220,7 @@
   },
   "pricing": {
     "metaTitle": "Pricing | ConvertChat",
-    "metaDescription": "Plans from $49/mo with WhatsApp campaigns, unified inbox and optional AI agent. No contracts, cancel anytime, 0% markup on WhatsApp messages.",
+    "metaDescription": "Plans from €49/mo with WhatsApp campaigns, unified inbox and optional AI agent. No contracts, cancel anytime, 0% markup on WhatsApp messages.",
     "pill": "Early access pricing",
     "title": "Simple pricing. No contracts.",
     "subtitle": "No seat minimums. Cancel anytime. 0% markup on WhatsApp messages.",
@@ -230,7 +230,7 @@
       "starter": {
         "name": "Starter",
         "persona": "For solo operators",
-        "price": "$49",
+        "price": "€49",
         "period": "/mo",
         "allowances": {
           "a1": "<b>1,000</b> contacts",
@@ -247,7 +247,7 @@
       "growth": {
         "name": "Growth",
         "persona": "For growing businesses",
-        "price": "$99",
+        "price": "€99",
         "period": "/mo",
         "allowances": {
           "a1": "<b>5,000</b> contacts",
@@ -259,13 +259,13 @@
           "f2": "Shared inbox",
           "f3": "Full funnel analytics",
           "f4": "Priority support",
-          "f5": "AI Agent available (+$49/mo)"
+          "f5": "AI Agent available (+€49/mo)"
         }
       },
       "pro": {
         "name": "Pro",
         "persona": "For serious senders",
-        "price": "$199",
+        "price": "€199",
         "period": "/mo",
         "allowances": {
           "a1": "<b>25,000</b> contacts (more on request)",
@@ -277,7 +277,7 @@
           "f2": "Shared inbox",
           "f3": "Full funnel analytics",
           "f4": "Dedicated onboarding",
-          "f5": "AI Agent available (+$49/mo)"
+          "f5": "AI Agent available (+€49/mo)"
         }
       }
     },
@@ -289,7 +289,7 @@
     "aiAddon": {
       "title": "Add the AI Agent when you're ready.",
       "body": "It replies, qualifies and sells while you sleep.",
-      "price": "+$49",
+      "price": "+€49",
       "period": "/mo",
       "note": "Available on Growth and Pro."
     },
@@ -297,7 +297,7 @@
       "title": "What messaging actually costs.",
       "c1Title": "WhatsApp fees go straight to Meta",
       "c1Body": "You pay Meta at cost for every message. We add 0% markup, ever.",
-      "c2Title": "About $0.06 per marketing message",
+      "c2Title": "About €0.05 per marketing message",
       "c2Body": "That's the typical Meta rate in most markets. Replies within the 24-hour window are free.",
       "c3Title": "Email sending is included",
       "c3Body": "Your plan covers your monthly email volume. It's the easiest way to invite contacts onto WhatsApp and grow your opted-in audience. No extra bills."
@@ -309,7 +309,7 @@
       "q2": "Are there contracts or minimums?",
       "a2": "No. Monthly billing, cancel anytime, no seat minimums.",
       "q3": "What do WhatsApp messages cost?",
-      "a3": "Meta bills you directly at cost: a marketing message costs roughly $0.06 in most markets. Replies within the 24-hour window are free. We add 0% markup.",
+      "a3": "Meta bills you directly at cost: a marketing message costs roughly €0.05 in most markets. Replies within the 24-hour window are free. We add 0% markup.",
       "q4": "Can I change plans later?",
       "a4": "Yes. Switch up or down anytime; changes apply at your next billing cycle.",
       "q5": "Do I need a new phone number?",
