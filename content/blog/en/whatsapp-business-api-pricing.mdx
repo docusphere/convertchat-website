@@ -1,0 +1,181 @@
+---
+title: "WhatsApp Business API Pricing, Explained (2026 Rates)"
+description: "The real cost of WhatsApp Business API messaging in 2026: Meta's per-message rates, provider fees, the October pricing change, and a worked example."
+date: "2026-07-19"
+author: "ConvertChat Team"
+tags: ["whatsapp-marketing", "pricing"]
+image: "/og/blog/whatsapp-business-api-pricing.png"
+---
+
+## Three layers of cost, one confusing bill
+
+WhatsApp Business API pricing is three separate costs stacked into one bill: Meta's per-message fees, your provider's subscription or markup, and extras nobody mentions until you're committed.
+
+This guide breaks down the real 2026 numbers from Meta's official rate cards, including the pricing change that takes effect October 1, 2026. Numbers first.
+
+Disclosure: ConvertChat is a WhatsApp remarketing platform. We sell one of the provider layers described below. We'll be specific about what we charge and what we don't.
+
+## How Meta bills for WhatsApp API messages
+
+Since July 1, 2025, Meta charges per delivered template message. The old conversation-based pricing (where you paid for a 24-hour window) is gone.
+
+You send a template message. If it's delivered, you pay. If it's not, you don't. The rate depends on two things: the template category (marketing, utility, or authentication) and the recipient's country.
+
+User-initiated messages (when a customer messages you first) are free to receive. Your replies within the 24-hour customer service window are also free. For now.
+
+## The three message categories and what they cost
+
+Every template message falls into one of three categories.
+
+**Marketing.** Promotions, offers, product announcements, re-engagement campaigns. The most expensive category because it drives revenue.
+
+**Utility.** Order confirmations, shipping updates, appointment reminders, account notifications. Transactional messages the customer expects.
+
+**Authentication.** One-time passwords, login codes, verification messages. Low-cost, high-volume.
+
+Here are Meta's official EUR rates per delivered message, effective July 1, 2026:
+
+| Market | Marketing | Utility | Authentication |
+| --- | --- | --- | --- |
+| Spain | €0.0585 | €0.0166 | €0.0166 |
+| UK | €0.0526 | €0.0182 | €0.0182 |
+| Germany | €0.1131 | €0.0456 | €0.0456 |
+| France | €0.0712 | €0.0248 | €0.0248 |
+| Italy | €0.0658 | €0.0248 | €0.0248 |
+| Netherlands | €0.1323 | €0.0414 | €0.0414 |
+| Mexico | €0.0253 | €0.0071 | €0.0071 |
+| Brazil | €0.0518 | €0.0056 | €0.0056 |
+| Other | €0.0500 | €0.0064 | €0.0064 |
+
+Meta also publishes rate cards in USD and other currencies. Volume discounts exist for utility and authentication messages, but not for marketing.
+
+The spread matters. A marketing message to a German number costs more than four times what the same category costs to Mexico. If you message across borders, your blended rate varies depending on list composition.
+
+## What's free (for now)
+
+Four things on WhatsApp are currently free of Meta charges.
+
+- **Receiving customer messages.** When a customer messages you first, you pay nothing.
+- **Replies in the 24-hour service window.** After a customer messages you, you can reply with free-form text for 24 hours at no cost. Free until October 1, 2026.
+- **Utility templates in the service window.** If a customer has messaged you and you send a utility template within 24 hours, Meta doesn't charge for it. Also free until October 1, 2026.
+- **The 72-hour free entry point window.** When a customer clicks a Click-to-WhatsApp ad and starts a conversation, all messages (including marketing templates) are free for 72 hours. This stays free after October.
+
+If you run CTWA ads, the 72-hour window can offset a decent chunk of your messaging costs.
+
+## The October 2026 change you need to know about
+
+Most pricing guides haven't updated for this yet.
+
+On July 1, 2026, Meta announced that starting October 1, 2026, service messages (free-form replies within the 24-hour window) will be charged per message. Rates will align with utility/authentication levels. No volume tiers. Exact per-country rates will be published by September 1, 2026.
+
+Utility templates sent inside the 24-hour window will also start being charged at that date.
+
+Separately, Meta's own AI agent product, Meta Business Agent (launched at Conversations London in June 2026), will be billed starting August 1, 2026 at $2.00 per 1 million tokens, roughly $0.04 to $0.05 per message.
+
+What this means practically: if your bot sends twelve short messages per conversation, that's twelve billable messages starting in October. Chatty flows will cost real money. Broadcast campaigns don't change: you already pay per delivered template.
+
+Audit your bot flows before October. Combine short messages where you can and front-load information so the customer gets a complete answer in fewer messages.
+
+:::callout warning
+The October 2026 service-message rates have not been published yet. Meta says rates will align with utility/authentication levels, with exact per-country figures due by September 1, 2026. Do not trust any source quoting exact service-message rates before that date.
+:::
+
+:::cta
+text: Want to know what your campaigns will actually cost with these rates?
+button: See ConvertChat pricing
+href: /pricing
+:::
+
+## What providers add on top
+
+Meta's fees are just the first layer. You also need a BSP (Business Solution Provider) or platform to send messages through the API. That's where provider costs come in.
+
+The models vary. Some examples from our [WhatsApp automation tools comparison](/blog/whatsapp-automation-tools):
+
+- **Twilio** charges $0.005 per message on top of Meta's rates. No monthly subscription required.
+- **Manychat** starts at $29/mo for WhatsApp access (Pro plan, 2,500 contacts). Meta fees on top.
+- **Wati** starts at $49/mo (Growth plan). Meta fees passed through.
+- **360dialog** charges €49/mo per number with zero message markup.
+- **respond.io** starts at $79/mo. Meta fees passed through.
+
+Some BSPs mark up Meta's per-message rates instead of (or in addition to) charging a subscription. The difference matters at scale.
+
+Questions to ask any provider: Do you mark up Meta's rates or pass them through at cost? Are tiers based on contacts, users, or message volume? Are there setup fees? What does the AI/chatbot add-on cost?
+
+## Worked example: a 1,000-contact campaign in Spain
+
+Simple math. You have 1,000 opted-in contacts in Spain and want to send a marketing broadcast.
+
+**Meta's fees:** 1,000 delivered marketing templates at €0.0585 each = **€58.50**.
+
+Say 15% reply. That's 150 conversations. Today, your replies are free (24-hour service window). From October 2026, each reply message will cost cents at the utility-level rate, roughly €0.0166. If you average three replies per conversation, that's 450 messages at €0.0166 = about €7.50 extra.
+
+**Provider fees:** your platform subscription runs anywhere from €0 (Twilio pay-as-you-go) to €49 to €199/mo depending on the tool.
+
+**Total today:** roughly €58.50 in Meta fees plus your platform subscription. After October 2026, add around €7.50 for reply messages. If you're [scaling volume, your broadcast tier](/blog/whatsapp-broadcast-limits) determines how many contacts you can reach per day.
+
+## WhatsApp marketing in the US
+
+Since April 2025, Meta has paused marketing template messages to US (+1) phone numbers. No provider can get around it, whatever tool or plan you're on.
+
+Utility and authentication messages to US numbers still work. But if your contact list is primarily US-based, WhatsApp marketing campaigns are not viable right now. The marketing rates in the table above apply to the rest of the world.
+
+There is no announced end date for this pause.
+
+## Hidden costs checklist
+
+Before you commit to a provider, check for these costs that don't always appear on the pricing page.
+
+- **BSP per-message markups.** Some providers add €0.005 to €0.02 per message on top of Meta's rates. At 10,000 messages/month, that's €50 to €200 extra.
+- **Setup and onboarding fees.** Some platforms charge up to €1,000 for onboarding, WABA creation, or Meta Business Verification assistance.
+- **Phone number costs.** A dedicated WhatsApp number may cost extra depending on your BSP.
+- **AI and chatbot add-ons.** Typically €29 to €99/mo on top of the base plan.
+- **Per-seat charges.** Team inbox tools often charge per agent. Three extra seats can double your subscription.
+- **Template rejection delays.** Not a line item, but a real cost. If Meta rejects your template and you lose a week rewriting, that's revenue delayed.
+- **Paying for features you don't use.** If you only do WhatsApp, you don't need an omnichannel inbox at $159/mo.
+
+## How ConvertChat pricing maps to this
+
+ConvertChat is a WhatsApp remarketing platform. Here's the cost structure.
+
+**Platform subscription:** flat plans at €49/mo, €99/mo, or €199/mo. No per-contact pricing. No per-message markup.
+
+**Meta's fees:** billed to you directly by Meta at cost. ConvertChat adds 0% markup on Meta's per-message rates. You pay exactly what Meta charges.
+
+**Setup:** done for you, free. WABA creation, Meta Business Verification, first message templates written and submitted. No onboarding fee.
+
+**AI agent add-on:** +€49/mo. The agent qualifies replies and closes the next step, whether that's a booked call or an order.
+
+For that 1,000-contact Spanish campaign: about €59 in Meta fees plus your ConvertChat plan. No hidden charges. Full breakdown on the [pricing page](/pricing).
+
+:::callout tip
+Volume discounts from Meta apply to utility and authentication messages, not marketing. If you send mostly marketing broadcasts, the rates in the table above are your per-message cost regardless of volume. Plan your budget on the marketing rate.
+:::
+
+## Frequently asked questions
+
+### How much does the WhatsApp Business API cost per message?
+
+It depends on the message category and the recipient's country. Marketing messages range from about €0.02 (Mexico) to €0.13 (Netherlands) per delivered message. Utility and authentication are cheaper. These are Meta's fees only. Your provider may add a subscription, a per-message markup, or both.
+
+### Is the WhatsApp API free?
+
+Access to the API itself (via Meta's Cloud API) is free. You don't pay to connect. But you pay per delivered template message, and you need a platform or BSP to send at scale. In practice, no: WhatsApp API messaging has real costs.
+
+### Do I pay when customers message me?
+
+No. Receiving customer-initiated messages is free. Your replies within the 24-hour service window are also free until October 1, 2026. After that date, each reply message will be billed at rates aligned with utility/authentication levels.
+
+### Why is my provider charging more than Meta's rates?
+
+Because they're adding a per-message markup. Not all providers do this. Some charge a flat subscription and pass Meta's rates through at cost (ConvertChat, 360dialog). Others add €0.005 to €0.02 per message on top (Twilio, some BSPs). Ask your provider explicitly: is this Meta's rate or your rate?
+
+### How do I estimate my monthly WhatsApp cost?
+
+Formula: (contacts you'll message per month) x (marketing rate for their country) + (platform subscription). For Spain, that's contacts x €0.0585 + subscription. Add utility-rate costs for reply messages starting October 2026. Round up 20% for templates delivered to inactive numbers before you clean your list.
+
+:::cta
+text: See exactly what ConvertChat costs for your volume.
+button: View pricing
+href: /pricing
+:::
