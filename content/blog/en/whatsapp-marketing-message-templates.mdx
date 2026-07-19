@@ -1,0 +1,342 @@
+---
+title: "25 WhatsApp Marketing Message Templates That Pass Meta Review"
+description: "Copy-paste WhatsApp marketing message templates that actually get approved. Includes the formatting rules, rejection fixes, and opt-out lines Meta expects."
+date: "2026-07-19"
+author: "ConvertChat Team"
+tags: ["whatsapp-marketing", "templates"]
+image: "/og/blog/whatsapp-marketing-message-templates.png"
+---
+
+## Most template lists set you up to fail
+
+Search for "WhatsApp marketing message templates" and you'll find dozens of listicles. Most share the same problem: the templates look reasonable but get rejected by Meta's review, or they get approved and then paused within days because they trigger blocks and low read rates.
+
+This post gives you 25 templates that are formatted correctly for Meta's review system, grouped by use case, with the approval mechanics explained so you understand why each one works. Every marketing template includes an opt-out line. Six of the templates include chat mockups showing how the conversation plays out after the customer receives them.
+
+If you're sending through the [WhatsApp Business API](/blog/whatsapp-business-api-pricing), you need approved templates for every outbound message. There is no way around this.
+
+## How template approval works
+
+Every outbound message you send through the WhatsApp Business API starts as a template. You write it, submit it through your provider or Meta Business Manager, and Meta reviews it before you can use it.
+
+Three categories exist: **marketing** (promotions, offers, re-engagement), **utility** (order confirmations, shipping updates, appointment reminders), and **authentication** (OTPs, verification codes). The category matters because it determines price. In Spain, a marketing message costs €0.0585 per delivered message vs. €0.0166 for utility.
+
+Since April 2025, Meta auto-recategorizes templates. You can submit a template as utility, but if Meta's classifier decides it's promotional, it gets approved as marketing and billed at the marketing rate. The category you pick is a suggestion, not a guarantee.
+
+Review takes up to 24 hours. In practice, most templates are approved or rejected within minutes. Every variable in your template needs an example value at submission time.
+
+Your WABA can hold up to 250 templates before Meta Business Verification, and 6,000 after.
+
+## The formatting rules that get templates rejected
+
+This is the part most template lists skip. Meta's review system auto-rejects templates for structural reasons before a human ever looks at the content. Know these rules and you won't waste days resubmitting.
+
+- **No dangling parameters.** Your template body cannot start or end with a variable like {{1}}. There must be fixed text before the first variable and after the last one.
+- **No adjacent variables.** {{1}} {{2}} back to back with only whitespace between them gets rejected. Put fixed text between every variable.
+- **Sequential numbering.** Positional variables must go {{1}}, {{2}}, {{3}} in order. No skipping. Named parameters like {{first_name}} are also supported.
+- **Too many variables.** If your template is mostly variables with little fixed text, it gets auto-rejected. Keep the ratio weighted toward actual copy.
+- **No URL shorteners.** bit.ly, tinyurl, ow.ly. All rejected. Use full URLs on your own domain.
+- **No duplicate body text.** If the body text matches an existing template on your account word for word, it gets rejected as a duplicate. Change the copy, don't just swap variables.
+- **Character limits.** Header: 60 characters. Body: 1,024 characters. Footer: 60 characters. Button labels: 25 characters.
+- **Button constraints.** Up to 10 quick-reply buttons, 2 URL buttons, 1 phone button. Coupon copy-code buttons: 15 characters max.
+
+:::callout warning
+URL shorteners are the single most common reason we see templates rejected on first submission. If your link goes through bit.ly or any redirect service, rewrite it as a full URL on your domain before submitting.
+:::
+
+## Personalization that protects your quality rating
+
+Templates with the recipient's name and a specific product or context reference consistently outperform generic blasts. Open rates are only part of it. Personalized messages get fewer blocks, and fewer blocks keep your quality rating healthy.
+
+Meta tracks blocks and reports per template. Enough negative signals and your template gets paused or disabled (more on that below). Personalization protects your quality rating as much as it lifts your response rates.
+
+Include an opt-out line in your marketing templates. Something like "Reply STOP to opt out." Meta increasingly treats this as expected in marketing templates during review, and it reduces blocks from recipients who'd otherwise report you.
+
+## The 25 templates
+
+Every template below uses {{1}}-style variables. Replace them with your actual values at send time. Marketing templates include opt-out lines. Utility templates (the order updates section) should be submitted under the utility category for lower per-message cost.
+
+### Reactivation and win-back (5)
+
+**1. Product reorder reminder**
+
+Hi {{1}}, it's been {{2}} since your last order of {{3}}. Ready for a restock? Same pricing, same fast delivery. Let us know and we'll get it moving. Reply STOP to opt out.
+
+When to send: 30, 60, or 90 days after a B2B customer's last purchase, referencing their specific product.
+
+:::chat
+biz: Hi Carlos, it's been 45 days since your last order of Bosch power drill bits (ref. PDB-200). Ready for a restock? Same pricing, same fast delivery. Let us know and we'll get it moving. Reply STOP to opt out.
+customer: Yes, same order as last time. 200 units.
+biz: Done. Sending your order confirmation now. Delivery in 3-5 business days.
+:::
+
+**2. We miss you (service business)**
+
+Hi {{1}}, we noticed it's been a while since your last visit. We'd love to have you back. Book your next appointment here: {{2}}. Reply STOP to opt out.
+
+When to send: 60+ days after a customer's last appointment at a salon, clinic, or service business.
+
+**3. Account reactivation with incentive**
+
+Hi {{1}}, your account with {{2}} has been inactive since {{3}}. We've reserved a {{4}} discount on your next order, valid for 7 days. Details here: {{5}}. Reply STOP to opt out.
+
+When to send: When a previously active customer hasn't purchased in 90+ days.
+
+:::chat
+biz: Hi Laura, your account with MedSupply Direct has been inactive since March. We've reserved a 10% discount on your next order, valid for 7 days. Details here: medsupply.com/welcome-back. Reply STOP to opt out.
+customer: Thanks, I switched suppliers but that discount helps. Can I get a quote for 50 units of the nitrile gloves?
+biz: Absolutely. Sending the quote now with the 10% applied.
+:::
+
+**4. New product for past buyers**
+
+Hi {{1}}, based on your previous orders, we thought you'd want to know: {{2}} is now available. Starting at {{3}}. Full specs here: {{4}}. Reply STOP to opt out.
+
+When to send: When launching a product relevant to a customer's purchase history.
+
+**5. Feedback request post-silence**
+
+Hi {{1}}, we noticed you haven't ordered from {{2}} recently and wanted to check in. Is there anything we could improve? Your feedback helps us serve you better. Reply STOP to opt out.
+
+When to send: Before a win-back offer, when you want to understand why a customer went quiet.
+
+### Abandoned cart (4)
+
+**6. Simple cart reminder**
+
+Hi {{1}}, you left {{2}} in your cart at {{3}}. Your items are still available. Complete your order here: {{4}}. Reply STOP to opt out.
+
+When to send: 1-4 hours after cart abandonment.
+
+:::chat
+biz: Hi Marta, you left the Philips Air Fryer XL in your cart at HomeStore. Your item is still available. Complete your order here: homestore.com/cart/restore. Reply STOP to opt out.
+customer: Oh right, I got distracted. Is delivery still free over €50?
+biz: Yes, free delivery on all orders over €50. Your air fryer qualifies. The link above takes you straight to checkout.
+:::
+
+**7. Cart reminder with urgency (low stock)**
+
+Hi {{1}}, the {{2}} in your cart is down to the last {{3}} units. We can't guarantee availability past today. Finish your order: {{4}}. Reply STOP to opt out.
+
+When to send: When the abandoned item has genuinely low inventory. Do not fake scarcity.
+
+**8. Cart recovery with support offer**
+
+Hi {{1}}, we noticed you didn't complete your order for {{2}}. If you had any questions about sizing, compatibility, or delivery, we're here to help. Reply to this message or finish your order: {{3}}. Reply STOP to opt out.
+
+When to send: 24 hours after abandonment when the product typically generates pre-purchase questions.
+
+**9. Multi-item cart summary**
+
+Hi {{1}}, you still have {{2}} items in your cart at {{3}}, totaling {{4}}. Your selection is reserved for the next 24 hours. Complete checkout: {{5}}. Reply STOP to opt out.
+
+When to send: When the cart has 3+ items, signaling high purchase intent.
+
+### Promotions and offers (5)
+
+**10. Seasonal sale announcement**
+
+Hi {{1}}, our {{2}} sale starts today. Up to {{3}} off across {{4}}. Browse the deals: {{5}}. Reply STOP to opt out.
+
+When to send: Opening day of a planned seasonal promotion.
+
+**11. Exclusive offer for existing customers**
+
+Hi {{1}}, as a valued customer of {{2}}, you get early access to our {{3}} promotion before it goes public. Use code {{4}} at checkout: {{5}}. Reply STOP to opt out.
+
+When to send: 24-48 hours before a public promotion launches, to reward repeat buyers.
+
+**12. Volume discount for B2B**
+
+Hi {{1}}, ordering {{2}}+ units of {{3}} this month? We're offering {{4}} off bulk orders placed before {{5}}. Request a quote: {{6}}. Reply STOP to opt out.
+
+When to send: During slower sales periods to incentivize larger orders from wholesale or B2B buyers.
+
+:::chat
+biz: Hi David, ordering 500+ units of LED panel lights this month? We're offering 12% off bulk orders placed before July 31. Request a quote: brightwholesale.com/bulk. Reply STOP to opt out.
+customer: We need 800 units for a hotel project. Can you do 15% at that volume?
+biz: For 800 units I can offer 14%. Want me to send a formal quote?
+customer: Deal. Send it over.
+:::
+
+**13. Flash deal (time-limited)**
+
+Hi {{1}}, today only: {{2}} off {{3}} at {{4}}. Offer expires at midnight. Shop now: {{5}}. Reply STOP to opt out.
+
+When to send: Day-of for genuine time-limited promotions. Don't run "today only" deals every week.
+
+**14. Free shipping promotion**
+
+Hi {{1}}, free shipping on all orders over {{2}} at {{3}} this week. No code needed. See what's new: {{4}}. Reply STOP to opt out.
+
+When to send: During a defined free-shipping promotion window.
+
+### Back in stock (3)
+
+**15. Waitlist notification**
+
+Hi {{1}}, the {{2}} you asked about is back in stock at {{3}}. We have {{4}} units available. Order here: {{5}}. Reply STOP to opt out.
+
+When to send: When a product returns to stock and the customer previously asked about it or joined a waitlist.
+
+:::chat
+biz: Hi Andrea, the Nike Pegasus 41 in size 42 you asked about is back in stock at RunShop. We have 15 pairs available. Order here: runshop.com/pegasus-41. Reply STOP to opt out.
+customer: Finally. Can I reserve one for in-store pickup?
+biz: Reserved under your name. It'll be ready at the Gran Via store in 2 hours.
+:::
+
+**16. Restocked bestseller**
+
+Hi {{1}}, our bestselling {{2}} is back. Last time it sold out in {{3}} days. Available now at {{4}}: {{5}}. Reply STOP to opt out.
+
+When to send: When a frequently sold-out product is restocked.
+
+**17. Back in stock with price update**
+
+Hi {{1}}, the {{2}} is available again at {{3}}. New price: {{4}} (was {{5}}). Order here: {{6}}. Reply STOP to opt out.
+
+When to send: When a restocked item has a price change, up or down. Show the old price even if it went up; customers notice anyway.
+
+### Order updates and utility (4)
+
+Submit these as **utility** templates. They cost less per message (e.g. €0.0166 in Spain vs. €0.0585 for marketing) and are expected transactional messages that rarely get blocked.
+
+**18. Order confirmation**
+
+Hi {{1}}, your order {{2}} has been confirmed. {{3}} items totaling {{4}}. Estimated delivery: {{5}}. Track your order: {{6}}.
+
+When to send: Immediately after order placement.
+
+**19. Shipping update**
+
+Hi {{1}}, your order {{2}} has shipped via {{3}}. Tracking number: {{4}}. Estimated arrival: {{5}}. Track here: {{6}}.
+
+When to send: When the shipment tracking number is generated.
+
+**20. Delivery confirmation**
+
+Hi {{1}}, your order {{2}} was delivered today. If anything isn't right, reply to this message within 48 hours and we'll sort it out.
+
+When to send: Day of delivery, based on carrier confirmation.
+
+**21. Appointment reminder**
+
+Hi {{1}}, reminder: your appointment at {{2}} is on {{3}} at {{4}}. Reply YES to confirm or CHANGE to reschedule.
+
+When to send: 24 hours before a scheduled appointment.
+
+:::chat
+biz: Hi Jorge, reminder: your appointment at Dental Clinic Europa is on Thursday July 24 at 10:30. Reply YES to confirm or CHANGE to reschedule.
+customer: YES
+biz: Confirmed. See you Thursday at 10:30. Address: Calle Serrano 45, 2nd floor.
+:::
+
+### Follow-ups after inquiry (4)
+
+**22. Quote follow-up**
+
+Hi {{1}}, we sent you a quote for {{2}} on {{3}}. Just checking in. Do you have any questions, or would you like to move forward? We're here to help. Reply STOP to opt out.
+
+When to send: 2-3 days after sending a quote with no response.
+
+**23. Post-demo follow-up**
+
+Hi {{1}}, thanks for attending the {{2}} demo on {{3}}. Here's the recap and next steps: {{4}}. Any questions? Reply to this message. Reply STOP to opt out.
+
+When to send: Same day or next morning after a product demo or sales call.
+
+**24. Trade show lead follow-up**
+
+Hi {{1}}, good to meet you at {{2}}. As discussed, here's more info on {{3}}: {{4}}. Happy to set up a call if you'd like to go deeper. Reply STOP to opt out.
+
+When to send: 1-2 days after a trade show or industry event, referencing the specific conversation.
+
+**25. Inbound inquiry response**
+
+Hi {{1}}, thanks for your inquiry about {{2}}. Here's what you asked for: {{3}}. If you'd like to discuss further or get a custom quote, reply to this message. Reply STOP to opt out.
+
+When to send: Within hours of receiving a website form submission, ad lead, or email inquiry.
+
+:::cta
+text: Need these templates submitted and approved for your business?
+button: See plans from €49/mo
+href: /pricing
+:::
+
+## Why approved templates get paused anyway
+
+Getting a template approved is step one. Keeping it active is step two.
+
+Meta runs a per-template quality system. Every template has its own quality score based on recipient reactions: blocks, reports, and read rates. When enough recipients block your message or your read rate drops too low, Meta intervenes.
+
+The escalation works like this:
+
+1. **First offense:** 3-hour pause. Your template can't be sent for 3 hours.
+2. **Second offense:** 6-hour pause.
+3. **Third offense:** template disabled permanently.
+
+This is per template, not per account. One bad template won't take down your other templates, but it will take itself out of rotation.
+
+Practical advice to keep templates active:
+
+- Send to opted-in contacts only. Purchased lists generate blocks.
+- Segment your audience. A template about auto parts shouldn't go to your restaurant supply buyers.
+- Don't blast your entire list with one template on day one. Ramp up and monitor quality in Meta Business Manager.
+- Rotate templates. Even good copy fatigues an audience when they see it five times.
+
+For more on pacing and the messaging tier system, see our [WhatsApp broadcast limits guide](/blog/whatsapp-broadcast-limits).
+
+## Common rejection reasons and fixes
+
+| Rejection reason | Fix |
+| --- | --- |
+| Variable at start or end of body | Add fixed text before {{1}} and after the last variable |
+| Adjacent variables ({{1}} {{2}}) | Insert descriptive text between every variable |
+| Variables not sequential | Renumber to {{1}}, {{2}}, {{3}} in order |
+| Too many variables vs. fixed text | Add more actual copy, reduce variable count |
+| URL shortener detected | Replace with full URL on your own domain |
+| Duplicate body text | Rewrite the copy so it doesn't match an existing template |
+| Header exceeds 60 characters | Shorten. Headers are meant to be brief |
+| Body exceeds 1,024 characters | Trim copy or split into two templates |
+| Button label exceeds 25 characters | Shorten the button text |
+| Missing example values | Provide realistic example content for every variable |
+
+:::callout tip
+If your template keeps getting rejected and you can't figure out why, check for invisible Unicode characters. Copy-pasting from Google Docs or Notion sometimes introduces zero-width spaces that trip Meta's parser.
+:::
+
+## How ConvertChat handles templates for you
+
+ConvertChat is a WhatsApp remarketing platform. You run your own campaigns on the platform. Setup is free and done for you, including WABA creation, Meta Business Verification, and your first message templates written and submitted. We handle the review process so you're not guessing at formatting rules.
+
+Plans start at €49/mo with 0% markup on Meta's per-message fees. You pay Meta's rates at cost. The AI agent add-on (+€49/mo) qualifies replies from your broadcasts and closes the next step, whether that's a booked call, a quote request, or an order.
+
+Full pricing breakdown on the [pricing page](/pricing).
+
+## Frequently asked questions
+
+### How long does template approval take?
+
+Most templates are reviewed and approved within minutes. Meta's official timeline is up to 24 hours. Complex templates or templates in certain languages occasionally take longer. If your template is stuck in "Pending" for more than 24 hours, re-submit it. Sometimes submissions get stuck in a queue and a fresh submission processes faster.
+
+### Why was my template rejected even though it looks fine?
+
+The most common invisible causes: a variable at the very start or end of the body text, adjacent variables with no fixed text between them, a URL shortener embedded in the copy, or duplicate body text matching another template on your WABA. Check the formatting rules section above. Meta's rejection messages are often generic ("content policy violation"), so you have to work through the checklist yourself.
+
+### Can I edit an approved template?
+
+Editing a template sends it back through Meta's review process. During review, the template is unavailable. If you need the template live continuously, create a new version as a separate template, get it approved, then swap it into your campaigns.
+
+### What's the difference between marketing and utility templates?
+
+Marketing templates are promotional: offers, re-engagement, product launches. Utility templates are transactional: order confirmations, shipping updates, appointment reminders. The cost difference is significant. In Spain, marketing is €0.0585 per message vs. €0.0166 for utility. Since April 2025, Meta auto-recategorizes templates that don't match their submitted category. Submit order confirmations as utility. Submit promotions as marketing.
+
+### Do I need opt-in to send these templates?
+
+Yes. WhatsApp requires that contacts have opted in to receive messages from your business on WhatsApp specifically. A general marketing consent or having their phone number is not enough. Send to contacts who haven't opted in and you'll accumulate blocks, your quality rating will drop, and Meta can restrict or ban your number. See Meta's [opt-in policy](https://business.whatsapp.com/policy) for details.
+
+:::cta
+text: We write and submit your first templates as part of free setup. You send campaigns on day one.
+button: Book your onboarding call
+href: https://cal.com/architct/onboarding
+:::

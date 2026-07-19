@@ -1,0 +1,342 @@
+---
+title: "25 plantillas de mensajes de WhatsApp para marketing (aprobadas por Meta)"
+description: "Plantillas de mensajes de WhatsApp listas para copiar que pasan la revisión de Meta. Con reglas de formato, motivos de rechazo y líneas de baja."
+date: "2026-07-19"
+author: "Equipo ConvertChat"
+tags: ["whatsapp-marketing", "templates"]
+image: "/og/blog/plantillas-mensajes-whatsapp.png"
+---
+
+## La mayoría de listas de plantillas te hacen perder el tiempo
+
+Busca "plantillas mensajes WhatsApp" y encontrarás decenas de artículos. Casi todos comparten el mismo problema: las plantillas parecen razonables pero Meta las rechaza en revisión, o se aprueban y se pausan a los pocos días porque generan bloqueos y tasas de lectura bajas.
+
+Este artículo te da 25 plantillas con el formato correcto para el sistema de revisión de Meta, agrupadas por caso de uso, con la mecánica de aprobación explicada para que entiendas por qué funciona cada una. Todas las plantillas de marketing incluyen línea de baja. Seis de ellas incluyen simulaciones de chat mostrando cómo se desarrolla la conversación.
+
+Si envías a través de la [API de WhatsApp Business](/es/blog/precios-whatsapp-business-api), necesitas plantillas aprobadas para cada mensaje saliente. No hay forma de evitarlo.
+
+## Cómo funciona la aprobación de plantillas
+
+Cada mensaje saliente que envías por la API de WhatsApp Business empieza como una plantilla. La redactas, la envías a revisión a través de tu proveedor o Meta Business Manager, y Meta la revisa antes de que puedas usarla.
+
+Existen tres categorías: **marketing** (promociones, ofertas, reactivación), **utilidad** (confirmaciones de pedido, actualizaciones de envío, recordatorios de cita) y **autenticación** (OTPs, códigos de verificación). La categoría importa porque determina el precio. En España, un mensaje de marketing cuesta 0,0585 € por entrega frente a 0,0166 € de utilidad.
+
+Desde abril de 2025, Meta recategoriza plantillas automáticamente. Puedes enviar una plantilla como utilidad, pero si el clasificador de Meta decide que es promocional, se aprueba como marketing y se factura a tarifa de marketing. La categoría que eliges es una sugerencia, no una garantía.
+
+La revisión tarda hasta 24 horas. En la práctica, la mayoría se aprueban o rechazan en minutos. Cada variable necesita un valor de ejemplo al enviar la plantilla.
+
+Tu WABA puede tener hasta 250 plantillas antes de la Verificación de Negocio de Meta, y 6.000 después.
+
+## Las reglas de formato que causan rechazos
+
+Esta es la parte que casi ninguna lista de plantillas cubre. El sistema de revisión de Meta rechaza plantillas automáticamente por razones estructurales antes de que un humano mire el contenido. Conoce estas reglas y no perderás días reenviando.
+
+- **Sin parámetros colgantes.** El cuerpo de la plantilla no puede empezar ni terminar con una variable como {{1}}. Tiene que haber texto fijo antes de la primera variable y después de la última.
+- **Sin variables adyacentes.** {{1}} {{2}} seguidas solo con un espacio entre ellas se rechaza. Pon texto fijo entre cada variable.
+- **Numeración secuencial.** Las variables posicionales deben ir {{1}}, {{2}}, {{3}} en orden. Sin saltos. También se admiten parámetros con nombre como {{nombre}}.
+- **Demasiadas variables.** Si la plantilla es sobre todo variables con poco texto fijo, se rechaza automáticamente. Que el peso esté en el texto real.
+- **Sin acortadores de URL.** bit.ly, tinyurl, ow.ly. Todos rechazados. Usa URLs completas en tu propio dominio.
+- **Sin texto duplicado.** Si el cuerpo coincide palabra por palabra con otra plantilla de tu cuenta, se rechaza como duplicado. Cambia la redacción, no solo las variables.
+- **Límites de caracteres.** Cabecera: 60 caracteres. Cuerpo: 1.024 caracteres. Pie: 60 caracteres. Etiquetas de botón: 25 caracteres.
+- **Restricciones de botones.** Hasta 10 botones de respuesta rápida, 2 botones de URL, 1 botón de teléfono. Botones de código de cupón: máximo 15 caracteres.
+
+:::callout warning
+Los acortadores de URL son la causa más frecuente de rechazo en el primer envío. Si tu enlace pasa por bit.ly o cualquier servicio de redirección, reescríbelo como URL completa en tu dominio antes de enviar la plantilla.
+:::
+
+## La personalización que protege tu puntuación de calidad
+
+Las plantillas con el nombre del destinatario y una referencia al producto o contexto concreto funcionan sistemáticamente mejor que los envíos genéricos. La tasa de apertura es solo una parte: los mensajes personalizados generan menos bloqueos, y menos bloqueos mantienen sana tu puntuación de calidad.
+
+Meta rastrea bloqueos e informes por plantilla. Si acumulas suficientes señales negativas, tu plantilla se pausa o desactiva (más abajo te contamos cómo funciona la escalada). Personalizar te protege la puntuación de calidad tanto como te mejora la respuesta.
+
+Incluye una línea de baja en tus plantillas de marketing. Algo como "Responde BAJA para dejar de recibir mensajes." Meta trata esto cada vez más como algo esperado en plantillas de marketing durante la revisión, y reduce los bloqueos de destinatarios que de otro modo te reportarían.
+
+## Las 25 plantillas
+
+Cada plantilla usa variables tipo {{1}}. Sustitúyelas por los valores reales al enviar. Las plantillas de marketing incluyen líneas de baja. Las de utilidad (sección de actualizaciones de pedido) deben enviarse bajo la categoría utilidad para pagar menos por mensaje.
+
+### Reactivación y recuperación (5)
+
+**1. Recordatorio de reposición**
+
+Hola {{1}}, han pasado {{2}} desde tu último pedido de {{3}}. ¿Quieres reponer? Mismo precio, misma entrega rápida. Avísanos y lo ponemos en marcha. Responde BAJA para dejar de recibir mensajes.
+
+Cuándo enviar: 30, 60 o 90 días después de la última compra de un cliente B2B, haciendo referencia al producto concreto.
+
+:::chat
+biz: Hola Carlos, han pasado 45 días desde tu último pedido de brocas Bosch (ref. PDB-200). ¿Quieres reponer? Mismo precio, misma entrega rápida. Avísanos y lo ponemos en marcha. Responde BAJA para dejar de recibir mensajes.
+customer: Sí, el mismo pedido que la vez anterior. 200 unidades.
+biz: Hecho. Te envío la confirmación ahora. Entrega en 3-5 días laborables.
+:::
+
+**2. Te echamos de menos (negocio de servicios)**
+
+Hola {{1}}, hace tiempo que no te vemos por aquí. Nos encantaría recibirte de nuevo. Reserva tu próxima cita aquí: {{2}}. Responde BAJA para dejar de recibir mensajes.
+
+Cuándo enviar: 60+ días después de la última cita de un cliente en una peluquería, clínica o negocio de servicios.
+
+**3. Reactivación de cuenta con incentivo**
+
+Hola {{1}}, tu cuenta en {{2}} lleva inactiva desde {{3}}. Hemos reservado un {{4}} de descuento en tu próximo pedido, válido 7 días. Detalles: {{5}}. Responde BAJA para dejar de recibir mensajes.
+
+Cuándo enviar: cuando un cliente anteriormente activo no ha comprado en 90+ días.
+
+:::chat
+biz: Hola Laura, tu cuenta en MedSupply Direct lleva inactiva desde marzo. Hemos reservado un 10% de descuento en tu próximo pedido, válido 7 días. Detalles: medsupply.com/bienvenida. Responde BAJA para dejar de recibir mensajes.
+customer: Gracias, me cambié de proveedor pero el descuento viene bien. ¿Me podéis pasar un presupuesto para 50 unidades de guantes de nitrilo?
+biz: Claro. Te lo enviamos ahora con el 10% aplicado.
+:::
+
+**4. Nuevo producto para compradores anteriores**
+
+Hola {{1}}, por tu historial de pedidos creemos que te interesará saber que {{2}} ya está disponible. Desde {{3}}. Ficha completa: {{4}}. Responde BAJA para dejar de recibir mensajes.
+
+Cuándo enviar: al lanzar un producto relevante según el historial de compra del cliente.
+
+**5. Petición de feedback tras silencio**
+
+Hola {{1}}, hemos notado que hace tiempo que no haces pedidos en {{2}} y queríamos preguntarte. ¿Hay algo que podamos mejorar? Tu opinión nos ayuda a darte mejor servicio. Responde BAJA para dejar de recibir mensajes.
+
+Cuándo enviar: antes de una oferta de recuperación, cuando quieres entender por qué un cliente dejó de comprar.
+
+### Carrito abandonado (4)
+
+**6. Recordatorio de carrito simple**
+
+Hola {{1}}, dejaste {{2}} en tu carrito de {{3}}. Tu artículo sigue disponible. Completa tu pedido aquí: {{4}}. Responde BAJA para dejar de recibir mensajes.
+
+Cuándo enviar: 1-4 horas después del abandono.
+
+:::chat
+biz: Hola Marta, dejaste la freidora de aire Philips XL en tu carrito de HomeStore. Tu artículo sigue disponible. Completa tu pedido aquí: homestore.es/carrito/recuperar. Responde BAJA para dejar de recibir mensajes.
+customer: Ah sí, me distraje. ¿El envío sigue siendo gratis a partir de 50 €?
+biz: Sí, envío gratis en pedidos de más de 50 €. Tu freidora cumple la condición. El enlace te lleva directo al pago.
+:::
+
+**7. Recordatorio con urgencia (stock bajo)**
+
+Hola {{1}}, el {{2}} que tienes en el carrito tiene solo {{3}} unidades en stock. No podemos garantizar disponibilidad a partir de mañana. Finaliza tu pedido: {{4}}. Responde BAJA para dejar de recibir mensajes.
+
+Cuándo enviar: cuando el artículo abandonado tiene stock bajo de verdad. No inventes escasez.
+
+**8. Recuperación con oferta de ayuda**
+
+Hola {{1}}, vimos que no completaste tu pedido de {{2}}. Si tenías dudas sobre tallas, compatibilidad o entrega, estamos aquí para ayudarte. Responde a este mensaje o finaliza tu pedido: {{3}}. Responde BAJA para dejar de recibir mensajes.
+
+Cuándo enviar: 24 horas tras el abandono cuando el producto suele generar preguntas antes de la compra.
+
+**9. Resumen de carrito con varios artículos**
+
+Hola {{1}}, todavía tienes {{2}} artículos en tu carrito de {{3}} por un total de {{4}}. Tu selección está reservada durante 24 horas. Finaliza la compra: {{5}}. Responde BAJA para dejar de recibir mensajes.
+
+Cuándo enviar: cuando el carrito tiene 3+ artículos, lo que indica alta intención de compra.
+
+### Promociones y ofertas (5)
+
+**10. Anuncio de rebajas de temporada**
+
+Hola {{1}}, las rebajas de {{2}} empiezan hoy. Hasta {{3}} de descuento en {{4}}. Descubre las ofertas: {{5}}. Responde BAJA para dejar de recibir mensajes.
+
+Cuándo enviar: el primer día de una promoción de temporada planificada.
+
+**11. Oferta exclusiva para clientes existentes**
+
+Hola {{1}}, como cliente de {{2}}, tienes acceso anticipado a nuestra promoción de {{3}} antes de que sea pública. Usa el código {{4}} en tu compra: {{5}}. Responde BAJA para dejar de recibir mensajes.
+
+Cuándo enviar: 24-48 horas antes de que una promoción sea pública, para premiar a los compradores recurrentes.
+
+**12. Descuento por volumen para B2B**
+
+Hola {{1}}, ¿vas a pedir {{2}}+ unidades de {{3}} este mes? Ofrecemos {{4}} de descuento en pedidos al por mayor antes del {{5}}. Solicita presupuesto: {{6}}. Responde BAJA para dejar de recibir mensajes.
+
+Cuándo enviar: en periodos de ventas más lentos para incentivar pedidos grandes de compradores mayoristas o B2B.
+
+:::chat
+biz: Hola David, ¿vas a pedir 500+ unidades de paneles LED este mes? Ofrecemos un 12% de descuento en pedidos al por mayor antes del 31 de julio. Solicita presupuesto: brightwholesale.es/volumen. Responde BAJA para dejar de recibir mensajes.
+customer: Necesitamos 800 unidades para un proyecto hotelero. ¿Podéis hacer un 15% con ese volumen?
+biz: Para 800 unidades puedo ofrecerte un 14%. ¿Quieres que te envíe presupuesto formal?
+customer: Trato hecho. Envíalo.
+:::
+
+**13. Oferta relámpago (tiempo limitado)**
+
+Hola {{1}}, solo hoy: {{2}} de descuento en {{3}} en {{4}}. La oferta expira a medianoche. Compra ahora: {{5}}. Responde BAJA para dejar de recibir mensajes.
+
+Cuándo enviar: el día de promociones genuinamente limitadas. No lances ofertas de "solo hoy" cada semana.
+
+**14. Promoción de envío gratis**
+
+Hola {{1}}, envío gratis en pedidos de más de {{2}} en {{3}} esta semana. Sin código. Descubre las novedades: {{4}}. Responde BAJA para dejar de recibir mensajes.
+
+Cuándo enviar: durante una ventana definida de promoción de envío gratuito.
+
+### Vuelta en stock (3)
+
+**15. Notificación de lista de espera**
+
+Hola {{1}}, el {{2}} que buscabas ha vuelto a estar disponible en {{3}}. Tenemos {{4}} unidades. Pide aquí: {{5}}. Responde BAJA para dejar de recibir mensajes.
+
+Cuándo enviar: cuando un producto vuelve a stock y el cliente lo pidió previamente o se apuntó a la lista de espera.
+
+:::chat
+biz: Hola Andrea, las Nike Pegasus 41 en talla 42 que preguntaste han vuelto a estar disponibles en RunShop. Tenemos 15 pares. Pide aquí: runshop.es/pegasus-41. Responde BAJA para dejar de recibir mensajes.
+customer: Por fin. ¿Puedo reservar unas para recoger en tienda?
+biz: Reservadas a tu nombre. Estarán listas en la tienda de Gran Vía en 2 horas.
+:::
+
+**16. Reposición de superventas**
+
+Hola {{1}}, nuestro superventas {{2}} ha vuelto. La última vez se agotó en {{3}} días. Disponible ahora en {{4}}: {{5}}. Responde BAJA para dejar de recibir mensajes.
+
+Cuándo enviar: cuando un producto que se agota con frecuencia vuelve a estar disponible.
+
+**17. Vuelta en stock con cambio de precio**
+
+Hola {{1}}, el {{2}} está disponible de nuevo en {{3}}. Nuevo precio: {{4}} (antes {{5}}). Pide aquí: {{6}}. Responde BAJA para dejar de recibir mensajes.
+
+Cuándo enviar: cuando un artículo repuesto tiene un cambio de precio, suba o baje. Muestra el precio anterior aunque haya subido; el cliente se da cuenta igual.
+
+### Actualizaciones de pedido y utilidad (4)
+
+Envía estas como plantillas de **utilidad**. Cuestan menos por mensaje (por ejemplo, 0,0166 € en España frente a 0,0585 € de marketing) y son mensajes transaccionales esperados que rara vez se bloquean.
+
+**18. Confirmación de pedido**
+
+Hola {{1}}, tu pedido {{2}} está confirmado. {{3}} artículos por un total de {{4}}. Entrega estimada: {{5}}. Sigue tu pedido: {{6}}.
+
+Cuándo enviar: inmediatamente tras la compra.
+
+**19. Actualización de envío**
+
+Hola {{1}}, tu pedido {{2}} ha salido con {{3}}. Número de seguimiento: {{4}}. Llegada estimada: {{5}}. Seguimiento aquí: {{6}}.
+
+Cuándo enviar: cuando se genera el número de seguimiento del envío.
+
+**20. Confirmación de entrega**
+
+Hola {{1}}, tu pedido {{2}} se ha entregado hoy. Si algo no está bien, responde a este mensaje en las próximas 48 horas y lo solucionamos.
+
+Cuándo enviar: el día de la entrega, según la confirmación del transportista.
+
+**21. Recordatorio de cita**
+
+Hola {{1}}, recordatorio: tu cita en {{2}} es el {{3}} a las {{4}}. Responde SI para confirmar o CAMBIAR para reprogramar.
+
+Cuándo enviar: 24 horas antes de una cita programada.
+
+:::chat
+biz: Hola Jorge, recordatorio: tu cita en Dental Clinic Europa es el jueves 24 de julio a las 10:30. Responde SI para confirmar o CAMBIAR para reprogramar.
+customer: SI
+biz: Confirmada. Te esperamos el jueves a las 10:30. Dirección: Calle Serrano 45, planta 2.
+:::
+
+### Seguimiento tras consulta (4)
+
+**22. Seguimiento de presupuesto**
+
+Hola {{1}}, te enviamos un presupuesto de {{2}} el {{3}}. Queríamos saber si tienes alguna duda o si quieres seguir adelante. Estamos aquí para ayudarte. Responde BAJA para dejar de recibir mensajes.
+
+Cuándo enviar: 2-3 días después de enviar un presupuesto sin respuesta.
+
+**23. Seguimiento post-demo**
+
+Hola {{1}}, gracias por asistir a la demo de {{2}} el {{3}}. Aquí tienes el resumen y los próximos pasos: {{4}}. ¿Alguna pregunta? Responde a este mensaje. Responde BAJA para dejar de recibir mensajes.
+
+Cuándo enviar: el mismo día o la mañana siguiente de una demo de producto o llamada comercial.
+
+**24. Seguimiento de contacto en feria**
+
+Hola {{1}}, un placer conocerte en {{2}}. Como hablamos, aquí tienes más info sobre {{3}}: {{4}}. Si te interesa profundizar, encantados de agendar una llamada. Responde BAJA para dejar de recibir mensajes.
+
+Cuándo enviar: 1-2 días después de una feria o evento sectorial, haciendo referencia a la conversación concreta.
+
+**25. Respuesta a consulta entrante**
+
+Hola {{1}}, gracias por tu consulta sobre {{2}}. Aquí tienes lo que pediste: {{3}}. Si quieres comentarlo en detalle o recibir un presupuesto a medida, responde a este mensaje. Responde BAJA para dejar de recibir mensajes.
+
+Cuándo enviar: pocas horas después de recibir un formulario web, un lead de anuncio o un email de consulta.
+
+:::cta
+text: ¿Necesitas que estas plantillas se envíen y aprueben para tu negocio?
+button: Ver planes desde 49 €/mes
+href: /es/precios
+:::
+
+## Por qué las plantillas aprobadas se pausan igualmente
+
+Conseguir que una plantilla se apruebe es el paso uno. Mantenerla activa es el paso dos.
+
+Meta tiene un sistema de calidad por plantilla. Cada plantilla tiene su propia puntuación basada en las reacciones de los destinatarios: bloqueos, informes y tasas de lectura. Cuando suficientes destinatarios bloquean tu mensaje o tu tasa de lectura cae demasiado, Meta interviene.
+
+La escalada funciona así:
+
+1. **Primera vez:** pausa de 3 horas. Tu plantilla no se puede enviar durante 3 horas.
+2. **Segunda vez:** pausa de 6 horas.
+3. **Tercera vez:** plantilla desactivada permanentemente.
+
+Esto es por plantilla, no por cuenta. Una plantilla con mala respuesta no arrastra a las demás, pero sí se saca a sí misma de circulación.
+
+Consejos prácticos para mantener las plantillas activas:
+
+- Envía solo a contactos con opt-in. Las listas compradas generan bloqueos.
+- Segmenta tu audiencia. Una plantilla sobre repuestos de coche no debería llegarle a tus compradores de suministros de hostelería.
+- No lances tu lista entera con una sola plantilla el primer día. Escala progresivamente y monitoriza la calidad en Meta Business Manager.
+- Rota las plantillas. Incluso un buen texto cansa cuando el destinatario lo ve cinco veces.
+
+Más sobre el escalonamiento y el sistema de niveles de envío en nuestra [guía de límites de difusión de WhatsApp](/es/blog/limites-difusion-whatsapp).
+
+## Motivos de rechazo comunes y soluciones
+
+| Motivo de rechazo | Solución |
+| --- | --- |
+| Variable al principio o al final del cuerpo | Añade texto fijo antes de {{1}} y después de la última variable |
+| Variables adyacentes ({{1}} {{2}}) | Inserta texto descriptivo entre cada variable |
+| Variables no secuenciales | Renumera a {{1}}, {{2}}, {{3}} en orden |
+| Demasiadas variables vs. texto fijo | Añade más texto real, reduce variables |
+| Acortador de URL detectado | Sustituye por la URL completa en tu dominio |
+| Texto del cuerpo duplicado | Reescribe la redacción para que no coincida con otra plantilla |
+| Cabecera supera 60 caracteres | Acorta. Las cabeceras tienen que ser breves |
+| Cuerpo supera 1.024 caracteres | Recorta el texto o divide en dos plantillas |
+| Etiqueta de botón supera 25 caracteres | Acorta el texto del botón |
+| Faltan valores de ejemplo | Proporciona contenido de ejemplo realista para cada variable |
+
+:::callout tip
+Si tu plantilla se rechaza repetidamente y no encuentras la razón, revisa los caracteres Unicode invisibles. Al copiar y pegar desde Google Docs o Notion a veces se introducen espacios de ancho cero que hacen fallar el parser de Meta.
+:::
+
+## Cómo ConvertChat gestiona las plantillas por ti
+
+ConvertChat es una plataforma de remarketing por WhatsApp. Tú lanzas tus propias campañas desde la plataforma. La configuración es gratuita e incluye la creación de WABA, la Verificación de Negocio de Meta y tus primeras plantillas redactadas y enviadas a revisión. Nosotros nos encargamos del proceso de aprobación para que no tengas que adivinar las reglas de formato.
+
+Los planes empiezan en 49 €/mes con 0% de recargo sobre las tarifas de Meta. Pagas las tarifas de Meta a coste. El complemento de agente IA (+49 €/mes) cualifica las respuestas a tus difusiones y cierra el siguiente paso, ya sea una llamada agendada, una solicitud de presupuesto o un pedido.
+
+Desglose completo en la [página de precios](/es/precios).
+
+## Preguntas frecuentes
+
+### ¿Cuánto tarda la aprobación de una plantilla?
+
+La mayoría se revisan y aprueban en minutos. El plazo oficial de Meta es de hasta 24 horas. Las plantillas complejas o en ciertos idiomas pueden tardar más. Si tu plantilla lleva más de 24 horas en "Pendiente", reenvíala. A veces los envíos se quedan atascados en la cola y un reenvío se procesa más rápido.
+
+### ¿Por qué me rechazaron la plantilla si parece correcta?
+
+Las causas más frecuentes que no se ven: una variable al principio o al final del cuerpo, variables adyacentes sin texto fijo entre ellas, un acortador de URL en el texto, o texto del cuerpo duplicado con otra plantilla de tu WABA. Revisa las reglas de formato de este artículo. Los mensajes de rechazo de Meta suelen ser genéricos ("violación de la política de contenido"), así que tienes que recorrer la lista de verificación tú mismo.
+
+### ¿Puedo editar una plantilla aprobada?
+
+Editar una plantilla la devuelve al proceso de revisión de Meta. Durante la revisión, la plantilla no está disponible. Si necesitas que la plantilla siga activa sin interrupción, crea una versión nueva como plantilla independiente, consigue la aprobación y luego haz el cambio en tus campañas.
+
+### ¿Cuál es la diferencia entre plantillas de marketing y de utilidad?
+
+Las de marketing son promocionales: ofertas, reactivación, lanzamientos. Las de utilidad son transaccionales: confirmaciones de pedido, actualizaciones de envío, recordatorios de cita. La diferencia de coste es importante. En España, marketing cuesta 0,0585 € por mensaje frente a 0,0166 € de utilidad. Desde abril de 2025, Meta recategoriza automáticamente las plantillas que no coinciden con la categoría enviada. Envía las confirmaciones de pedido como utilidad. Envía las promociones como marketing.
+
+### ¿Necesito opt-in para enviar estas plantillas?
+
+Sí. WhatsApp requiere que los contactos hayan dado su consentimiento para recibir mensajes de tu negocio por WhatsApp específicamente. Un consentimiento general de marketing o tener su número de teléfono no es suficiente. Envía a contactos sin opt-in y acumularás bloqueos, tu puntuación de calidad bajará y Meta puede restringir o banear tu número. Consulta la [política de opt-in de Meta](https://business.whatsapp.com/policy) para más detalle.
+
+:::cta
+text: Te redactamos y enviamos tus primeras plantillas como parte de la configuración gratuita. Lanza campañas desde el primer día.
+button: Agenda tu llamada de onboarding
+href: https://cal.com/architct/onboarding
+:::

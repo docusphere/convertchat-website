@@ -8,10 +8,12 @@ import esBienvenido from "../content/blog/es/bienvenido.mdx";
 import esLimitesDifusion from "../content/blog/es/limites-difusion-whatsapp.mdx";
 import esHerramientasAutomatizacion from "../content/blog/es/herramientas-automatizacion-whatsapp.mdx";
 import esPreciosApi from "../content/blog/es/precios-whatsapp-business-api.mdx";
+import esPlantillas from "../content/blog/es/plantillas-mensajes-whatsapp.mdx";
 import enWelcome from "../content/blog/en/welcome.mdx";
 import enWhatsappBroadcastLimits from "../content/blog/en/whatsapp-broadcast-limits.mdx";
 import enWhatsappAutomationTools from "../content/blog/en/whatsapp-automation-tools.mdx";
 import enApiPricing from "../content/blog/en/whatsapp-business-api-pricing.mdx";
+import enTemplates from "../content/blog/en/whatsapp-marketing-message-templates.mdx";
 
 export type BlogPost = {
   slug: string;
@@ -33,12 +35,14 @@ const postRegistry: Record<string, Record<string, string>> = {
     "limites-difusion-whatsapp": esLimitesDifusion,
     "herramientas-automatizacion-whatsapp": esHerramientasAutomatizacion,
     "precios-whatsapp-business-api": esPreciosApi,
+    "plantillas-mensajes-whatsapp": esPlantillas,
   },
   en: {
     welcome: enWelcome,
     "whatsapp-broadcast-limits": enWhatsappBroadcastLimits,
     "whatsapp-automation-tools": enWhatsappAutomationTools,
     "whatsapp-business-api-pricing": enApiPricing,
+    "whatsapp-marketing-message-templates": enTemplates,
   },
 };
 
