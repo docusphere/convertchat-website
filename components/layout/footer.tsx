@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { GdprBadge } from "@/components/ui/gdpr-badge";
 
 export function Footer() {
   const t = useTranslations("footer");
@@ -36,8 +37,10 @@ export function Footer() {
 
         {/* Meta badge + bottom row */}
         <div className="mt-12 flex flex-col items-center gap-6 border-t border-neutral-200 pt-8 md:flex-row md:justify-between">
-          <div className="flex items-center justify-center gap-4">
+          <div className="flex items-center justify-center gap-5">
             <img src="/mvtp.png" alt={t("meta_partner")} className="h-16 w-auto" loading="lazy" />
+            <div className="h-10 w-px bg-neutral-200" />
+            <GdprBadge acronym={t("gdpr_acronym")} label={t("gdpr_label")} className="text-neutral-700" />
           </div>
           <div className="flex flex-col gap-1 text-center text-xs text-neutral-400 md:flex-row md:gap-4 md:text-right">
             <p>

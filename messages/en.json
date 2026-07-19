@@ -16,7 +16,9 @@
     "cta_primary": "Talk to us",
     "cta_secondary": "See how it works",
     "note": "Invite only. Limited spots during early access.",
-    "meta_partner": "Official Meta Tech Partner"
+    "meta_partner": "Official Meta Tech Partner",
+    "gdpr_acronym": "GDPR",
+    "gdpr_label": "Compliant"
   },
   "heroPhone": {
     "shopName": "Bella Moda",
@@ -200,7 +202,9 @@
     "rights": "All rights reserved.",
     "tagline": "Turn your contact list into WhatsApp sales",
     "company": "Nillard Ltd · 71-75 Shelton Street, London",
-    "meta_partner": "Official Meta Tech Partner"
+    "meta_partner": "Official Meta Tech Partner",
+    "gdpr_acronym": "GDPR",
+    "gdpr_label": "Compliant"
   },
   "faq": {
     "label": "FAQ",

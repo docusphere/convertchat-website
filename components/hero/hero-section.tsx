@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { GdprBadge } from "@/components/ui/gdpr-badge";
 import { GrainHeroBg } from "./grain-hero-bg";
 import { HeroPhone } from "./hero-phone";
 
@@ -42,8 +43,7 @@ export function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.35 }}
             >
-              {t("title_line1")}{" "}
-              <br className="hidden sm:block" />
+              {t("title_line1")} <br className="hidden sm:block" />
               <span className="text-white">{t("title_line2")}</span>
               <span className="text-green-500">.</span>
             </motion.h1>
@@ -78,14 +78,15 @@ export function HeroSection() {
               </Button>
             </motion.div>
 
-
             <motion.div
-              className="mt-6 flex items-center justify-center gap-2 lg:justify-start"
+              className="mt-6 flex items-center justify-center gap-5 lg:justify-start"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.95 }}
             >
               <img src="/meta-partner-white.png" alt={t("meta_partner")} className="h-20 w-auto opacity-70" />
+              <div className="h-10 w-px bg-white/20" />
+              <GdprBadge acronym={t("gdpr_acronym")} label={t("gdpr_label")} className="text-white opacity-70" />
             </motion.div>
           </div>
 
