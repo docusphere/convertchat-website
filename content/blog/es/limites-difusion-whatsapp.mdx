@@ -25,15 +25,15 @@ Si los destinatarios no tienen tu número guardado, nunca recibirán tu mensaje 
 
 No todos los productos de "WhatsApp" son iguales. Esto es lo que de verdad puedes hacer en cada uno.
 
-| Característica | WhatsApp (personal) | WhatsApp Business App | WhatsApp Business API |
-| --- | --- | --- | --- |
-| Máximo de destinatarios por lista | 256 | 256 | Sin tope fijo |
-| El destinatario debe guardar tu número | Sí | Sí | No |
-| Difusiones gratuitas al mes | Ilimitadas (dentro del tope de lista) | ~30-35 (en despliegue) | N/A (pago por mensaje) |
-| Coste por mensaje | Gratis | Gratis, luego de pago | ~0,06 EUR (tarifa Meta, varía por mercado) |
-| Requiere aprobación de plantilla | No | No | Sí (Meta revisa cada plantilla) |
-| Límite diario de envíos | Sin límite formal | Sin límite formal | Por niveles: 250 a ilimitado |
-| Contenido enriquecido (imágenes, PDFs) | Sí | Sí | Sí |
+| Característica                         | WhatsApp (personal)                   | WhatsApp Business App  | WhatsApp Business API                      |
+| -------------------------------------- | ------------------------------------- | ---------------------- | ------------------------------------------ |
+| Máximo de destinatarios por lista      | 256                                   | 256                    | Sin tope fijo                              |
+| El destinatario debe guardar tu número | Sí                                    | Sí                     | No                                         |
+| Difusiones gratuitas al mes            | Ilimitadas (dentro del tope de lista) | ~30-35 (en despliegue) | N/A (pago por mensaje)                     |
+| Coste por mensaje                      | Gratis                                | Gratis, luego de pago  | ~0,06 EUR (tarifa Meta, varía por mercado) |
+| Requiere aprobación de plantilla       | No                                    | No                     | Sí (Meta revisa cada plantilla)            |
+| Límite diario de envíos                | Sin límite formal                     | Sin límite formal      | Por niveles: 250 a ilimitado               |
+| Contenido enriquecido (imágenes, PDFs) | Sí                                    | Sí                     | Sí                                         |
 
 Un par de aclaraciones. La app personal de WhatsApp no se pensó para envíos comerciales. La app Business es la herramienta gratuita de Meta para pequeños negocios. Y la API de Business es la infraestructura que usan empresas como Unilever o Tata para enviar a escala. Son tres productos distintos, y la mayoría de los problemas empieza por confundir sus límites.
 
@@ -66,21 +66,21 @@ Así funcionan los niveles:
 
 ### Negocio sin verificar
 
-Puedes enviar mensajes a un máximo de **250 contactos únicos** en una ventana de 24 horas. Toda cuenta nueva de la API empieza aquí, hasta que completa la Verificación de Negocio de Meta.
+Puedes enviar mensajes a un máximo de **250 contactos únicos** en una ventana de 24 horas. Toda cuenta nueva de la API empieza aquí. Desde octubre de 2025, el límite se aplica a nivel de portafolio de negocio: todos tus números de WhatsApp lo comparten.
 
 ### Niveles para negocios verificados
 
-Una vez que Meta verifica tu negocio, avanzas por cuatro niveles según tu volumen y calidad:
+Completar la Verificación de Negocio de Meta sube tu límite a **2.000 contactos únicos por 24 horas**. (También puedes llegar a 2.000 sin verificación entregando 2.000 mensajes de plantilla de alta calidad a números únicos en 30 días.) A partir de ahí, Meta sube el límite automáticamente:
 
-1. **Nivel 1**: 1.000 contactos únicos en 24 horas
-1. **Nivel 2**: 10.000 contactos únicos en 24 horas
-1. **Nivel 3**: 100.000 contactos únicos en 24 horas
-1. **Nivel 4**: Ilimitado
+1. **2.000** contactos únicos en 24 horas
+1. **10.000** contactos únicos en 24 horas
+1. **100.000** contactos únicos en 24 horas
+1. **Sin límite**
 
-Subes de nivel cuando has enviado mensajes a al menos la mitad de la capacidad de tu nivel actual en un periodo de 7 días **y** tu calificación de calidad no es "Baja". Bajas de nivel (o te restringen) cuando esa calificación cae.
+Subes cuando has usado al menos la mitad de tu límite actual en los 7 días anteriores y tu calidad de mensajes se mantiene alta. Meta evalúa de forma continua y aplica los aumentos en unas 6 horas. Los límites ya no bajan automáticamente cuando cae tu calificación de calidad, pero una calificación baja bloquea nuevos aumentos y puede pausar plantillas concretas.
 
 :::callout tip
-La mayoría de negocios verificados llegan al Nivel 2 (10.000/día) en pocas semanas de envío consistente y saludable. Eso son 300.000 mensajes al mes si envías todos los días.
+La mayoría de negocios verificados llegan a 10.000/día en pocas semanas de envío consistente y saludable. Eso son 300.000 mensajes al mes si envías todos los días.
 :::
 
 ### Qué cuenta para tu límite
@@ -97,7 +97,7 @@ Esto es lo que funciona si quieres subir volumen sin jugártela.
 
 ### Mantén tu calificación de calidad en verde
 
-Meta mide cómo reaccionan los destinatarios a tus mensajes. Si te bloquean o te marcan como spam, tu [calificación de calidad](https://developers.facebook.com/docs/whatsapp/messaging-limits/#quality-rating) baja: de verde a amarillo, y de amarillo a rojo. En rojo, Meta puede congelarte el nivel o bajarte.
+Meta mide cómo reaccionan los destinatarios a tus mensajes. Si te bloquean o te marcan como spam, tu [calificación de calidad](https://developers.facebook.com/docs/whatsapp/messaging-limits/#quality-rating) baja: de verde a amarillo, y de amarillo a rojo. En rojo, tu límite deja de subir y Meta puede pausar plantillas concretas.
 
 Revisa tu calificación de calidad en Meta Business Manager, en WhatsApp Manager > Números de teléfono.
 
@@ -111,7 +111,7 @@ Comprar listas de contactos de WhatsApp y lanzar promociones masivas es la forma
 
 ### Dosifica tus campañas
 
-No pases de enviar 50 mensajes al día a 5.000 de la noche a la mañana. Los sistemas de Meta detectan los picos de volumen repentinos. Ve subiendo poco a poco conforme sube tu nivel. Si estás en Nivel 1 (1.000/día), envía unos cientos al día durante una o dos semanas antes de acercarte al límite.
+No pases de enviar 50 mensajes al día a 5.000 de la noche a la mañana. Los sistemas de Meta detectan los picos de volumen repentinos. Ve subiendo poco a poco conforme sube tu límite. Si tu límite es de 2.000/día, envía unos cientos al día durante una o dos semanas antes de acercarte al techo.
 
 ### Usa plantillas aprobadas
 
@@ -142,7 +142,7 @@ En la app normal y en la Business app, no. Algunas herramientas de terceros prom
 
 ### ¿Cuánto tarda la verificación y llegar a niveles superiores?
 
-La Verificación de Negocio de Meta suele tardar entre unos días y dos semanas, según la documentación que aportes. A partir de ahí, llegar al Nivel 2 (10.000 contactos/día) suele llevar entre dos y cuatro semanas enviando con regularidad y con la calificación de calidad en verde.
+La Verificación de Negocio de Meta suele tardar entre unos días y dos semanas, según la documentación que aportes. A partir de ahí, llegar a 10.000 contactos/día suele llevar entre dos y cuatro semanas enviando con regularidad y con la calificación de calidad en verde.
 
 ### ¿Los broadcasts de marketing funcionan en todos los países?
 
