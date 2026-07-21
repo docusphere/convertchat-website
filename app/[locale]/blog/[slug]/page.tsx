@@ -7,6 +7,8 @@ import type { Locale } from "@/lib/routes";
 import { JsonLd } from "@/components/seo/json-ld";
 import { blogPostingSchema } from "@/lib/schema";
 import { BlogArticle } from "@/components/blog/blog-article";
+import { BlogPostHero } from "@/components/blog/blog-post-hero";
+import { BlogPostByline } from "@/components/blog/blog-post-byline";
 
 export function generateStaticParams({ params }: { params: { locale: string } }) {
   return getAllSlugs()
@@ -42,17 +44,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ local
       <JsonLd data={blogPostingSchema(locale as Locale, post)} />
       <section className="bg-neutral-50 px-6 py-24">
         <article className="mx-auto max-w-3xl">
-          <time className="text-xs font-semibold uppercase tracking-[0.08em] text-neutral-400">{post.date}</time>
-          <h1 className="mt-4 font-serif text-4xl font-normal tracking-[-0.03em] text-neutral-700 md:text-5xl">
-            {post.title}
-          </h1>
-          <p className="mt-2 text-sm text-neutral-400">
-            {post.author} &middot; {post.tags.join(", ")}
-          </p>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          {post.image && (
-            <img src={post.image} alt={post.title} width={1200} height={630} className="mt-10 w-full rounded-2xl" />
-          )}
+          <BlogPostHero title={post.title} />
+          <BlogPostByline author={post.author} tags={post.tags} date={post.date} />
           <BlogArticle content={post.content} />
         </article>
       </section>
