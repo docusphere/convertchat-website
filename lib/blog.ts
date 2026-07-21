@@ -9,11 +9,13 @@ import esLimitesDifusion from "../content/blog/es/limites-difusion-whatsapp.mdx"
 import esHerramientasAutomatizacion from "../content/blog/es/herramientas-automatizacion-whatsapp.mdx";
 import esPreciosApi from "../content/blog/es/precios-whatsapp-business-api.mdx";
 import esPlantillas from "../content/blog/es/plantillas-mensajes-whatsapp.mdx";
+import esMensajesMasivos from "../content/blog/es/enviar-mensajes-masivos-whatsapp.mdx";
 import enWelcome from "../content/blog/en/welcome.mdx";
 import enWhatsappBroadcastLimits from "../content/blog/en/whatsapp-broadcast-limits.mdx";
 import enWhatsappAutomationTools from "../content/blog/en/whatsapp-automation-tools.mdx";
 import enApiPricing from "../content/blog/en/whatsapp-business-api-pricing.mdx";
 import enTemplates from "../content/blog/en/whatsapp-marketing-message-templates.mdx";
+import enBulkMessages from "../content/blog/en/send-bulk-whatsapp-messages.mdx";
 
 export type BlogPost = {
   slug: string;
@@ -36,6 +38,7 @@ const postRegistry: Record<string, Record<string, string>> = {
     "herramientas-automatizacion-whatsapp": esHerramientasAutomatizacion,
     "precios-whatsapp-business-api": esPreciosApi,
     "plantillas-mensajes-whatsapp": esPlantillas,
+    "enviar-mensajes-masivos-whatsapp": esMensajesMasivos,
   },
   en: {
     welcome: enWelcome,
@@ -43,6 +46,7 @@ const postRegistry: Record<string, Record<string, string>> = {
     "whatsapp-automation-tools": enWhatsappAutomationTools,
     "whatsapp-business-api-pricing": enApiPricing,
     "whatsapp-marketing-message-templates": enTemplates,
+    "send-bulk-whatsapp-messages": enBulkMessages,
   },
 };
 

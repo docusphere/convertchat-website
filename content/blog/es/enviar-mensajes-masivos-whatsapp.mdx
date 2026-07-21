@@ -1,0 +1,186 @@
+---
+title: "Cómo enviar mensajes masivos por WhatsApp sin que te bloqueen"
+description: "Aprende cómo enviar mensajes masivos por WhatsApp de forma legal y sin que te bloqueen. Métodos, costes reales, API oficial y buenas prácticas."
+date: "2026-07-19"
+author: "Equipo ConvertChat"
+tags: ["whatsapp-marketing", "compliance"]
+image: "/og/blog/enviar-mensajes-masivos-whatsapp.png"
+---
+
+## Qué significa realmente "enviar mensajes masivos por WhatsApp"
+
+Busca "cómo enviar mensajes masivos por WhatsApp" y encontrarás tres caminos muy distintos. El problema es que la mayoría de artículos los mezclan sin avisar de que dos de los tres te pueden costar el número.
+
+| Método                                                      | Coste                                      | Límite de envío              | Riesgo de bloqueo                   |
+| ----------------------------------------------------------- | ------------------------------------------ | ---------------------------- | ----------------------------------- |
+| Listas de difusión de la app                                | Gratis                                     | 256 contactos por lista      | Bajo (si tienen tu número guardado) |
+| API oficial de WhatsApp Business                            | Desde 0,0585 €/mensaje (marketing, España) | Por niveles: 250 a ilimitado | Bajo (si cumples las normas)        |
+| Herramientas no oficiales (mods, extensiones, APIs piratas) | Variable                                   | Sin límite técnico           | Bloqueo permanente                  |
+
+Las listas de difusión de la app son gratuitas pero diminutas. La API oficial es escalable pero tiene coste por mensaje. Las herramientas no oficiales prometen volumen gratis, pero violan las condiciones de uso de WhatsApp y te exponen a perder el número de forma permanente. El resto de este artículo te explica exactamente cómo funciona cada ruta, qué riesgos concretos tiene cada una y cómo usar la API oficial paso a paso para enviar a miles de contactos sin que te bloqueen.
+
+## Por qué WhatsApp bloquea cuentas que envían en masa
+
+WhatsApp no bloquea cuentas al azar. Tiene un sistema de señales de calidad que pesa las reacciones de los destinatarios de los últimos 7 días: cuántas personas te bloquean, cuántas te reportan como spam y cuántas leen tu mensaje sin interactuar.
+
+Cuando esas señales cruzan un umbral, WhatsApp actúa. En 2019, WhatsApp reveló públicamente que baneaba unos 2 millones de cuentas al mes por comportamiento automatizado o envíos masivos no autorizados. Esa cifra es de 2019. Con los sistemas actuales, la detección es considerablemente más precisa.
+
+Desde el 7 de diciembre de 2019, WhatsApp se reserva el derecho a emprender acciones legales contra empresas que realizan o facilitan envíos masivos, incluso basándose en pruebas fuera de la plataforma (por ejemplo, empresas que publicitan servicios de envío masivo en sus webs). Puedes leer la posición oficial de WhatsApp sobre mensajes masivos y automatizados en su [FAQ de mensajes masivos](https://faq.whatsapp.com/5957850900902049).
+
+El sistema no distingue entre "envío masivo con buenas intenciones" y spam puro. Lo que mide son señales: volumen anómalo, bloqueos, reportes. Si tus destinatarios no esperaban tu mensaje, las señales van a ser malas.
+
+## Los métodos que te van a bloquear (y por qué)
+
+Antes de hablar de la forma correcta, repasemos las rutas que vemos constantemente en foros y grupos de Telegram. Todas terminan igual.
+
+### Apps modificadas: GB WhatsApp, WhatsApp Plus y similares
+
+Estas aplicaciones modificadas ofrecen funciones que la app oficial no tiene, incluyendo envíos masivos sin el límite de 256 contactos. El problema: WhatsApp las detecta.
+
+Cuando WhatsApp identifica que usas una app modificada, el proceso es gradual pero firme. Primero recibes un baneo temporal con un mensaje de advertencia. Si vuelves a usar la app modificada, el baneo pasa a ser permanente. WhatsApp lo explica en su [FAQ sobre apps no compatibles](https://faq.whatsapp.com/1217634902127718): si tras el baneo temporal sigues usando una versión no oficial, tu cuenta puede quedar baneada de forma permanente.
+
+No hay forma de apelar un baneo permanente por uso de mods. El número se pierde.
+
+### Extensiones de navegador y bots de WhatsApp Web
+
+Existen extensiones de Chrome y herramientas de escritorio que automatizan el envío desde WhatsApp Web. Algunas importan contactos desde Excel y disparan mensajes en lote.
+
+El mecanismo es simple: simulan clics y pulsaciones en la interfaz web. WhatsApp detecta estos patrones automatizados (los intervalos entre mensajes son demasiado regulares, los eventos de teclado no tienen la variabilidad de un humano real). Resultado: baneo del número sin previo aviso. Además, no tienes ninguna garantía de entrega. Ni métricas, ni confirmaciones de lectura fiables, ni posibilidad de escalar.
+
+### APIs no oficiales
+
+Son servicios que se conectan a WhatsApp simulando ser un dispositivo móvil, sin pasar por la API oficial de Meta. Violan directamente las condiciones de uso. Más allá del riesgo de bloqueo (que es alto), hay un problema de seguridad: tus datos de clientes, números de teléfono y conversaciones pasan por la infraestructura de un tercero sin ningún tipo de contrato con Meta ni garantía de privacidad.
+
+:::callout warning
+Cualquier herramienta que te permita enviar WhatsApp masivos sin requerir una WABA (WhatsApp Business Account) oficial ni plantillas aprobadas por Meta está usando métodos no oficiales. No importa lo profesional que parezca la interfaz.
+:::
+
+## ¿Se puede enviar mensajes masivos gratis? La realidad
+
+La respuesta corta: sí, pero con limitaciones que probablemente no te sirvan a escala.
+
+**Listas de difusión de la app** son la única forma legítima y gratuita. Funcionan así: creas una lista, añades hasta 256 contactos y envías. Pero hay una restricción que la mayoría de guías omiten: el destinatario tiene que tener **tu número guardado** en sus contactos. Si no lo tiene, el mensaje nunca llega. Sin error, sin aviso. Simplemente no se entrega. Es el diseño antispam de WhatsApp.
+
+Esto hace que las listas de difusión solo funcionen con clientes que ya te conocen y han guardado tu número. Para un negocio B2B con 500 o 5.000 contactos en su CRM, el método es inviable.
+
+Las herramientas "gratis" que prometen envío masivo sin estas limitaciones son las que hemos descrito en la sección anterior: mods, extensiones, APIs no oficiales. Todas fuera de las condiciones de uso.
+
+**La API de WhatsApp Business** no es gratuita, pero el coste es razonable. En España, un mensaje de marketing cuesta 0,0585 € por mensaje entregado. Un mensaje de utilidad (confirmaciones, recordatorios) cuesta 0,0166 €. Desde el 1 de julio de 2025, la facturación es por mensaje de plantilla entregado, no por conversación. Los mensajes de servicio (respuestas de formato libre dentro de la ventana de 24 horas) son gratuitos hasta el 1 de octubre de 2026, cuando Meta empezará a cobrarlos por mensaje a tarifas alineadas con utilidad.
+
+Desglose completo de precios en nuestra [guía de precios de la API de WhatsApp Business](/es/blog/precios-whatsapp-business-api).
+
+:::cta
+text: ¿Quieres saber cuánto costaría enviar a tu base de contactos?
+button: Ver planes desde 49 €/mes
+href: /es/precios
+:::
+
+## La forma correcta: la API de WhatsApp Business, paso a paso
+
+Si necesitas enviar a más de 256 contactos de forma fiable, legal y sin riesgo de bloqueo, la API de WhatsApp Business es el único camino serio. Esto es lo que necesitas.
+
+### 1. Crear tu WABA y verificar tu negocio en Meta
+
+WABA es la cuenta de WhatsApp Business en la API. Se crea a través de Meta Business Manager. Después necesitas completar la Verificación de Negocio de Meta, que confirma que tu empresa es real (CIF, dominio, documentación). Esto suele tardar entre unos días y dos semanas según la documentación que aportes.
+
+### 2. Registrar tu número y nombre visible
+
+Vinculas un número de teléfono a tu WABA. Este número será el remitente de todos tus mensajes. También configuras el nombre visible que verán los destinatarios cuando reciban tu mensaje.
+
+### 3. Recopilar opt-ins de tus contactos
+
+Cada contacto debe haber dado su consentimiento explícito para recibir mensajes de tu negocio por WhatsApp. No vale que te hayan dado su número en una feria. No vale que estén en tu lista de email. Necesitan haber aceptado específicamente recibir mensajes por WhatsApp.
+
+### 4. Crear y aprobar plantillas
+
+Todo mensaje saliente en la API empieza como una plantilla que Meta revisa y aprueba antes de que puedas usarla. Las plantillas se clasifican en marketing, utilidad y autenticación. La revisión suele tardar minutos, aunque el plazo oficial es de hasta 24 horas. Guía completa con 25 plantillas listas para usar en nuestro artículo de [plantillas de mensajes de WhatsApp](/es/blog/plantillas-mensajes-whatsapp).
+
+### 5. Entender el sistema de niveles de envío
+
+El sistema de niveles actual funciona así (actualizado a octubre de 2025):
+
+- **Sin verificación:** 250 contactos únicos por ventana de 24 horas. Desde octubre de 2025, el límite se aplica a nivel de portafolio de negocio (todos tus números comparten el límite).
+- **Con verificación (o 2.000 mensajes de calidad alta a números únicos en 30 días):** 2.000 contactos únicos por 24 horas.
+- **Escalado automático:** 2.000 → 10.000 → 100.000 → sin límite. Subes de nivel cuando usas al menos el 50% de tu límite actual en los 7 días anteriores con calidad alta. Meta evalúa de forma continua y aplica los aumentos en unas 6 horas.
+- **Calidad baja:** los límites ya no bajan automáticamente por caídas de calidad, pero una puntuación baja bloquea los aumentos y puede pausar plantillas individuales.
+
+Más detalle sobre cada nivel en nuestra [guía de límites de difusión de WhatsApp](/es/blog/limites-difusion-whatsapp).
+
+### 6. Enviar tu primera campaña
+
+Con la WABA lista, la verificación completada, las plantillas aprobadas y los opt-ins recogidos, lanzas tu primera difusión. Así se ve una conversación real cuando el proceso funciona correctamente.
+
+:::chat
+biz: Hola Marta, han pasado 3 meses desde tu último pedido de módulos LED para escaparates. Hemos recibido el nuevo modelo de bajo consumo que nos preguntaste. ¿Quieres que te envíe ficha técnica y precio por volumen? Responde BAJA para dejar de recibir mensajes.
+customer: Sí, necesitamos renovar los de la tienda de Gran Vía. Mándame precios para 200 unidades.
+biz: Perfecto. Te envío presupuesto ahora. Para 200 unidades el precio unitario baja un 8%. ¿Entrega en tienda o en almacén?
+customer: En almacén, como siempre. Si el precio está bien cerramos esta semana.
+:::
+
+Eso es un envío masivo bien hecho: mensaje con opt-in, plantilla aprobada, personalización real, y una conversación de venta que arranca desde el primer mensaje.
+
+## Consentimiento: lo que exige Meta y lo que exige la ley española
+
+### Lo que exige Meta
+
+Meta requiere que cada destinatario haya dado su consentimiento previo y explícito para recibir mensajes de tu negocio por WhatsApp. Este opt-in tiene que ser activo (no vale una casilla premarcada) y tiene que ser específico para WhatsApp (no vale un consentimiento genérico de marketing).
+
+Además, Meta aplica un **límite de frecuencia por usuario** en mensajes de marketing. Este límite es dinámico, no se publica un número fijo, y varía según el mercado y el comportamiento del usuario. Cuando excedes el límite para un destinatario concreto, el envío falla con el error 131049. La consecuencia práctica: no puedes bombardear al mismo contacto con un mensaje de marketing cada dos días esperando que todos se entreguen. Meta los cortará antes de que lo haga el propio usuario.
+
+### Lo que exige la ley en España
+
+En España, la LSSI-CE (Ley de Servicios de la Sociedad de la Información) en su artículo 21 exige consentimiento previo, expreso y revocable para comunicaciones comerciales electrónicas. WhatsApp es un canal electrónico. Los mensajes comerciales por WhatsApp están cubiertos.
+
+La AEPD (Agencia Española de Protección de Datos) ha sancionado infracciones en este ámbito con multas que arrancan en unos miles de euros para infracciones menores. Un ejemplo concreto: añadir clientes a un grupo de WhatsApp sin su consentimiento expone sus números de teléfono al resto de miembros del grupo. Esto ha sido sancionado por la AEPD como una cesión de datos personales sin base legal.
+
+:::callout tip
+Si operas en la UE, el RGPD se aplica además de la legislación local. La base legal más limpia para mensajes de marketing por WhatsApp es el consentimiento explícito (art. 6.1.a RGPD). Documenta cuándo y cómo se obtuvo cada opt-in.
+:::
+
+## Buenas prácticas para que no te bloqueen
+
+Usar la API oficial no te da inmunidad. Puedes perder calidad, que te pausen plantillas y que te frenen los aumentos de nivel si envías mal. Estas son las prácticas que mantienen tu cuenta sana.
+
+**Segmenta antes de enviar.** No dispares la misma plantilla a toda tu base. Un mayorista de electrónica y una clínica dental no deberían recibir el mismo mensaje. Cuanto más relevante sea el mensaje para el destinatario, menos bloqueos y más respuestas.
+
+**Monitoriza la puntuación de calidad.** En Meta Business Manager, bajo WhatsApp Manager > Números de teléfono, puedes ver tu puntuación de calidad (Verde, Amarillo, Rojo). Si pasa de Verde a Amarillo, para y analiza antes de seguir enviando.
+
+**Incluye una salida fácil.** "Responde BAJA para dejar de recibir mensajes." Cada plantilla de marketing debería tener una línea de baja. Reduce los bloqueos porque los destinatarios que no quieren tus mensajes tienen una alternativa a bloquearte.
+
+**Cuida la calidad de las plantillas.** Personaliza con el nombre del destinatario y contexto real (producto que compró, fecha de su último pedido). Evita el lenguaje genérico: una plantilla que suena a envío masivo genera más bloqueos y reportes, y eso hunde tu puntuación de calidad. Lee nuestra [guía de plantillas de WhatsApp](/es/blog/plantillas-mensajes-whatsapp) para ver 25 ejemplos aprobados.
+
+**Envía por lotes y escalona.** No pases de 50 mensajes al día a 5.000 de golpe. Meta detecta picos de volumen anómalos. Sube progresivamente a medida que tu nivel aumenta. Si tu límite es 2.000 al día, empieza enviando unos cientos al día durante una o dos semanas antes de acercarte al techo.
+
+**No compres listas de contactos.** Es la forma más rápida de destruir tu puntuación de calidad. Los contactos comprados no te conocen, no esperan tu mensaje y te bloquean o reportan. Tu calidad cae a Rojo, tus plantillas se pausan y Meta puede restringir tu número de forma permanente.
+
+## Nota sobre Estados Unidos
+
+Desde abril de 2025, Meta ha pausado el envío de plantillas de marketing a números estadounidenses (+1), sin fecha de reanudación anunciada. Si tu base de clientes incluye números de EE.UU., las plantillas de utilidad y autenticación siguen funcionando con normalidad, pero los mensajes de marketing no se entregarán.
+
+## Preguntas frecuentes
+
+### ¿Es legal enviar mensajes masivos por WhatsApp?
+
+Sí, siempre que uses la API oficial de WhatsApp Business y cada destinatario haya dado su consentimiento explícito para recibir tus mensajes. En España, la LSSI-CE exige consentimiento previo, expreso y revocable. Enviar sin opt-in es ilegal y además te va a costar la cuenta de WhatsApp.
+
+### ¿Cuántos mensajes puedo enviar al día con la API?
+
+Depende de tu nivel. Empiezas con 250 contactos únicos por ventana de 24 horas. Con la Verificación de Negocio de Meta subes a 2.000 y desde ahí el sistema escala automáticamente a 10.000, 100.000 y sin límite cuando mantienes calidad alta y usas al menos el 50% de tu capacidad en los 7 días anteriores. Más detalle en nuestra [guía de límites](/es/blog/limites-difusion-whatsapp).
+
+### ¿Sirve GB WhatsApp u otra app modificada para envíos masivos?
+
+No. WhatsApp detecta las apps modificadas y primero te aplica un baneo temporal. Si sigues usándolas, el baneo se convierte en permanente y pierdes el número sin posibilidad de apelación. Además, estas apps no ofrecen métricas fiables, confirmaciones de entrega ni cumplimiento legal.
+
+### ¿Cuánto cuesta enviar por WhatsApp en España?
+
+A través de la API oficial, un mensaje de marketing cuesta 0,0585 € por mensaje entregado. Un mensaje de utilidad cuesta 0,0166 €. Facturación por mensaje de plantilla entregado desde julio de 2025. Con ConvertChat, los planes empiezan en 49 €/mes con 0% de recargo sobre las tarifas de Meta. Desglose en nuestra [página de precios](/es/precios).
+
+### ¿Qué pasa si me bajan la puntuación de calidad?
+
+Desde octubre de 2025, una caída de calidad ya no reduce automáticamente tu límite de envío. Pero sí bloquea los aumentos de nivel y puede provocar que Meta pause plantillas individuales. Si tu puntuación llega a Rojo, deja de enviar, revisa la segmentación y las plantillas, y espera a que la puntuación se recupere antes de reanudar campañas.
+
+:::cta
+text: ConvertChat te configura la WABA, gestiona la verificación de Meta y redacta tus primeras plantillas. Setup gratuito, planes desde 49 €/mes.
+button: Habla con nosotros
+href: https://cal.com/architct/onboarding
+:::

@@ -11,6 +11,7 @@ export const postSlugPairs: ReadonlyArray<Partial<Record<Locale, string>>> = [
   { en: "whatsapp-automation-tools", es: "herramientas-automatizacion-whatsapp" },
   { en: "whatsapp-business-api-pricing", es: "precios-whatsapp-business-api" },
   { en: "whatsapp-marketing-message-templates", es: "plantillas-mensajes-whatsapp" },
+  { en: "send-bulk-whatsapp-messages", es: "enviar-mensajes-masivos-whatsapp" },
 ];
 
 export function getTranslatedSlug(fromLocale: Locale, slug: string, toLocale: Locale): string | null {
