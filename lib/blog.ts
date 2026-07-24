@@ -16,6 +16,8 @@ import enWhatsappAutomationTools from "../content/blog/en/whatsapp-automation-to
 import enApiPricing from "../content/blog/en/whatsapp-business-api-pricing.mdx";
 import enTemplates from "../content/blog/en/whatsapp-marketing-message-templates.mdx";
 import enBulkMessages from "../content/blog/en/send-bulk-whatsapp-messages.mdx";
+import enEmailToWhatsapp from "../content/blog/en/email-to-whatsapp-funnel.mdx";
+import esFunnelEmail from "../content/blog/es/funnel-email-a-whatsapp.mdx";
 
 export type BlogPost = {
   slug: string;
@@ -39,6 +41,7 @@ const postRegistry: Record<string, Record<string, string>> = {
     "precios-whatsapp-business-api": esPreciosApi,
     "plantillas-mensajes-whatsapp": esPlantillas,
     "enviar-mensajes-masivos-whatsapp": esMensajesMasivos,
+    "funnel-email-a-whatsapp": esFunnelEmail,
   },
   en: {
     welcome: enWelcome,
@@ -47,6 +50,7 @@ const postRegistry: Record<string, Record<string, string>> = {
     "whatsapp-business-api-pricing": enApiPricing,
     "whatsapp-marketing-message-templates": enTemplates,
     "send-bulk-whatsapp-messages": enBulkMessages,
+    "email-to-whatsapp-funnel": enEmailToWhatsapp,
   },
 };
 

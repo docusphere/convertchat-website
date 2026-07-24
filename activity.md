@@ -419,3 +419,37 @@ Resolve the parked login-gate item, make the navbar login prominent, and start t
 ### Blog kickoff state (resume here after restart)
 - Approved: strategy C, bylines above, en+es via existing MDX framework
 - Next: verify DataForSEO MCP tools → keyword research (WhatsApp remarketing / lead reactivation cluster) → propose post list → spec `2026-07-15-blog-content-design.md` → writing-plans
+
+## S19 — 2026-07-24 — Email-to-WhatsApp funnel post + pricing strategy + blog header redesign
+
+### Goal
+Ship the email-to-WhatsApp funnel blog post (thought-leadership, founder byline), redesign blog post headers, add author avatars, and document pricing strategy v2 based on competitive analysis.
+
+### Completed
+- **Blog header redesign**: replaced static OG image + plain text title with live HTML/CSS hero card (`BlogPostHero`) matching OG template aesthetic (dark gradient, green/purple blobs, rainbow bar, logo + BLOG pill). New `BlogPostByline` component (avatar + author left, tag pills + date right)
+- **Author avatars**: three rotating authors (Frank, Carla, Maria) with individual headshot photos in `/public/authors/`. Format: "X from ConvertChat". Distributed evenly across all 12 posts (6 pairs)
+- **Post 6 shipped**: "How to Send Bulk WhatsApp Messages Without Getting Banned" (EN+ES), full pipeline (draft → fact-check → humanizer → wire-in → OG → verify → push)
+- **Post 7 drafted**: "Your Email List Is Your Cheapest WhatsApp Sales Pipeline" / "Tu lista de email es tu pipeline de ventas en WhatsApp más barato" (EN+ES, ~2,480/2,817 words)
+  - Research verification agent corrected stats from internal research doc (ROI $90-130→$26-58, conversion 26-33%→10-25%, email cost $0.003→$0.001)
+  - Fact-check caught 2 fabricated source attributions (PostEngage.ai, Patagon.ai) → replaced with real source (InsideSales.com/HBR, 21x stat)
+  - Humanizer: fixed "seamless" (banned word), 1 negative parallelism (EN), 1 triple anaphora (ES)
+  - Wired into `lib/blog.ts` + `lib/blog-slugs.ts`, OG images (129/131 KB), prettier + typecheck pass, Playwright verified both locales
+- **Broadcast limits fix**: updated EN+ES posts with correct Meta tier model (post-Oct 2025: 250 portfolio-level → 2K/10K/100K/unlimited, no auto-downgrades)
+- **Competitive analysis**: FunnelChat pricing captured ($99/$199/$497 monthly, MAC-based)
+- **Pricing strategy v2**: documented in `docs/pricing-strategy-v2.md` — proposed $99/$249/$499, MAC-based tiers + AI conversation caps as upgrade trigger, integrations as future differentiator
+
+### Decisions
+- Blog hero card over static OG image on page. Why: eliminated duplicate title (OG image showed title, then plain h1 repeated it); hero card renders same aesthetic as live HTML/CSS with proper responsive scaling; OG PNGs still used for social sharing via meta tags
+- Three author personas (Frank/Carla/Maria) instead of "ConvertChat Team". Why: individual bylines with photos build trust and feel less corporate; Frank for founder thought-leadership, Carla/Maria for commodity guides
+- Price on contacts (MAC) not email lists or messages. Why: industry standard, covers all entry points (email, ads, website), doesn't lock to email-only funnel
+- AI conversations as upgrade trigger, not add-on. Why: AI agent is the core differentiator; making it an add-on buries the value. Caps scale naturally with plan size
+- 0% markup on Meta rates kept as competitive advantage. Why: competitors likely mark up; transparency builds trust
+- Integrations (Shopify, ERP, SQL) as future tier differentiator or add-on. Why: don't build before someone pays for it; static catalog (CSV) is enough for first customers
+
+### Bugs Fixed
+- Fabricated source attributions in opus draft agent output (PostEngage.ai, Patagon.ai) — AI hallucinated source names for real stats. Always verify source attributions in draft agent output.
+
+### Lessons
+- Opus draft agents fabricate source attributions even when instructed to use only verified figures. The stats themselves may be correct but attributed to non-existent sources. Always grep draft output for source names and verify each one.
+- InsideSales.com/HBR speed-to-lead stat is 21x (not 100x as commonly misquoted). The 100x figure appears to be a telephone-game inflation across marketing blogs.
+- FunnelChat charges AI as included (not add-on) with "unlimited AI agents" on all tiers — ConvertChat's AI conversation caps are a different model that creates a natural upgrade path

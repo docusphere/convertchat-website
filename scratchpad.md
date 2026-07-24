@@ -53,7 +53,7 @@ Marketing website for ConvertChat — B2B WhatsApp lead reactivation platform. I
 - [x] S14 — Analytics: Cloudflare Web Analytics beacon (cookieless, manual snippet in app/layout.tsx — auto-injection doesn't work on Workers)
 - [x] S10 — Privacy Policy & Terms pages (en + es content, legal article renderer, navbar solid fix on interior pages)
 - [ ] Spanish legal texts: lawyer review — Frank bypassed for now (S15); keep the free AI-disclosure line as self-serve add. Also ask lawyer about: AI disclosure line in privacy/terms (EU AI Act transparency — users chatting with the WhatsApp AI agent must know it's AI); arbitration/dispute clause fit for EU (US-style arbitration often unenforceable vs consumers). Noted from Frank 2026-07-15; app-store nutrition labels + DMCA agent = N/A (no mobile app, no UGC on site)
-- [ ] Blog: content pages (framework exists at `/[locale]/blog`) — S16: spec written + reviewer-approved (`docs/superpowers/specs/2026-07-16-blog-content-design.md`), awaiting Frank's approval → writing-plans. 6 commodity guides en+es, quick wins first, humanizer pipeline, renderer upgrade required
+- [x] S19 — Blog content: posts 2-7 shipped (broadcast limits, automation tools, API pricing, templates, bulk messages, email-to-WhatsApp funnel) — all en+es with OG images, author avatars, hero cards
 - [ ] Pricing currency switch: £ on en pages, € on es pages (same numerals, strings in messages/*.json) — MUST land before blog post 3 (API pricing) ships; verify app-side billing currency first (S16 decision, Frank approved)
 - [x] S11 — Pricing page (tiers + AI add-on + costs + FAQ, en/es, verified 320–1280)
 - [x] S12 — Routing architecture: central route registry (`lib/routes.ts`), derived pathnames/sitemap, site-wide hreflang + canonical, English route dirs, blog translation linkage (switcher 404 fix)
@@ -62,6 +62,7 @@ Marketing website for ConvertChat — B2B WhatsApp lead reactivation platform. I
 - [ ] Re-scrape Meta Sharing Debugger + LinkedIn Post Inspector; Rich Results spot-check (optional, Frank)
 - [ ] SEO round 2 (after 2–4 weeks of GSC data): optimize titles/content around real queries; blog content is the ranking lever
 - [ ] SEO minor: compress app/icon.png (~187KB); add image/dateModified to BlogPosting once BlogPost type has fields
+- [ ] Pricing v2: update website pricing to $99/$249/$499 tiers (pending Frank's final approval) — see docs/pricing-strategy-v2.md
 - [ ] Product page: content TBD — Frank records product screen videos → convert to muted looping MP4/WebM (not GIFs)
 - [ ] Fix "?." double punctuation in shared CtaSection heading (copy "?" + appended ".", also on homepage)
 - [x] S6 — Mobile: final QA pass across breakpoints (320/375/390/430px, layout + type hierarchy)
